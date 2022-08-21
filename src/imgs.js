@@ -11,7 +11,7 @@ const Imgs = {
     brain: require('./imgs/Brain.png'),
     cam: require('./imgs/Cam.png'),
     paint: require('./imgs/Paint.png'),
-    altLogo: require('./imgs/Logo.png')
+    altLogo: require('./imgs/altLogo.png')
 }
 
 export default Imgs;
