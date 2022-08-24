@@ -1,14 +1,119 @@
-
 // variable overides 
-
-
-
 
 @import "~bootstrap/scss/bootstrap";
 
-
 // additional css
-#quote{
-    background-image: url('./imgs/BladeRunner_City.jpeg');
-    
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+@mixin contentOverBackground {
+    position: absolute;
+    right: 0;
+    padding: 1rem 2.5rem;
+    color: white;
+    font-size: 2rem;
+}
+
+header{
+    h1{
+        margin: 0;
+        text-align: end;
+    }
+    #logo{
+        width: 60px;
+        min-height: 65px;
+    }
+    nav{
+        padding: 0;
+        margin-left: 1rem;
+    }
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    font-size: 1.35rem;
+}
+
+#quote{
+    padding: 0;
+    margin: 1rem 0;
+    img{
+        padding: 0;
+    }
+    figure{
+        @include contentOverBackground;
+        text-align: center;
+    }
+}
+
+#featured{
+    padding: 0;
+    margin: 1rem 0;
+    text-align: center;
+
+    ul{
+        padding: 1rem 0;
+        li{
+            margin: 0 5rem
+        }
+    }
+}
+
+#features{
+    padding: 0;
+    margin: 1rem 0;
+    text-align: center;
+
+    ul{
+        
+        li{
+            margin: auto;
+            h3{
+                padding: 0;
+                margin: 0;
+            }
+            figure{
+                margin: auto;
+                picture{
+                    img{
+                        min-height: 350px;
+                        max-height: 400px;
+                        min-width: 325px;
+                        max-width: 425px; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+#questions{
+    padding: 0;
+
+    img{
+        padding: 0;
+    }
+
+    ul{
+        @include contentOverBackground;
+    }    
+}
+
+

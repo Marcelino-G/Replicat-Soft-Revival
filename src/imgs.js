@@ -6,7 +6,6 @@ const Imgs = {
     modelRoy: require('./imgs/ModelROY.png'),
     city: require('./imgs/BladeRunner_City.jpeg'),
     openingTitles: require('./imgs/BladeRunner_Intro.jpeg'),
-    logo: require('./imgs/BladeRunner_Logo.png'),
     questions: require('./imgs/BladeRunner_Questions.jpeg'),
     brain: require('./imgs/Brain.png'),
     cam: require('./imgs/Cam.png'),
