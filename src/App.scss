@@ -24,7 +24,7 @@ header{
         text-align: end;
     }
     #logo{
-        width: 60px;
+        width: 85px;
         min-height: 65px;
     }
     nav{
@@ -73,6 +73,11 @@ a{
 
     ul{
         
+        li:nth-child(odd){
+            figure{
+                flex-direction: row-reverse;
+            } 
+        }
         li{
             margin: auto;
             h3{
@@ -94,26 +99,29 @@ a{
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-#questions{
+#faq{
     padding: 0;
 
     img{
         padding: 0;
     }
+    #questions{
+        margin: auto;
+        @include contentOverBackground
+    }
+}
 
-    ul{
-        @include contentOverBackground;
-    }    
+#contactUs{
+    padding: 0;
+    
+    form{
+        
+        div{
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+    }
 }
 
 

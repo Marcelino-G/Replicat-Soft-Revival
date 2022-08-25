@@ -102,7 +102,7 @@ function App() {
         <ul className="list-group">
           <li className="col-12 row">
             <h3 className="col-12">
-            ///
+            I cant smell the sky?
             </h3>
             <figure className="col-12 row">
               <picture className="col-4">
@@ -144,68 +144,84 @@ function App() {
         </ul>
       </section>
 
-      <div id='questions' className="row">
-        <img src={Imgs.questions} />
-        <ul className="col-5">
-          <h2>FAQ</h2>
-          <li>
-            <details>
-              <summary>What?</summary>
-              Yes
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary>What?</summary>
-              Yes
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary>What?</summary>
-              Yes
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary>What?</summary>
-              Yes
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary>What?</summary>
-              Yes
-            </details>
-          </li>
-        </ul>
+      <div id='faq' className="row">
+        <img src={Imgs.questions}/>
+        <section id='questions' className="row col-5">
+          
+            <h2>
+              FAQ
+            </h2>
+            <ul>
+              <li>
+                <details>
+                  <summary>How old is Audrey?</summary>
+                  at least 8 years old.
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>What?</summary>
+                  Yes
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>What?</summary>
+                  Yes
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>What?</summary>
+                  Yes
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>What?</summary>
+                  Yes
+                </details>
+              </li>
+            </ul>
+        </section>
       </div>
 
-      <form>
-        <fieldset>
-          <legend>Contact Us</legend>
-          <label>Name:</label>
-          <input type='text' required></input>
-          <label>Email:</label>
-          <input type='email' required></input>
-          <label>Topic:</label>
-          <select>
-            <option value=''>this...........</option>
-            <option value=''>that...</option>
-            <option value=''>their...</option>
-            <option value=''>here...</option>
-          </select>
-          <label>Comment:</label>
-          <textarea required></textarea>
-          
-        </fieldset>
-      </form>
+      <section id='contactUs' className="bg-info row">
+        <h2 className="border">
+          Contact Us
+        </h2>
+        <ul className="border col list-group list-group-horizontal">
+          <li className="flex-fill">twitter</li>
+          <li className="flex-fill">git</li>
+          <li className="flex-fill">linkedin</li>
+        </ul>
+        <form className="border col">
+          <div className="col-4">
+            <label>Name:</label>
+            <input type='text' required></input>
+          </div>
+          <div className="col-4">
+            <label>Email:</label>
+            <input type='email' required></input>
+          </div>
+          <div className="col-4">
+            <label>Topic:</label>
+            <select>
+              <option value=''>this...........</option>
+              <option value=''>that...</option>
+              <option value=''>their...</option>
+              <option value=''>here...</option>
+            </select>
+          </div>
+          <div className="col-5">
+            <label>Comment:</label>
+            <textarea required></textarea>
+          </div> 
+          <input className="mx-auto col-5 border" type='submit'></input>
+        </form>
+      </section>
 
-
-
-
-
-
+      
     </div>
   );
 }
