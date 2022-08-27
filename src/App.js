@@ -4,8 +4,8 @@ function App() {
   return (
     <div className="border border-4 border-primary container-fluid p-0 mx-auto row justify-content-center">
 
-      <header className="row p-0">
-        <h1>
+      <header className="row m-0 p-0">
+        <h1 className="p-0">
           THE SIBER CORPORATION
         </h1>
         <img id="logo" src={Imgs.altLogo}/>
@@ -47,7 +47,7 @@ function App() {
         <ul  className="list-group list-group-horizontal">
           <li className="flex-fill col-3">
             <data value='Hurricane'>
-              <figure>
+              <figure className="m-0">
                 <picture>
                   <img className="img-fluid" src= {Imgs.modelLeon} />
                 </picture>
@@ -63,7 +63,7 @@ function App() {
 
           <li className="flex-fill col-3">
             <data value='Flood'>
-              <figure>
+              <figure className="m-0">
                 <picture>
                   <img className="img-fluid" src= {Imgs.modelPris} />
                 </picture>
@@ -79,7 +79,7 @@ function App() {
 
           <li className="flex-fill col-3">
             <data value='Avalanche'>
-              <figure>
+              <figure className="m-0">
                 <picture>
                   <img className="img-fluid" src= {Imgs.modelRoy} />
                 </picture>
@@ -186,95 +186,62 @@ function App() {
         </section>
       </div>
 
-      <footer id='footerr' className="border border-primary row justify-content-center">
-        <figure className="border border-dark">
+      <footer id='footerr' className="row">
+        <figure>
           <img src={Imgs.altLogo}/>
           <figcaption>
             THE SIBER CORPORATION 
           </figcaption>
         </figure>
-        <div id='copyright' className="border border-dark col-4 row">
-          <p className="border border-primary"> &copy; 2022 THE SIBER CORPORATION </p>
+
+        <div id='copyright' className="col">
+          <p> &copy; 2022 THE SIBER CORPORATION </p>
         </div>
-        <div id='formAddyHolder' className="row justify-content-end border-warning border col-6">
-          <form className="col-6 border border-dark">
-            <fieldset>
-              <legend>Subscribe!</legend>
-              <div className="subscribePart">
-                <label>First Name: </label>
-                <input type='text'></input>
-              </div>
-              <div className="subscribePart">
-                <label>Last Name: </label>
-                <input type='text'></input>
-              </div>
-              <div className="subscribePart">
-                <label>Email: </label>
-                <input type='email'></input>
-              </div>
-              <div className="subscribePart">
-                <input type='submit'></input>
-              </div>
-            </fieldset>
-          </form>
-          <address className="border border-dark col-6">
-            <ul className="border border-warning">
-              <li><a href="#">Contact Us</a></li>
-              <li><a>Twitter</a></li>
-              <li><a>LinkedIn</a></li>
-              <li><a>GitHub</a></li>
-              <li>999-123-4567</li>
-              <li>
-                THE SIBER CORPORATION <br/>
-                111 Oak Ave <br/>
-                Los Angeles, CA 90000 
-              </li>
-              
-            </ul>
-          </address>
+
+        <div className="col">
+          <p>Mission Statement</p>
         </div>
+        
+        <form className="col">
+          <fieldset>
+            <legend>Subscribe!</legend>
+            <div className="subscribePart">
+              <label>First Name: </label>
+              <input type='text'></input>
+            </div>
+            <div className="subscribePart">
+              <label>Last Name: </label>
+              <input type='text'></input>
+            </div>
+            <div className="subscribePart">
+              <label>Email: </label>
+              <input type='email'></input>
+            </div>
+            <div className="subscribePart">
+              <input type='submit'></input>
+            </div>
+          </fieldset>
+        </form>
+
+        <address className="col">
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a>Twitter</a></li>
+            <li><a>LinkedIn</a></li>
+            <li><a>GitHub</a></li>
+          </ul>
+          <ul>
+            <li>999-123-4567</li>
+            <li>
+              THE SIBER CORPORATION <br/>
+              111 Oak Ave <br/>
+              Los Angeles, CA 90000 
+            </li>
+          </ul>
+        </address>
 
       </footer>
 
-      {/* <section id='contactUs' className="bg-info row">
-        <h2 className="border">
-          Contact Us
-        </h2>
-        <ul className="border col list-group list-group-horizontal">
-          <li className="flex-fill">twitter</li>
-          <li className="flex-fill">git</li>
-          <li className="flex-fill">linkedin</li>
-        </ul>
-        <form className="border col">
-          <div className="col-4">
-            <label>Name:</label>
-            <input type='text' required></input>
-          </div>
-          <div className="col-4">
-            <label>Email:</label>
-            <input type='email' required></input>
-          </div>
-          <div className="col-4">
-            <label>Topic:</label>
-            <select>
-              <option value=''>this...........</option>
-              <option value=''>that...</option>
-              <option value=''>their...</option>
-              <option value=''>here...</option>
-            </select>
-          </div>
-          <div className="col-5">
-            <label>Comment:</label>
-            <textarea required></textarea>
-          </div> 
-          <div className="col-3">
-            <input type='submit'></input>
-          </div>
-          
-        </form>
-      </section> */}
-
-      
     </div>
   );
 }
