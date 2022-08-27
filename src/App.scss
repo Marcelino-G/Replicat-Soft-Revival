@@ -23,10 +23,12 @@ header{
         margin: 0;
         text-align: end;
     }
+
     #logo{
         width: 85px;
         min-height: 65px;
     }
+
     nav{
         padding: 0;
         margin-left: 1rem;
@@ -101,6 +103,7 @@ a{
 
 #faq{
     padding: 0;
+    margin: 1rem 0;
 
     img{
         padding: 0;
@@ -111,17 +114,60 @@ a{
     }
 }
 
-#contactUs{
+#footerr{
     padding: 0;
-    
-    form{
+    margin: 1rem 0;
+    figure{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+    #copyright{
         
-        div{
-            display: flex;
-            flex-direction: column;
-            margin: auto;
+        
+        text-align: center;
+        align-items: flex-end;
+        
+        
+        p{
+              
         }
     }
+    #formAddyHolder{
+        // margin: auto;
+        padding: 0;
+        form{
+            fieldset{
+                legend{
+                    text-align: center;
+                }
+                .subscribePart{
+                    display: flex;
+                    flex-direction: column;
+                    margin: .25rem 0;
+                }
+            }
+        }
+        address{
+            margin: 0;
+            text-align: center;
+        }
+    }
+    
 }
+
+// #contactUs{
+//     padding: 0;
+//     margin: 1rem 0;
+    
+//     form{
+        
+//         div{
+//             display: flex;
+//             flex-direction: column;
+//             margin: auto;
+//         }
+//     }
+// }
 
 

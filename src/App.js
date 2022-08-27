@@ -9,7 +9,7 @@ function App() {
           THE SIBER CORPORATION
         </h1>
         <img id="logo" src={Imgs.altLogo}/>
-
+        
         <nav className="col-4 align-self-center p-0">
           <ul className="list-group list-group-horizontal">
             <li className="flex-fill"><a href="#" >Home</a></li>
@@ -186,7 +186,57 @@ function App() {
         </section>
       </div>
 
-      <section id='contactUs' className="bg-info row">
+      <footer id='footerr' className="border border-primary row justify-content-center">
+        <figure className="border border-dark">
+          <img src={Imgs.altLogo}/>
+          <figcaption>
+            THE SIBER CORPORATION 
+          </figcaption>
+        </figure>
+        <div id='copyright' className="border border-dark col-4 row">
+          <p className="border border-primary"> &copy; 2022 THE SIBER CORPORATION </p>
+        </div>
+        <div id='formAddyHolder' className="row justify-content-end border-warning border col-6">
+          <form className="col-6 border border-dark">
+            <fieldset>
+              <legend>Subscribe!</legend>
+              <div className="subscribePart">
+                <label>First Name: </label>
+                <input type='text'></input>
+              </div>
+              <div className="subscribePart">
+                <label>Last Name: </label>
+                <input type='text'></input>
+              </div>
+              <div className="subscribePart">
+                <label>Email: </label>
+                <input type='email'></input>
+              </div>
+              <div className="subscribePart">
+                <input type='submit'></input>
+              </div>
+            </fieldset>
+          </form>
+          <address className="border border-dark col-6">
+            <ul className="border border-warning">
+              <li><a href="#">Contact Us</a></li>
+              <li><a>Twitter</a></li>
+              <li><a>LinkedIn</a></li>
+              <li><a>GitHub</a></li>
+              <li>999-123-4567</li>
+              <li>
+                THE SIBER CORPORATION <br/>
+                111 Oak Ave <br/>
+                Los Angeles, CA 90000 
+              </li>
+              
+            </ul>
+          </address>
+        </div>
+
+      </footer>
+
+      {/* <section id='contactUs' className="bg-info row">
         <h2 className="border">
           Contact Us
         </h2>
@@ -217,9 +267,12 @@ function App() {
             <label>Comment:</label>
             <textarea required></textarea>
           </div> 
-          <input className="mx-auto col-5 border" type='submit'></input>
+          <div className="col-3">
+            <input type='submit'></input>
+          </div>
+          
         </form>
-      </section>
+      </section> */}
 
       
     </div>
