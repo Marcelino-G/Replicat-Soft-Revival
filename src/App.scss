@@ -18,6 +18,14 @@
     font-size: 2rem;
 }
 
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 header{
     h1{
         padding: 0;
@@ -34,15 +42,14 @@ header{
     nav{
         padding: 0;
         margin-left: 1rem;
+        ul{
+            li{
+                a{
+                    font-size: 1.35rem;
+                }
+            }
+        }
     }
-}
-
-ul{
-    list-style: none;
-}
-
-a{
-    font-size: 1.35rem;
 }
 
 #quote{
@@ -173,6 +180,77 @@ a{
             padding: 0;  
             li{
                 margin: .5rem 0;
+            }
+        }
+    }
+}
+
+@mixin contentOverBackgroundMobile {
+    position: absolute;
+    right: 0;
+    padding: .5rem 1rem;
+    color: white;
+    font-size: .65rem;
+}
+
+@media screen and (min-width: 375px){
+    body{
+        background-color: black
+    };
+
+    header{
+        nav{
+            padding: 0;
+            margin-left: 1rem;
+            ul{
+                li{
+                    a{
+                        font-size: .85rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #quote{
+        figure{
+            @include contentOverBackgroundMobile;
+        }
+    }
+
+    #featured{
+        ul{
+            li{
+                margin: 0;
+            }
+        }
+    }
+
+    #features{
+        ul{
+            li{
+                figure{
+                    picture{
+                        img{  
+                            min-height: 65px;
+                            max-height: 70px;
+                            min-width: 85px;
+                            max-width: 90px; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #faq{
+        #questions{
+            @include contentOverBackgroundMobile;
+            padding: 0;
+            ul{
+                li{
+                    margin: 0;
+                }
             }
         }
     }

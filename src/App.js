@@ -8,22 +8,22 @@ function App() {
         <h1 className="p-0">
           THE SIBER CORPORATION
         </h1>
-        <img id="logo" src={Imgs.altLogo}/>
+        <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
         
-        <nav className="col-4 align-self-center p-0">
+        <nav className=" col-4 col-lg-4 align-self-center p-0">
           <ul className="list-group list-group-horizontal">
-            <li className="flex-fill"><a href="#" >Home</a></li>
+            <li className="flex-fill"><a>Home</a></li>
             <li className="flex-fill"><a>About</a></li>
-            <li className="flex-fill"><a>Featured</a></li>
-            <li className="flex-fill"><a>Features</a></li>
-            <li className="flex-fill"><a>FAQ</a></li>
+            <li className="flex-fill"><a href="#featured">Featured</a></li>
+            <li className="flex-fill"><a href="#features">Features</a></li>
+            <li className="flex-fill"><a href="#faq">FAQ</a></li>
             <li className="flex-fill"><a>Contact Us</a></li>
           </ul>
         </nav>
       </header>
       
       <main id='quote' className="row">
-        <img src={Imgs.city} />
+        <img src={Imgs.city} alt='Blade Runner city'/>
         <figure>
           <blockquote>
             <p>
@@ -45,11 +45,11 @@ function App() {
           NEXUS Replicats
         </h2>
         <ul  className="list-group list-group-horizontal">
-          <li className="flex-fill col-3">
+          <li className="flex-fill col-lg-3">
             <data value='Hurricane'>
               <figure className="m-0">
                 <picture>
-                  <img className="img-fluid" src= {Imgs.modelLeon} />
+                  <img className="img-fluid" src= {Imgs.modelLeon} alt='NEXUS Replicat (Hurricane model)'/>
                 </picture>
                 <figcaption>
                   <h3>
@@ -61,11 +61,11 @@ function App() {
             </data>
           </li>
 
-          <li className="flex-fill col-3">
+          <li className="flex-fill col-lg-3">
             <data value='Flood'>
               <figure className="m-0">
                 <picture>
-                  <img className="img-fluid" src= {Imgs.modelPris} />
+                  <img className="img-fluid" src= {Imgs.modelPris} alt='NEXUS Replicat (Flood model)'/>
                 </picture>
                 <figcaption>
                   <h3>
@@ -77,11 +77,11 @@ function App() {
             </data>
           </li>
 
-          <li className="flex-fill col-3">
+          <li className="flex-fill col-lg-3">
             <data value='Avalanche'>
               <figure className="m-0">
                 <picture>
-                  <img className="img-fluid" src= {Imgs.modelRoy} />
+                  <img className="img-fluid" src= {Imgs.modelRoy} alt='NEXUS Replicat (Avalanche model)'/>
                 </picture>
                 <figcaption>
                   <h3>
@@ -95,114 +95,160 @@ function App() {
         </ul>
       </section>
 
-      <section id="features">
+      <section id="features" className="border">
         <h2>
           Features
         </h2>
-        <ul className="list-group">
-          <li className="col-12 row">
-            <h3 className="col-12">
-            I cant smell the sky?
+        <ul className="list-group border">
+          <li className="col-lg-12 row border">
+            <h3 className="col-lg-12">
+              Artificial Intelligence
             </h3>
-            <figure className="col-12 row">
-              <picture className="col-4">
-                <img src= {Imgs.brain} />
+            <figure className="col-lg-12 row border">
+              <picture className=" col-4 col-lg-4">
+                <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
               <figcaption className="col">
-              ///
+                <ul>
+                  <li>
+                    Mood and demeanor based on environment stimuli  
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                </ul>
               </figcaption>
             </figure>
           </li>
 
-          <li className="col-12 row">
-            <h3 className="col-12">
-            ///
+          <li className="col-lg-12 row">
+            <h3 className="col-lg-12">
+              Security System
             </h3>
-            <figure className="col-12 row">
-              <picture className="col-4">
-                <img src= {Imgs.cam} />
+            <figure className="col-lg-12 row">
+              <picture className=" col-4 col-lg-4">
+                <img src= {Imgs.cam} alt='Security System (camera picture)'/>
               </picture>
               <figcaption className="col">
-              ///
+                <ul>
+                  <li>
+                    Pa  
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                </ul>
               </figcaption>
             </figure>
           </li>
 
-          <li className="col-12 row">
-            <h3 className="col-12">
-              ///
+          <li className="col-lg-12 row">
+            <h3 className="col-lg-12">
+              Household Tasks
             </h3>
-            <figure className="col-12 row">
-              <picture className="col-4">
-                <img src= {Imgs.paint}/>
+            <figure className="col-lg-12 row">
+              <picture className="col-4 col-lg-4">
+                <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
               </picture>
               <figcaption className="col">
-                ///
+                <ul>
+                  <li>
+                    Pa  
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                  <li>
+                    Pa
+                  </li>
+                </ul>
               </figcaption>
             </figure>
           </li>
         </ul>
       </section>
 
-      <div id='faq' className="row">
-        <img src={Imgs.questions}/>
-        <section id='questions' className="row col-5">
-          
-            <h2>
-              FAQ
-            </h2>
-            <ul>
-              <li>
-                <details>
-                  <summary>How old is Audrey?</summary>
-                  at least 8 years old.
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>What?</summary>
-                  Yes
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>What?</summary>
-                  Yes
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>What?</summary>
-                  Yes
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>What?</summary>
-                  Yes
-                </details>
-              </li>
-            </ul>
+      <div id='faq' className="row border">
+        <img src={Imgs.questions} alt='Blade Runner (man smirking)'/>
+        <section id='questions' className="row col-5 col-lg-5 border">
+          <h2>
+            FAQ
+          </h2>
+          <ul>
+            <li>
+              <details>
+                <summary>How old is Audrey?</summary>
+                at least 8 years old.
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>What?</summary>
+                Yes
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>What?</summary>
+                Yes
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>What?</summary>
+                Yes
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>What?</summary>
+                Yes
+              </details>
+            </li>
+          </ul>
         </section>
       </div>
 
+      <section>
+        <h2>
+          Socials
+        </h2>
+        <ul>
+          <li>
+            Twitter
+          </li>
+          <li>
+            LinkedIn
+          </li>
+          <li>
+            GitHub
+          </li>
+        </ul>
+      </section>
+
       <footer id='footerr' className="row">
         <figure>
-          <img src={Imgs.altLogo}/>
+          <img src={Imgs.altLogo} alt='THE SIBER CORPORATION logo' />
           <figcaption>
             THE SIBER CORPORATION 
           </figcaption>
         </figure>
 
-        <div id='copyright' className="col">
+        <div id='copyright' className="col-lg-3">
           <p> &copy; 2022 THE SIBER CORPORATION </p>
         </div>
 
-        <div className="col">
+        <div className="col-lg-3">
           <p>Mission Statement</p>
         </div>
         
-        <form className="col">
+        <form className="col-lg-3">
           <fieldset>
             <legend>Subscribe!</legend>
             <div className="subscribePart">
@@ -223,12 +269,12 @@ function App() {
           </fieldset>
         </form>
 
-        <address className="col">
+        <address className="col-lg-3">
           <ul>
             <li><a href="#">Contact Us</a></li>
-            <li><a>Twitter</a></li>
-            <li><a>LinkedIn</a></li>
-            <li><a>GitHub</a></li>
+            <li><a href="https://twitter.com/xProtocall">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/marcelino-g/">LinkedIn</a></li>
+            <li><a href="https://github.com/Marcelino-G">GitHub</a></li>
           </ul>
           <ul>
             <li>999-123-4567</li>
@@ -239,7 +285,6 @@ function App() {
             </li>
           </ul>
         </address>
-
       </footer>
 
     </div>
