@@ -1,17 +1,24 @@
 import Imgs from "./imgs";
 
-function App() {
+function App(props) {
   return (
     <div className="border border-4 border-primary container-fluid p-0 mx-auto row justify-content-center">
 
-      <header className="row m-0 p-0">
-        <h1 className="p-0">
+      <header className="row m-0 p-0 bg-white justify-content-between">
+        <button className="col-1 p-0 border border-dark" onClick={props.hamburger} >
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+        <h1 className="p-0 col-7 border border-dark">
           THE SIBER CORPORATION
         </h1>
-        <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
+        <img className="border border-dark" id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
         
-        <nav className=" col-4 col-lg-4 align-self-center p-0">
-          <ul className="list-group list-group-horizontal">
+        
+        
+        <nav className="col-lg-4 align-self-center p-0 border border-dark">
+          <ul className="list-group list-group-horizontal-lg">
             <li className="flex-fill"><a>Home</a></li>
             <li className="flex-fill"><a>About</a></li>
             <li className="flex-fill"><a href="#featured">Featured</a></li>
@@ -44,8 +51,8 @@ function App() {
         <h2>
           NEXUS Replicats
         </h2>
-        <ul  className="list-group list-group-horizontal">
-          <li className="flex-fill col-lg-3">
+        <ul  className="list-group list-group-horizontal border">
+          <li className="flex-fill col-lg-3 replicat">
             <data value='Hurricane'>
               <figure className="m-0">
                 <picture>
@@ -61,7 +68,7 @@ function App() {
             </data>
           </li>
 
-          <li className="flex-fill col-lg-3">
+          <li className="flex-fill col-lg-3 replicat">
             <data value='Flood'>
               <figure className="m-0">
                 <picture>
@@ -77,7 +84,7 @@ function App() {
             </data>
           </li>
 
-          <li className="flex-fill col-lg-3">
+          <li className="flex-fill col-lg-3 replicat">
             <data value='Avalanche'>
               <figure className="m-0">
                 <picture>

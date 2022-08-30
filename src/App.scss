@@ -199,11 +199,31 @@ header{
     };
 
     header{
+        position: sticky;
+        top: 0px;
+        z-index: 3;
+        button{
+            margin: 0 0 0 .5rem;
+            div{
+                border: solid black 1px;
+                margin: 1px 0;
+            }
+        }
+        h1{
+            margin: 0 .5rem 0 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+        #logo{
+            display: none;
+        }
         nav{
             padding: 0;
-            margin-left: 1rem;
+            margin: 0;
+            display: none;
             ul{
                 li{
+                    margin: .25rem 0 .25rem .5rem;
                     a{
                         font-size: .85rem;
                     }
@@ -222,6 +242,7 @@ header{
         ul{
             li{
                 margin: 0;
+                display: none;
             }
         }
     }
