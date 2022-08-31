@@ -51,8 +51,8 @@ function App(props) {
         <h2>
           NEXUS Replicats
         </h2>
-        <ul  className="list-group list-group-horizontal border">
-          <li className="flex-fill col-lg-3 replicat">
+        <ul className="list-group list-group-horizontal slider">
+          <li className="flex-fill col-lg-3 replicat active">
             <data value='Hurricane'>
               <figure className="m-0">
                 <picture>

@@ -8,18 +8,37 @@ import './App.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const featuredReplicats = document.getElementsByClassName('replicat');
+let i = 0;
+let slideShow;
+
+const slide = () => {
+  featuredReplicats[i].classList.remove('active')
+  i++;
+  if (i === featuredReplicats.length){
+    i = 0;
+    featuredReplicats[i].classList.add('active')
+    return
+  }
+  featuredReplicats[i].classList.add('active')
+}
+
+if (window.innerWidth < 1000){
+  slideShow = setInterval(slide, 2000)
+}
+let windowSize = window.matchMedia('(min-width: 1000px)')
+windowSize.addEventListener('change', (media) => {
+  if(media.matches){
+    clearInterval(slideShow)
+  } else {
+    clearInterval(slideShow)
+    slideShow = setInterval(slide, 2000)
+  }
+})
+
 const Parent = () => {
 
   const [hamToggle, setHamToggle] = useState(false);
-  const [slideShowReplicat,setSlideShowReplicat] = useState()
-
-  if(window.innerWidth < 1000){
-    const featuredReplicats = document.getElementsByClassName('replicat')
-    console.log(featuredReplicats)
-  }
-
-
-
 
   useEffect(() => {
     switch (hamToggle){

@@ -238,14 +238,25 @@ header{
         }
     }
 
+    
+
     #featured{
+        .slider{
+            border: solid orchid 5px;
+        }
         ul{
             li{
                 margin: 0;
                 display: none;
             }
+
+            .active{
+                display: initial
+            }
         }
     }
+
+    
 
     #features{
         ul{
