@@ -14,7 +14,7 @@
     position: absolute;
     right: 0;
     padding: 1rem 2.5rem;
-    color: white;
+    // color: white;
     font-size: 2rem;
 }
 
@@ -62,6 +62,7 @@ header{
         @include contentOverBackground;
         text-align: center;
         margin: 0;
+        color: white;
     }
 }
 
@@ -147,17 +148,17 @@ header{
     div{
         padding: 0;
     }
-    #copyright{
+    // #copyright{
 
-        display: flex;
-        flex-direction: column-reverse;
-        padding: 0;
-        p{
-            margin: 0; 
-            text-align: end;
+    //     display: flex;
+    //     flex-direction: column-reverse;
+    //     padding: 0;
+    //     p{
+    //         margin: 0; 
+    //         text-align: end;
             
-        }
-    }
+    //     }
+    // }
     form{
         padding: 0;
         fieldset{
@@ -170,26 +171,26 @@ header{
             }
         }
     }
-    address{
-        display: flex;
-        justify-content: space-evenly;
-        padding: 0;
-        margin: 0;
-        ul{
-            margin: 0;
-            padding: 0;  
-            li{
-                margin: .5rem 0;
-            }
-        }
-    }
+    // address{
+    //     display: flex;
+    //     justify-content: space-evenly;
+    //     padding: 0;
+    //     margin: 0;
+    //     ul{
+    //         margin: 0;
+    //         padding: 0;  
+    //         li{
+    //             margin: .5rem 0;
+    //         }
+    //     }
+    // }
 }
 
 @mixin contentOverBackgroundMobile {
     position: absolute;
     right: 0;
     padding: .5rem 1rem;
-    color: white;
+    // color: white;
     font-size: .65rem;
 }
 
@@ -233,6 +234,7 @@ header{
     }
 
     #quote{
+        margin: .5rem 0;
         figure{
             @include contentOverBackgroundMobile;
         }
@@ -241,12 +243,11 @@ header{
     
 
     #featured{
-        .slider{
-            border: solid orchid 5px;
-        }
+        margin: 0 0 .5rem 0;
         ul{
+            margin: .5rem 0;
             li{
-                margin: 0;
+                margin: auto;
                 display: none;
             }
 
@@ -259,15 +260,17 @@ header{
     
 
     #features{
+        margin: 0 0 .5rem 0;
         ul{
             li{
+                margin: .5rem 0;
                 figure{
                     picture{
                         img{  
-                            min-height: 65px;
-                            max-height: 70px;
-                            min-width: 85px;
-                            max-width: 90px; 
+                            min-height: 150px;
+                            max-height: 200px;
+                            min-width: 125px;
+                            max-width: 225px; 
                         }
                     }
                 }
@@ -276,13 +279,85 @@ header{
     }
 
     #faq{
+        margin: 0 0 .5rem 0;
         #questions{
-            @include contentOverBackgroundMobile;
+            // @include contentOverBackgroundMobile;
+            position: initial;
             padding: 0;
+            font-size: .65rem;
+            h2{
+                text-align: center;
+            }
             ul{
+                margin: 0;
                 li{
-                    margin: 0;
+                    margin: .25rem 0;
                 }
+            }
+        }
+    }
+
+    #socials{
+        padding: 0;
+        margin: 0 0 .5rem 0;
+        h2{
+            text-align: center;
+        }
+        ul{
+            margin: auto;
+            li{
+                margin: 0 .5rem;
+            }
+        }
+    }
+
+    #footerr{
+        margin: 0;
+        text-align: center;
+        figure{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            padding: 0;
+        }
+        
+        form{
+            padding: 0;
+            margin: auto;
+            fieldset{
+                
+                .subscribePart{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: start;
+                    margin: .25rem 0;
+                }
+            }
+        }
+        address{
+            // display: flex;
+            // justify-content: space-evenly;
+            padding: 0;
+            margin: 0;
+            ul{
+                margin: 0;
+                padding: 0;  
+                li{
+                    margin: .5rem 0;
+                }
+            }
+        }
+
+        #copyright{
+    
+            // display: flex;
+            // flex-direction: column-reverse;
+            padding: 0;
+            p{
+                margin: 0; 
+                text-align: start;
+                
             }
         }
     }
