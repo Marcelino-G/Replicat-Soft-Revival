@@ -4,19 +4,19 @@ function App(props) {
   return (
     <div className="border border-4 border-primary container-fluid p-0 mx-auto row justify-content-center">
 
-      <header className="row m-0 p-0 justify-content-between">
+      <header className="row m-0 px-0 justify-content-between">
         <button className="col-1 p-0" onClick={props.hamburger} >
-          <div></div>
-          <div></div>
-          <div></div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
         </button>
         <h1 className="p-0 col-7">
           THE SIBER CORPORATION
         </h1>
         <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
       
-        <nav className="col-lg-4 align-self-center p-0">
-          <ul className="list-group list-group-horizontal-lg">
+        <nav className="col-lg-4 p-0 row mx-auto mt-2">
+          <ul className="p-0">
             <li className="flex-fill"><a>Home</a></li>
             <li className="flex-fill"><a>About</a></li>
             <li className="flex-fill"><a href="#featured">Featured</a></li>
@@ -114,17 +114,7 @@ function App(props) {
                 <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
               <figcaption className="col">
-                <ul>
-                  <li>
-                    Mood and demeanor based on environment stimuli  
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                </ul>
+                Mood and demeanor based on environment stimuli  
               </figcaption>
             </figure>
           </li>
@@ -138,17 +128,7 @@ function App(props) {
                 <img src= {Imgs.cam} alt='Security System (camera picture)'/>
               </picture>
               <figcaption className="col">
-                <ul>
-                  <li>
-                    Pa  
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                </ul>
+                pa
               </figcaption>
             </figure>
           </li>
@@ -162,17 +142,7 @@ function App(props) {
                 <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
               </picture>
               <figcaption className="col">
-                <ul>
-                  <li>
-                    Pa  
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                  <li>
-                    Pa
-                  </li>
-                </ul>
+                pa
               </figcaption>
             </figure>
           </li>

@@ -8,6 +8,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: whitesmoke;
 }
 
 @mixin contentOverBackground {
@@ -62,7 +63,7 @@ header{
         @include contentOverBackground;
         text-align: center;
         margin: 0;
-        color: white;
+        // color: white;
     }
 }
 
@@ -190,43 +191,52 @@ header{
     position: absolute;
     right: 0;
     padding: .5rem 1rem;
-    // color: white;
     font-size: .65rem;
 }
 
 @media screen and (min-width: 375px){
     body{
-        background-color: black
+        background-color: #0E1409;
     };
 
     header{
         position: sticky;
+        padding: .5rem;
         top: 0px;
         z-index: 3;
+        background-color: #cae0e1;
         button{
-            margin: 0 0 0 .5rem;
-            div{
-                border: solid black 1px;
-                margin: 1px 0;
+            margin: 0 .5rem;
+            svg{
+                path{
+                    color: black;
+                }
             }
         }
         h1{
-            margin: 0 .5rem 0 0;
+            // margin: 0 .5rem 0 0;
             font-size: 1rem;
             text-align: center;
+            color: black;
+            margin: 0 .5rem;
         }
         #logo{
             display: none;
         }
         nav{
             padding: 0;
-            margin: 0;
             display: none;
             ul{
+                margin: 0;
+                li:nth-child(odd){
+                    background-color: #aecfd1;
+                }
                 li{
-                    margin: .25rem 0 .25rem .5rem;
+                    margin-bottom: .25rem;
+                    color: black;
                     a{
                         font-size: .85rem;
+                        margin-left: .75rem;
                     }
                 }
             }
@@ -234,7 +244,7 @@ header{
     }
 
     #quote{
-        margin: .5rem 0;
+        margin: 0;
         figure{
             @include contentOverBackgroundMobile;
         }
@@ -243,7 +253,7 @@ header{
     
 
     #featured{
-        margin: 0 0 .5rem 0;
+        margin: 0;
         ul{
             margin: .5rem 0;
             li{
@@ -260,8 +270,11 @@ header{
     
 
     #features{
-        margin: 0 0 .5rem 0;
+        margin: 0;
+        background-color: #1b2c2c;
         ul{
+            li:nth-child(even){
+            }
             li{
                 margin: .5rem 0;
                 figure{
@@ -279,9 +292,8 @@ header{
     }
 
     #faq{
-        margin: 0 0 .5rem 0;
+        margin: 0;
         #questions{
-            // @include contentOverBackgroundMobile;
             position: initial;
             padding: 0;
             font-size: .65rem;
@@ -299,7 +311,7 @@ header{
 
     #socials{
         padding: 0;
-        margin: 0 0 .5rem 0;
+        margin: 0;
         h2{
             text-align: center;
         }
@@ -336,8 +348,6 @@ header{
             }
         }
         address{
-            // display: flex;
-            // justify-content: space-evenly;
             padding: 0;
             margin: 0;
             ul{
@@ -350,9 +360,6 @@ header{
         }
 
         #copyright{
-    
-            // display: flex;
-            // flex-direction: column-reverse;
             padding: 0;
             p{
                 margin: 0; 
