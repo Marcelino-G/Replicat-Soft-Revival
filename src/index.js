@@ -38,27 +38,31 @@ windowSize.addEventListener('change', (media) => {
 
 const Parent = () => {
 
-  const [hamToggle, setHamToggle] = useState(false);
-
+  const [hamToggle, setHamToggle] = useState(false); 
+  
   useEffect(() => {
+    const nav = document.querySelector('nav');
+    const ham = document.querySelector('#hamburger')
     switch (hamToggle){
       case true: 
-        document.querySelector('nav').style.display = 'initial'
+        nav.style.display = 'initial'
+        ham.classList.add('pressedHam')
         break
       case false:
-        document.querySelector('nav').style.display = 'none'
+        nav.style.display = 'none'
+        ham.classList.remove('pressedHam')
         break
     }
   }, [hamToggle])
 
-  const handleOnClickHamburger = () => {
+  const handleOnClickHamburgerAndNavLinks = () => {
     setHamToggle(!hamToggle)
   }
 
   return (
     <div>
       <App 
-      hamburger = {handleOnClickHamburger}
+      hamburger = {handleOnClickHamburgerAndNavLinks}
       />
     </div>
   )

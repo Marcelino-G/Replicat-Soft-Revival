@@ -5,7 +5,7 @@ function App(props) {
     <div className="border border-4 border-primary container-fluid p-0 mx-auto row justify-content-center">
 
       <header className="row m-0 px-0 justify-content-between">
-        <button className="col-1 p-0" onClick={props.hamburger} >
+        <button id="hamburger" onClick={props.hamburger} className="col-1 p-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
@@ -15,14 +15,14 @@ function App(props) {
         </h1>
         <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
       
-        <nav className="col-lg-4 p-0 row mx-auto mt-2">
-          <ul className="p-0">
-            <li className="flex-fill"><a>Home</a></li>
-            <li className="flex-fill"><a>About</a></li>
-            <li className="flex-fill"><a href="#featured">Featured</a></li>
-            <li className="flex-fill"><a href="#features">Features</a></li>
-            <li className="flex-fill"><a href="#faq">FAQ</a></li>
-            <li className="flex-fill"><a>Contact Us</a></li>
+        <nav className="col-lg-4 pt-2 px-0 row mx-auto mt-1">
+          <ul onClick={props.hamburger} className="p-0">
+            <li className="flex-fill-lg"><a>Home</a></li>
+            <li className="flex-fill-lg"><a>About</a></li>
+            <li className="flex-fill-lg"><a href="#featured">Featured</a></li>
+            <li className="flex-fill-lg"><a href="#features">Features</a></li>
+            <li className="flex-fill-lg"><a href="#faq">FAQ</a></li>
+            <li className="flex-fill-lg"><a>Contact Us</a></li>
           </ul>
         </nav>
       </header>
@@ -45,12 +45,21 @@ function App(props) {
         </figure>
       </main>
 
+      <div id='backgroundHorse' className="border col-5">
+        <div class="horn"></div>
+        <div class="snout"></div>
+        <div className="neck"></div>
+        <div className="shoulder"></div>
+        <div className="leg"></div>
+      </div>
+      
+
       <section id='featured'>
         <h2>
           NEXUS Replicats
         </h2>
         <ul className="list-group list-group-horizontal">
-          <li className="flex-fill-lg col-lg-3 col-10 replicat active">
+          <li className="flex-fill-lg col-lg-3 col-8 replicat active">
             <data value='Hurricane'>
               <figure className="m-0">
                 <picture>
@@ -66,7 +75,7 @@ function App(props) {
             </data>
           </li>
 
-          <li className="flex-fill-lg col-10 col-lg-3 replicat">
+          <li className="flex-fill-lg col-8 col-lg-3 replicat">
             <data value='Flood'>
               <figure className="m-0">
                 <picture>
@@ -82,7 +91,7 @@ function App(props) {
             </data>
           </li>
 
-          <li className="flex-fill-lg col-10 col-lg-3 replicat">
+          <li className="flex-fill-lg col-8 col-lg-3 replicat">
             <data value='Avalanche'>
               <figure className="m-0">
                 <picture>
@@ -110,10 +119,10 @@ function App(props) {
               Artificial Intelligence
             </h3>
             <figure className="col-lg-12 row">
-              <picture className="col-lg-4">
+              <picture className="col-lg-4 col-6">
                 <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
-              <figcaption className="col">
+              <figcaption className="col-6">
                 Mood and demeanor based on environment stimuli  
               </figcaption>
             </figure>
@@ -124,10 +133,10 @@ function App(props) {
               Security System
             </h3>
             <figure className="col-lg-12 row">
-              <picture className="col-lg-4">
+              <picture className="col-lg-4 col-6">
                 <img src= {Imgs.cam} alt='Security System (camera picture)'/>
               </picture>
-              <figcaption className="col">
+              <figcaption className="col-6">
                 pa
               </figcaption>
             </figure>
@@ -138,10 +147,10 @@ function App(props) {
               Household Tasks
             </h3>
             <figure className="col-lg-12 row">
-              <picture className="col-lg-4">
+              <picture className="col-lg-4 col-6">
                 <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
               </picture>
-              <figcaption className="col">
+              <figcaption className="col-6">
                 pa
               </figcaption>
             </figure>

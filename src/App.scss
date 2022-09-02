@@ -60,9 +60,9 @@ header{
         padding: 0;
     }
     figure{
-        @include contentOverBackground;
-        text-align: center;
-        margin: 0;
+        // @include contentOverBackground;
+        // text-align: center;
+        // margin: 0;
         // color: white;
     }
 }
@@ -88,7 +88,7 @@ header{
         
         li:nth-child(odd){
             figure{
-                flex-direction: row-reverse;
+                // flex-direction: row-reverse;
                 
             } 
         }
@@ -188,9 +188,9 @@ header{
 }
 
 @mixin contentOverBackgroundMobile {
-    position: absolute;
-    right: 0;
-    padding: .5rem 1rem;
+    // position: absolute;
+    // right: 0;
+    padding: .5rem .4rem;
     font-size: .65rem;
 }
 
@@ -201,20 +201,28 @@ header{
 
     header{
         position: sticky;
-        padding: .5rem;
-        top: 0px;
         z-index: 3;
+        padding: .5rem 0 .5rem 0;
+        top: 0px;
         background-color: #cae0e1;
         button{
+            border: none;
             margin: 0 .5rem;
+            background-color: unset;
             svg{
+                position: relative;
+                z-index: -1;
                 path{
                     color: black;
                 }
             }
         }
+        .pressedHam{
+            box-shadow: inset 0px 0px 4px 1px #2b545c;
+            border: solid #4a6e74 1px;
+            border-radius: 2px;
+        }
         h1{
-            // margin: 0 .5rem 0 0;
             font-size: 1rem;
             text-align: center;
             color: black;
@@ -224,8 +232,8 @@ header{
             display: none;
         }
         nav{
-            padding: 0;
             display: none;
+            box-shadow: inset 0px 6px 10px 0px rgba(43, 84, 92, 0.36);
             ul{
                 margin: 0;
                 li:nth-child(odd){
@@ -235,9 +243,13 @@ header{
                     margin-bottom: .25rem;
                     color: black;
                     a{
+                        display: flex;
+                        padding: .5rem 0 .5rem .75rem;
                         font-size: .85rem;
-                        margin-left: .75rem;
                     }
+                }
+                li:last-child{
+                    margin: 0;
                 }
             }
         }
@@ -246,10 +258,47 @@ header{
     #quote{
         margin: 0;
         figure{
-            @include contentOverBackgroundMobile;
+            padding: .5rem 1rem;
+            text-align: center;
+            font-size: .85rem;
+            // @include contentOverBackgroundMobile;
         }
     }
 
+    #backgroundHorse{
+        .horn {
+            clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
+            border: solid green 45px;
+            position: relative;
+          }
+        .snout{
+            clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
+            border: solid green 45px;
+            position: relative;
+            bottom: 35px;
+        }
+        .neck{
+            clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
+            border: solid green 45px;
+            position: relative;
+            bottom: 120px;
+            left: 77px;
+        }
+        .shoulder{
+            clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
+            border: solid green 45px;
+            position: relative;
+            bottom: 200px;
+            left: 90px;
+        }
+        .leg{
+            clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
+            border: solid green 45px;
+            position: relative;
+            bottom: 222px;
+            left: 100px;
+        }
+    }
     
 
     #featured{
@@ -267,23 +316,44 @@ header{
         }
     }
 
-    
-
     #features{
         margin: 0;
         background-color: #1b2c2c;
         ul{
-            li:nth-child(even){
+            li:nth-child(odd){
+                box-shadow: inset 0px 0px 70px -35px #e3c6a1;
+                border-radius: 0 35%;
+                text-align: start;
+                
+                figure{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    // text-align: end;
+                    
+                    picture{
+                        text-align: end;
+                        
+                        img{
+                            
+                        }
+                    }
+                }
             }
             li{
+                box-shadow: inset 0px 0px 70px -35px #55848C;
+                border-radius: 35% 0;
                 margin: .5rem 0;
+                padding: .5rem;
+                text-align: end;
                 figure{
+                    margin-top: 1rem;
                     picture{
+                        text-align: start;
                         img{  
-                            min-height: 150px;
-                            max-height: 200px;
-                            min-width: 125px;
-                            max-width: 225px; 
+                            min-height: 90px;
+                            max-height: 140px;
+                            min-width: 65px;
+                            max-width: 165px; 
                         }
                     }
                 }
