@@ -45,15 +45,14 @@ function App(props) {
         </figure>
       </main>
 
-      <div id='backgroundHorse' className="border col-5">
-        <div class="horn"></div>
-        <div class="snout"></div>
-        <div className="neck"></div>
-        <div className="shoulder"></div>
-        <div className="leg"></div>
+      <div id='horse'>
+        <img className="horn"/>
+        <img className="snout"/>
+        <img className="neck"/>
+        <img className="shoulder"/>
+        <img className="leg"/>
       </div>
-      
-
+   
       <section id='featured'>
         <h2>
           NEXUS Replicats

@@ -265,42 +265,49 @@ header{
         }
     }
 
-    #backgroundHorse{
-        .horn {
+    #horse{
+        position: absolute;
+        top: 350px;
+        z-index: -1;
+        padding: 0;
+        // height: 105px;
+        text-align: end;
+        transform: rotate(0deg) scaleX(-1);
+        .horn{
+            position: relative;
+            left: 126px;
+            border: solid green 20px;
             clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
-            border: solid green 45px;
-            position: relative;
-          }
+        }    
         .snout{
-            clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
-            border: solid green 45px;
             position: relative;
-            bottom: 35px;
+            top: 20px;
+            left: 88px;
+            border: solid green 20px;
+            clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
         }
         .neck{
-            clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
-            border: solid green 45px;
             position: relative;
-            bottom: 120px;
-            left: 77px;
+            top: 25px;
+            left: 72px;
+            border: solid green 20px;
+            clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
         }
         .shoulder{
-            clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
-            border: solid green 45px;
             position: relative;
-            bottom: 200px;
-            left: 90px;
+            top: 30px;
+            left: 36px;
+            border: solid green 20px;
+            clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
         }
         .leg{
-            clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
-            border: solid green 45px;
             position: relative;
-            bottom: 222px;
-            left: 100px;
+            top: 60px;
+            border: solid green 20px;
+            clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
         }
     }
     
-
     #featured{
         margin: 0;
         ul{
