@@ -123,7 +123,7 @@ header{
     }
     #questions{
         margin: auto;
-        @include contentOverBackground;
+        // @include contentOverBackground;
         padding: 1rem 0;
         h2{
             padding:0;
@@ -195,6 +195,11 @@ header{
 }
 
 @media screen and (min-width: 375px){
+
+    html{
+        scroll-padding-top: 50px ;
+    }
+
     body{
         background-color: #0E1409;
     };
@@ -205,6 +210,8 @@ header{
         padding: .5rem 0 .5rem 0;
         top: 0px;
         background-color: #cae0e1;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         button{
             border: none;
             margin: 0 .5rem;
@@ -257,11 +264,14 @@ header{
 
     #quote{
         margin: 0;
+        margin-bottom: 1rem;
         figure{
             padding: .5rem 1rem;
             text-align: center;
             font-size: .85rem;
-            // @include contentOverBackgroundMobile;
+            border-top: solid #d5bdbd 3px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
     }
 
@@ -270,7 +280,6 @@ header{
         top: 350px;
         z-index: -1;
         padding: 0;
-        // height: 105px;
         text-align: end;
         transform: rotate(0deg) scaleX(-1);
         .horn{
@@ -307,14 +316,24 @@ header{
             clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
         }
     }
-    
+
     #featured{
+        h2{
+            margin: 0 0 1rem 0;
+        }
         margin: 0;
         ul{
-            margin: .5rem 0;
+            margin: 2rem 0 .5rem 0;
             li{
                 margin: auto;
                 display: none;
+                data{
+                    figure{
+                        figcaption{
+                            margin-top: 1.5rem;
+                        }
+                    }
+                }
             }
 
             .active{
@@ -324,8 +343,15 @@ header{
     }
 
     #features{
-        margin: 0;
+        margin: 1rem 0 0 0;
+        padding: 1rem 0;
         background-color: #1b2c2c;
+        border-top: solid #d5bdbd 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        h2{
+            margin: 0 0 1rem 0;
+        }
         ul{
             li:nth-child(odd){
                 box-shadow: inset 0px 0px 70px -35px #e3c6a1;
@@ -335,14 +361,8 @@ header{
                 figure{
                     display: flex;
                     flex-direction: row-reverse;
-                    // text-align: end;
-                    
                     picture{
                         text-align: end;
-                        
-                        img{
-                            
-                        }
                     }
                 }
             }
@@ -370,63 +390,75 @@ header{
 
     #faq{
         margin: 0;
+        background-color: #637b99a3;
         #questions{
-            position: initial;
+            padding: 1rem 0;
             padding: 0;
-            font-size: .65rem;
+            border-top: solid #d5bdbd 3px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             h2{
                 text-align: center;
             }
             ul{
                 margin: 0;
                 li{
-                    margin: .25rem 0;
+                    padding: 0;
                 }
             }
         }
     }
 
     #socials{
-        padding: 0;
-        margin: 0;
+        padding: 1rem 0;
+        border-top: solid #d5bdbd 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         h2{
             text-align: center;
         }
         ul{
             margin: auto;
-            li{
-                margin: 0 .5rem;
-            }
+            margin-top: 1rem;
         }
     }
 
     #footerr{
-        margin: 0;
         text-align: center;
+        margin: 1rem 0 0 0;
+        padding: 1rem 0;
+        background-color: #1b2c2c;
+        border-top: solid #d5bdbd 3px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         figure{
             margin: 0;
-            padding: 0;
+            padding: 1rem 0;
+            figcaption{
+                margin-top: .5rem;
+            }
         }
-        div{
-            padding: 0;
-        }
-        
         form{
             padding: 0;
             margin: auto;
             fieldset{
-                
                 .subscribePart{
                     display: flex;
                     flex-direction: column;
                     text-align: start;
                     margin: .25rem 0;
                 }
+                div{
+                    input[type=submit]{
+                        background: yellowgreen;
+                        color: black;
+                    }
+                }
             }
         }
         address{
             padding: 0;
-            margin: 0;
+            margin: 1rem 0;
             ul{
                 margin: 0;
                 padding: 0;  
@@ -438,10 +470,10 @@ header{
 
         #copyright{
             padding: 0;
+            margin-top: 1rem;
             p{
                 margin: 0; 
                 text-align: start;
-                
             }
         }
     }

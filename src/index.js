@@ -59,10 +59,15 @@ const Parent = () => {
     setHamToggle(!hamToggle)
   }
 
+  const handleOnSubmit = (e) =>{
+    e.preventDefault();
+  }
+
   return (
     <div>
       <App 
       hamburger = {handleOnClickHamburgerAndNavLinks}
+      subscribe = {handleOnSubmit}
       />
     </div>
   )
