@@ -9,22 +9,48 @@ import './App.scss';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const featuredReplicats = document.getElementsByClassName('replicat');
+const featuredCircles = document.getElementsByClassName("circle")
 let i = 0;
 let slideShow;
 
-const slide = () => {
+const slideForward = () => {
   featuredReplicats[i].classList.remove('active')
+  featuredCircles[i].classList.remove('activeCircle')
   i++;
   if (i === featuredReplicats.length){
     i = 0;
     featuredReplicats[i].classList.add('active')
+    featuredCircles[i].classList.add('activeCircle')
     return
   }
   featuredReplicats[i].classList.add('active')
+  featuredCircles[i].classList.add('activeCircle')
+}
+
+const slideBackward = () => {
+  featuredReplicats[i].classList.remove('active')
+  featuredCircles[i].classList.remove('activeCircle')
+  i--;
+  if (i === -1){
+    i = 2;
+    featuredReplicats[i].classList.add('active')
+    featuredCircles[i].classList.add('activeCircle')
+    return
+  }
+  featuredReplicats[i].classList.add('active')
+  featuredCircles[i].classList.add('activeCircle')
+}
+
+const slideCircle = (x) => {
+  featuredReplicats[i].classList.remove('active')
+  featuredCircles[i].classList.remove('activeCircle')
+  i= x;
+  featuredReplicats[i].classList.add('active')
+  featuredCircles[i].classList.add('activeCircle')
 }
 
 if (window.innerWidth < 1000){
-  slideShow = setInterval(slide, 2000)
+  slideShow = setInterval(slideForward, 2000)
 }
 let windowSize = window.matchMedia('(min-width: 1000px)')
 windowSize.addEventListener('change', (media) => {
@@ -32,7 +58,7 @@ windowSize.addEventListener('change', (media) => {
     clearInterval(slideShow)
   } else {
     clearInterval(slideShow)
-    slideShow = setInterval(slide, 2000)
+    slideShow = setInterval(slideForward, 2000)
   }
 })
 
@@ -63,11 +89,34 @@ const Parent = () => {
     e.preventDefault();
   }
 
+  const handleOnClickNext = () => {
+    clearInterval(slideShow)
+    slideForward();
+  }
+
+  const handleOnClickBack = () => {
+    clearInterval(slideShow)
+    slideBackward();
+  }
+
+  
+
+  const handleOnClickSlideOne = (e) => {
+    if (e.target.tagName !== "BUTTON"){
+      return
+    }
+    clearInterval(slideShow)
+    slideCircle(e.target.id)
+  }
+
   return (
     <div>
       <App 
       hamburger = {handleOnClickHamburgerAndNavLinks}
       subscribe = {handleOnSubmit}
+      next = {handleOnClickNext}
+      back = {handleOnClickBack}
+      slideOne = {handleOnClickSlideOne}
       />
     </div>
   )

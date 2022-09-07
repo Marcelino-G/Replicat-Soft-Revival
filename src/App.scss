@@ -284,35 +284,36 @@ header{
         transform: rotate(0deg) scaleX(-1);
         .horn{
             position: relative;
-            left: 126px;
-            border: solid green 20px;
+            left: 102px;
+            border: solid #d5bdbd 17px;
             clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
         }    
         .snout{
             position: relative;
-            top: 20px;
-            left: 88px;
-            border: solid green 20px;
+            top: 17px;
+            left: 70px;
+            border: solid #d5bdbd 17px;
             clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
         }
         .neck{
             position: relative;
-            top: 25px;
-            left: 72px;
-            border: solid green 20px;
+            top: 22px;
+            left: 56px;
+            border: solid #d5bdbd 17px;
             clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
         }
         .shoulder{
             position: relative;
-            top: 30px;
-            left: 36px;
-            border: solid green 20px;
+            top: 27px;
+            left: 26px;
+            border: solid #d5bdbd 17px;
             clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
         }
         .leg{
             position: relative;
-            top: 60px;
-            border: solid green 20px;
+            top: 52px;
+            left: -6px;
+            border: solid #d5bdbd 17px;
             clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
         }
     }
@@ -323,7 +324,7 @@ header{
         }
         margin: 0;
         ul{
-            margin: 2rem 0 .5rem 0;
+            margin: 2rem 0 0 0;
             li{
                 margin: auto;
                 display: none;
@@ -338,6 +339,31 @@ header{
 
             .active{
                 display: initial
+            }
+        }
+        button{
+            background-color: unset;
+            border: none;
+            max-height: 50px;
+            align-self: center;
+        }
+        #circleSlideHolder{
+            margin: .5rem 0;
+            
+            button{
+                // background-color: unset;
+                // border: none;
+                
+                .activeCircle{
+                    background-color: #d5bdbd;
+                    border-radius: 50%;
+                }
+                svg{
+                    position: relative;
+                    z-index: -1;
+                }
+                
+                
             }
         }
     }
@@ -393,7 +419,6 @@ header{
         background-color: #637b99a3;
         #questions{
             padding: 1rem 0;
-            padding: 0;
             border-top: solid #d5bdbd 3px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
