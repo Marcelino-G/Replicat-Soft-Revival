@@ -50,7 +50,7 @@ const slideCircle = (x) => {
 }
 
 if (window.innerWidth < 1000){
-  slideShow = setInterval(slideForward, 2000)
+  slideShow = setInterval(slideForward, 5000)
 }
 let windowSize = window.matchMedia('(min-width: 1000px)')
 windowSize.addEventListener('change', (media) => {

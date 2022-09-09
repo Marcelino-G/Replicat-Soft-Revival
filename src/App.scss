@@ -187,34 +187,47 @@ header{
     // }
 }
 
-@mixin contentOverBackgroundMobile {
-    // position: absolute;
-    // right: 0;
-    padding: .5rem .4rem;
-    font-size: .65rem;
+@mixin newSectionTopBorder{
+    border-top: solid #d5bdbd 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+@mixin horseParts($top: 0px ,$left: 0px) {
+    display: inline-block;
+    position: relative;
+    top: $top;
+    left: $left;
+    border: solid #d5bdbd 17px;
+}
+
+@mixin featuresList($shadowColor: null, $topLeftBottomRight: 0, $topRightBottomLeft: 0, $textAlign: null) {
+    box-shadow: inset 0px 0px 70px -35px $shadowColor;
+    border-radius: $topLeftBottomRight $topRightBottomLeft;
+    text-align: $textAlign;
 }
 
 @media screen and (min-width: 375px){
-
-    html{
-        scroll-padding-top: 50px ;
+    *{
+        font-family: Helvetica, Arial, sans-serif;
     }
-
+    html{
+        scroll-padding-top: 50px;
+    }
     body{
         background-color: #0E1409;
-    };
-
+    }
     header{
         position: sticky;
+        top: 0px;
         z-index: 3;
         padding: .5rem 0 .5rem 0;
-        top: 0px;
         background-color: #cae0e1;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         button{
-            border: none;
             margin: 0 .5rem;
+            border: none;
             background-color: unset;
             svg{
                 position: relative;
@@ -225,15 +238,15 @@ header{
             }
         }
         .pressedHam{
-            box-shadow: inset 0px 0px 4px 1px #2b545c;
             border: solid #4a6e74 1px;
             border-radius: 2px;
+            box-shadow: inset 0px 0px 4px 1px #2b545c;
         }
         h1{
+            margin: 0 .5rem;
             font-size: 1rem;
             text-align: center;
-            color: black;
-            margin: 0 .5rem;
+            color: black; 
         }
         #logo{
             display: none;
@@ -243,9 +256,6 @@ header{
             box-shadow: inset 0px 6px 10px 0px rgba(43, 84, 92, 0.36);
             ul{
                 margin: 0;
-                li:nth-child(odd){
-                    background-color: #aecfd1;
-                }
                 li{
                     margin-bottom: .25rem;
                     color: black;
@@ -255,74 +265,57 @@ header{
                         font-size: .85rem;
                     }
                 }
+                li:nth-child(odd){
+                    background-color: #aecfd1;
+                }
                 li:last-child{
                     margin: 0;
                 }
             }
         }
     }
-
     #quote{
-        margin: 0;
-        margin-bottom: 1rem;
+        margin: 0 0 1rem 0;
         figure{
+            @include newSectionTopBorder;
             padding: .5rem 1rem;
-            text-align: center;
             font-size: .85rem;
-            border-top: solid #d5bdbd 3px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            text-align: center;
         }
     }
-
     #horse{
         position: absolute;
         top: 350px;
         z-index: -1;
+        transform: rotate(0deg) scaleX(-1);
         padding: 0;
         text-align: end;
-        transform: rotate(0deg) scaleX(-1);
         .horn{
-            position: relative;
-            left: 102px;
-            border: solid #d5bdbd 17px;
+            @include horseParts($left: 102px);
             clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
         }    
         .snout{
-            position: relative;
-            top: 17px;
-            left: 70px;
-            border: solid #d5bdbd 17px;
+            @include horseParts($top: 17px, $left: 70px);
             clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
         }
         .neck{
-            position: relative;
-            top: 22px;
-            left: 56px;
-            border: solid #d5bdbd 17px;
+            @include horseParts($top: 22px, $left: 56px);
             clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
         }
         .shoulder{
-            position: relative;
-            top: 27px;
-            left: 26px;
-            border: solid #d5bdbd 17px;
+            @include horseParts($top: 27px, $left: 26px);
             clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
         }
         .leg{
-            position: relative;
-            top: 52px;
-            left: -6px;
-            border: solid #d5bdbd 17px;
+            @include horseParts($top: 52px, $left: -6px);
             clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
         }
     }
-
     #featured{
+        margin: 0;
         h2{
             margin: 0 0 1rem 0;
         }
-        margin: 0;
         ul{
             margin: 2rem 0 0 0;
             li{
@@ -336,9 +329,18 @@ header{
                     }
                 }
             }
-
             .active{
-                display: initial
+                display: initial;
+                animation-duration: 5s;
+                animation-name: featuredBlurIn;
+            }
+            @keyframes featuredBlurIn {
+                from{
+                    opacity: .0;
+                }
+                to{
+                    opacity: 1;
+                }
             }
         }
         button{
@@ -349,11 +351,7 @@ header{
         }
         #circleSlideHolder{
             margin: .5rem 0;
-            
             button{
-                // background-color: unset;
-                // border: none;
-                
                 .activeCircle{
                     background-color: #d5bdbd;
                     border-radius: 50%;
@@ -361,43 +359,23 @@ header{
                 svg{
                     position: relative;
                     z-index: -1;
-                }
-                
-                
+                }  
             }
         }
     }
-
     #features{
         margin: 1rem 0 0 0;
         padding: 1rem 0;
         background-color: #1b2c2c;
-        border-top: solid #d5bdbd 3px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        @include newSectionTopBorder;
         h2{
             margin: 0 0 1rem 0;
         }
         ul{
-            li:nth-child(odd){
-                box-shadow: inset 0px 0px 70px -35px #e3c6a1;
-                border-radius: 0 35%;
-                text-align: start;
-                
-                figure{
-                    display: flex;
-                    flex-direction: row-reverse;
-                    picture{
-                        text-align: end;
-                    }
-                }
-            }
             li{
-                box-shadow: inset 0px 0px 70px -35px #55848C;
-                border-radius: 35% 0;
                 margin: .5rem 0;
                 padding: .5rem;
-                text-align: end;
+                @include featuresList($shadowColor: #55848C, $topLeftBottomRight: 35%, $textAlign: end);
                 figure{
                     margin-top: 1rem;
                     picture{
@@ -411,17 +389,24 @@ header{
                     }
                 }
             }
+            li:nth-child(odd){
+                @include featuresList($shadowColor: #e3c6a1, $topRightBottomLeft: 35%, $textAlign: start);
+                figure{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    picture{
+                        text-align: end;
+                    }
+                }
+            }
         }
     }
-
     #faq{
         margin: 0;
         background-color: #637b99a3;
         #questions{
             padding: 1rem 0;
-            border-top: solid #d5bdbd 3px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            @include newSectionTopBorder;
             h2{
                 text-align: center;
             }
@@ -433,29 +418,22 @@ header{
             }
         }
     }
-
     #socials{
         padding: 1rem 0;
-        border-top: solid #d5bdbd 3px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        @include newSectionTopBorder;
         h2{
             text-align: center;
         }
         ul{
-            margin: auto;
-            margin-top: 1rem;
+            margin: 1rem 0 0 0;
         }
     }
-
     #footerr{
-        text-align: center;
         margin: 1rem 0 0 0;
         padding: 1rem 0;
         background-color: #1b2c2c;
-        border-top: solid #d5bdbd 3px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        text-align: center;
+        @include newSectionTopBorder;
         figure{
             margin: 0;
             padding: 1rem 0;
@@ -492,7 +470,6 @@ header{
                 }
             }
         }
-
         #copyright{
             padding: 0;
             margin-top: 1rem;
