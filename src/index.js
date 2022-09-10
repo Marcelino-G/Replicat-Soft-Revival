@@ -50,6 +50,7 @@ const slideCircle = (x) => {
 }
 
 if (window.innerWidth < 1000){
+  clearInterval(slideShow)
   slideShow = setInterval(slideForward, 5000)
 }
 let windowSize = window.matchMedia('(min-width: 1000px)')
@@ -101,7 +102,7 @@ const Parent = () => {
 
   
 
-  const handleOnClickSlideOne = (e) => {
+  const handleOnClickFeaturedCircleOrder = (e) => {
     if (e.target.tagName !== "BUTTON"){
       return
     }
@@ -116,7 +117,7 @@ const Parent = () => {
       subscribe = {handleOnSubmit}
       next = {handleOnClickNext}
       back = {handleOnClickBack}
-      slideOne = {handleOnClickSlideOne}
+      featuredCircle = {handleOnClickFeaturedCircleOrder}
       />
     </div>
   )

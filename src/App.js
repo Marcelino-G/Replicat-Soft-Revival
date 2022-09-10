@@ -4,13 +4,13 @@ function App(props) {
   return (
     <div className="border border-4 border-primary container-fluid row p-0 mx-auto justify-content-center">
 
-      <header className="row m-0 px-0 justify-content-between">
+      <header className="row m-0 px-0 justify-content-around">
         <button aria-label="Hamburger nav" id="hamburger" onClick={props.hamburger} className="col-1 p-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
         </button>
-        <h1 className="col-7 p-0">
+        <h1 className="col-10 p-0">
           THE SIBER CORPORATION
         </h1>
         <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
@@ -117,7 +117,7 @@ function App(props) {
           </svg>
         </button>
 
-        <div id='circleSlideHolder' className="row justify-content-center" onClick={props.slideOne}>
+        <div id='circleSlideHolder' className="row justify-content-center" onClick={props.featuredCircle}>
           <button aria-label="Featured circle order 1/3" id='0' className="col-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-circle circle activeCircle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
