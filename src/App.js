@@ -191,41 +191,41 @@ function App(props) {
           <h2>
             FAQ
           </h2>
-          <ul className="row justify-content-evenly">
-            <li className="col-5">
+          <ul className="row justify-content-evenly" onClick={props.question}>
+            <li className="col-6">
               <details>
-                <summary>How old is Audrey?</summary>
-                at least 8 years old.
+                <summary className="col-10 col-sm-8">How old is Audrey?</summary>
+                <p className="col-8 col-sm-6">at least 8 years old.</p>
               </details>
             </li>
-            <li className="col-5">
+            <li className="col-6">
               <details>
-                <summary>What?</summary>
-                Yes
+                <summary className="col-10 col-sm-8">What?</summary>
+                <p className="col-8 col-sm-6">Yes</p>
               </details>
             </li>
-            <li className="col-5">
+            <li className="col-6">
               <details>
-                <summary>What?</summary>
-                Yes
+                <summary className="col-10 col-sm-8">What?</summary>
+                <p className="col-8 col-sm-6">Yes</p>
               </details>
             </li>
-            <li className="col-5">
+            <li className="col-6">
               <details>
-                <summary>What?</summary>
-                Yes
+                <summary className="col-10 col-sm-8">What?</summary>
+                <p className="col-8 col-sm-6">Yes</p>
               </details>
             </li>
-            <li className="col-5">
+            <li className="col-6">
               <details>
-                <summary>What?</summary>
-                Yes
+                <summary className="col-10 col-sm-8">What?</summary>
+                <p className="col-8 col-sm-6">Yes</p>
               </details>
             </li>
-            <li className="col-5">
+            <li className="col-6">
               <details>
-                <summary>What?</summary>
-                Yes
+                <summary className="col-10 col-sm-8">What?</summary>
+                <p className="col-8 col-sm-6">Yes</p>
               </details>
             </li>
           </ul>

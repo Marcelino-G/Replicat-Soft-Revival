@@ -100,14 +100,23 @@ const Parent = () => {
     slideBackward();
   }
 
-  
-
   const handleOnClickFeaturedCircleOrder = (e) => {
     if (e.target.tagName !== "BUTTON"){
       return
     }
     clearInterval(slideShow)
     slideCircle(e.target.id)
+  }
+
+
+  const details = document.getElementsByTagName('details')
+
+  const handleOnClickQuestion = (e) => {
+    let htmlDetails = Array.from(details)
+    htmlDetails.forEach((detail) => {
+      detail.removeAttribute('open')
+    })
+    // e.target.setAttribute('open', "")
   }
 
   return (
@@ -118,6 +127,7 @@ const Parent = () => {
       next = {handleOnClickNext}
       back = {handleOnClickBack}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
+      question = {handleOnClickQuestion}
       />
     </div>
   )
