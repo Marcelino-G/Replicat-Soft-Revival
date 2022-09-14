@@ -13,6 +13,9 @@ const featuredCircles = document.getElementsByClassName("circle")
 let i = 0;
 let slideShow;
 
+const questions = document.getElementsByClassName('question')
+const answers = document.getElementsByClassName('answer')
+
 const slideForward = () => {
   featuredReplicats[i].classList.remove('active')
   featuredCircles[i].classList.remove('activeCircle')
@@ -108,15 +111,33 @@ const Parent = () => {
     slideCircle(e.target.id)
   }
 
-
-  const details = document.getElementsByTagName('details')
+  
 
   const handleOnClickQuestion = (e) => {
-    let htmlDetails = Array.from(details)
-    htmlDetails.forEach((detail) => {
-      detail.removeAttribute('open')
-    })
-    // e.target.setAttribute('open', "")
+    if(e.target.classList.contains('answer')){
+      for (let i = 0; i < questions.length; i++){
+        answers[i].classList.remove('stinkyAnimation');
+        questions[i].classList.remove('removeListShadow');
+      }
+      return
+
+    } else if (!e.target.classList.contains('question')){
+      return
+
+    } else if (e.target.nextElementSibling.classList.contains('stinkyAnimation')){
+      e.target.nextElementSibling.classList.remove('stinkyAnimation')
+      e.target.classList.remove('removeListShadow')
+      return
+    }
+
+    for (let i = 0; i < questions.length; i++){
+      answers[i].classList.remove('stinkyAnimation');
+      questions[i].classList.remove('removeListShadow');
+    }
+
+    e.target.classList.add('removeListShadow')
+    let pElement = e.target.nextElementSibling
+    pElement.classList.add('stinkyAnimation')
   }
 
   return (

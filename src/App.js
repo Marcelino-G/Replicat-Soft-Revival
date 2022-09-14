@@ -193,40 +193,52 @@ function App(props) {
           </h2>
           <ul className="row justify-content-evenly" onClick={props.question}>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">How old is Audrey?</summary>
-                <p className="col-8 col-sm-6">at least 8 years old.</p>
-              </details>
+              <p className="question">
+                How old is Audrey?
+              </p>
+              <p className="answer">
+                at least 8 years old.
+              </p>
             </li>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">What?</summary>
-                <p className="col-8 col-sm-6">Yes</p>
-              </details>
+              <p className="question">
+                What?
+              </p>
+              <p className="answer">
+                answer
+              </p>
             </li>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">What?</summary>
-                <p className="col-8 col-sm-6">Yes</p>
-              </details>
+              <p className="question">
+                What?
+              </p>
+              <p className="answer">
+                answer
+              </p>
             </li>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">What?</summary>
-                <p className="col-8 col-sm-6">Yes</p>
-              </details>
+              <p className="question">
+                What?
+              </p>
+              <p className="answer">
+                answer
+              </p>
             </li>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">What?</summary>
-                <p className="col-8 col-sm-6">Yes</p>
-              </details>
+              <p className="question">
+                What?
+              </p>
+              <p className="answer">
+                answer
+              </p>
             </li>
             <li className="col-6">
-              <details>
-                <summary className="col-10 col-sm-8">What?</summary>
-                <p className="col-8 col-sm-6">Yes</p>
-              </details>
+              <p className="question">
+                What?
+              </p>
+              <p className="answer">
+                answer
+              </p>
             </li>
           </ul>
         </section>

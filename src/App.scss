@@ -226,7 +226,6 @@ header{
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         button{
-            // margin: 0 0 0 .5rem;
             border: none;
             background-color: unset;
             svg{
@@ -244,7 +243,6 @@ header{
         }
         h1{
             font-size: 1.4rem;
-            // text-align: center;
             color: black; 
         }
         #logo{
@@ -261,7 +259,6 @@ header{
                     a{
                         display: flex;
                         padding: .5rem 0 .5rem .75rem;
-                        // font-size: .85rem;
                     }
                 }
                 li:nth-child(odd){
@@ -278,7 +275,6 @@ header{
         figure{
             @include newSectionTopBorder;
             padding: 1rem;
-            // font-size: .85rem;
             text-align: center;
         }
     }
@@ -377,9 +373,6 @@ header{
                 margin: .5rem 0;
                 padding: .5rem;
                 @include featuresList($shadowColor: #55848C, $topLeftBottomRight: 35%, $textAlign: end);
-                // h3{
-                //     padding: 0 .75rem 0 0 
-                // }
                 figure{
                     margin-top: 1rem;
                     text-align: center;
@@ -396,9 +389,6 @@ header{
             }
             li:nth-child(odd){
                 @include featuresList($shadowColor: #e3c6a1, $topRightBottomLeft: 35%, $textAlign: start);
-                // h3{
-                //     padding: 0 0 0 .75rem
-                // }
                 figure{
                     display: flex;
                     flex-direction: row-reverse;
@@ -421,36 +411,24 @@ header{
                     padding: 0;
                     margin: 1.5rem 0;
                     text-align: center;
-                    details{
-                        padding: 0 .25rem;
-                        summary{
-                            // margin: 1rem 0;
-                            margin: 0 auto;
-                            list-style-type: none;
-                            box-shadow: 0px 0px 5px 2px #97C4BE;
-                        }
-                        p{
-                            // margin: 1rem;
-                            // padding: .5rem;
-                            // margin: 1rem 0;
-                            margin: 1rem auto;
-                            padding: .5rem;
-                            box-shadow: 0px 0px 5px 2px #25ffe2;
-                        } 
+                    p[class~='question']{
+                        padding: .75rem;
+                        margin: .25rem .5rem;
+                        box-shadow: 0px 0px 5px 2px #97C4BE;
                     }
-                    details[open]{
-                        summary{
-                            box-shadow: none;
-                        }
-                        p{
-                            animation-name: fadeOpen;
-                            animation-duration: .5s;
-                        }
-                         
+                    p[class~='question'].removeListShadow{
+                        box-shadow: unset;
                     }
-                    .stinkyAnimation{
+                    p[class~="answer"]{
+                        visibility: hidden;
+                        margin: .5rem;
+                        padding: .75rem;
+                        box-shadow: 0px 0px 5px 2px #25ffe2;
+                    }
+                    p[class~="answer"].stinkyAnimation{
+                        visibility: visible;
                         animation-name: fadeOpen;
-                        animation-duration: .5s;
+                        animation-duration: 2s;
                     }
                     @keyframes fadeOpen{
                         0% {
@@ -460,8 +438,8 @@ header{
                             opacity: 1;
                            
                         }
-                     } 
-                }
+                    }          
+                }    
             }
         }
     }
