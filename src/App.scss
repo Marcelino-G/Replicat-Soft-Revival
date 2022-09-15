@@ -212,7 +212,7 @@ header{
         font-family: Helvetica, Arial, sans-serif;
     }
     html{
-        scroll-padding-top: 50px;
+        scroll-padding-top: 60px;
     }
     body{
         background-color: #0E1409;
@@ -402,18 +402,18 @@ header{
         #questions{
             padding: 1rem 0;
             @include newSectionTopBorder;
-            h2{
-                text-align: center;
-            }
+            text-align: center;
+            // h2{
+            //     text-align: center;
+            // }
             ul{
                 margin: 0;
                 li{
-                    padding: 0;
-                    margin: 1.5rem 0;
-                    text-align: center;
+                    padding: .5rem;
+                    margin: 1rem 0;
                     p[class~='question']{
                         padding: .75rem;
-                        margin: .25rem .5rem;
+                        margin:0 auto;
                         box-shadow: 0px 0px 5px 2px #97C4BE;
                     }
                     p[class~='question'].removeListShadow{
@@ -421,14 +421,14 @@ header{
                     }
                     p[class~="answer"]{
                         visibility: hidden;
-                        margin: .5rem;
+                        margin: 1rem auto 0 auto;
                         padding: .75rem;
                         box-shadow: 0px 0px 5px 2px #25ffe2;
                     }
                     p[class~="answer"].stinkyAnimation{
                         visibility: visible;
                         animation-name: fadeOpen;
-                        animation-duration: 2s;
+                        animation-duration: .5s;
                     }
                     @keyframes fadeOpen{
                         0% {
@@ -474,11 +474,14 @@ header{
                     display: flex;
                     flex-direction: column;
                     text-align: start;
-                    margin: .25rem 0;
+                    margin: 1rem auto;
+                    label{
+                        padding: 0 0 0 .5rem;
+                    }
                 }
                 div{
                     input[type=submit]{
-                        background: yellowgreen;
+                        background: #c999b6;
                         color: black;
                     }
                 }
@@ -489,14 +492,14 @@ header{
             margin: 1rem 0;
             ul{
                 margin: 0;
-                padding: 0;  
+                padding: 1rem;  
                 li{
                     margin: .5rem 0;
                 }
             }
         }
         #copyright{
-            padding: 0;
+            padding: 0 0 0 1rem;
             margin-top: 1rem;
             p{
                 margin: 0; 
@@ -505,6 +508,9 @@ header{
         }
     }
     @media screen and (min-width: 435px){
+        html{
+            scroll-padding-top: 65px;
+        }
         header{
             h1{
                 font-size: 1.55rem;
@@ -552,6 +558,9 @@ header{
         }
     }
     @media screen and (min-width: 530px){
+        html{
+            scroll-padding-top: 75px;
+        }
         header{
             h1{
                 font-size: 1.85rem;
@@ -606,6 +615,9 @@ header{
 
 
     @media screen and (min-width: 615px){
+        html{
+            scroll-padding-top: 85px;
+        }
         header{
             h1{
                 font-size: 2.05rem;
@@ -658,6 +670,9 @@ header{
         }
     }
     @media screen and (min-width: 700px){
+        html{
+            scroll-padding-top: 95px;
+        }
         header{
             h1{
                 font-size: 2.25rem;

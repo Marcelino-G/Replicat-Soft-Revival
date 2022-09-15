@@ -193,50 +193,50 @@ function App(props) {
           </h2>
           <ul className="row justify-content-evenly" onClick={props.question}>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 How old is Audrey?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 at least 8 years old.
               </p>
             </li>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 What?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 answer
               </p>
             </li>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 What?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 answer
               </p>
             </li>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 What?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 answer
               </p>
             </li>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 What?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 answer
               </p>
             </li>
             <li className="col-6">
-              <p className="question">
+              <p className="question col-sm-10">
                 What?
               </p>
-              <p className="answer">
+              <p className="answer col-10 col-sm-8">
                 answer
               </p>
             </li>
@@ -293,20 +293,20 @@ function App(props) {
         <form className="col-10 col-lg-3" onSubmit={props.subscribe}>
           <fieldset>
             <legend>Subscribe!</legend>
-            <div className="subscribePart">
-              <label htmlFor='firstName'>First Name </label>
+            <div className="subscribePart col-sm-10">
+              <label htmlFor='firstName'>First Name</label>
               <input name='firstName' id='firstName' type='text'></input>
             </div>
-            <div className="subscribePart">
-              <label htmlFor='lastName'>Last Name </label>
+            <div className="subscribePart col-sm-10">
+              <label htmlFor='lastName'>Last Name</label>
               <input name='lastName' id='lastName' type='text'></input>
             </div>
-            <div className="subscribePart">
-              <label htmlFor='email'>Email </label>
+            <div className="subscribePart col-sm-10">
+              <label htmlFor='email'>Email</label>
               <input name='email' id='email' type='email'></input>
             </div>
-            <div className="col-6 mx-auto subscribePart">
-              <input type='submit' value='submit'></input>
+            <div className="subscribePart col-6 col-sm-4">
+              <input type='submit' value='SUBMIT'></input>
             </div>
           </fieldset>
         </form>
