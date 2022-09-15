@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6d08a3ca.css",
+    "main.js": "/static/js/main.30772317.js",
+    "static/media/Paint.png": "/static/media/Paint.42b81deba2be79d413c0.png",
+    "static/media/ModelPRIS.png": "/static/media/ModelPRIS.638d68e377cb6f380fea.png",
+    "static/media/ModelROY.png": "/static/media/ModelROY.3f338bd0e865aa01cfbd.png",
+    "static/media/BladeRunner_City.jpeg": "/static/media/BladeRunner_City.57e26f5d8f5ac3ebce6c.jpeg",
+    "static/media/ModelLEON.png": "/static/media/ModelLEON.b7c67f627bd51199221d.png",
+    "static/media/Brain.png": "/static/media/Brain.315c412204019ae816d5.png",
+    "static/media/Cam.png": "/static/media/Cam.d8bbbf56820a691a0109.png",
+    "static/media/BladeRunner_Questions.jpeg": "/static/media/BladeRunner_Questions.f6a52819d72f284829af.jpeg",
+    "static/media/BladeRunner_Intro.jpeg": "/static/media/BladeRunner_Intro.23b0561479bc34a1e6b3.jpeg",
+    "static/media/altLogo.png": "/static/media/altLogo.c3adad70055f07d0f9a7.png",
+    "index.html": "/index.html",
+    "main.6d08a3ca.css.map": "/static/css/main.6d08a3ca.css.map",
+    "main.30772317.js.map": "/static/js/main.30772317.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d08a3ca.css",
+    "static/js/main.30772317.js"
+  ]
+}
