@@ -213,6 +213,7 @@ header{
     }
     html{
         scroll-padding-top: 60px;
+        scroll-behavior: smooth;
     }
     body{
         background-color: #0E1409;
@@ -313,6 +314,7 @@ header{
         }
         ul{
             margin: 2rem 0 0 0;
+            padding: 0;
             li{
                 margin: auto;
                 display: none;
@@ -349,6 +351,8 @@ header{
             margin: .5rem 0;
             button{
                 max-height: initial;
+                max-width: initial;
+                margin: 0 .5rem;
                 .activeCircle{
                     background-color: #d5bdbd;
                     border-radius: 50%;
@@ -478,11 +482,15 @@ header{
                     label{
                         padding: 0 0 0 .5rem;
                     }
+                    input{
+                        color: black;
+                        padding: 0 0 0 .5rem;
+                    }
                 }
                 div{
                     input[type=submit]{
                         background: #c999b6;
-                        color: black;
+                        padding: 0;
                     }
                 }
             }
@@ -507,6 +515,10 @@ header{
             }
         }
     }
+    #upArrow{
+        display: none;
+    }
+
     @media screen and (min-width: 435px){
         html{
             scroll-padding-top: 65px;
@@ -532,6 +544,13 @@ header{
             }
             .leg{
                 @include horseParts($top: 47px, $left: -2px, $border: 20px);
+            }
+        }
+        #featured{
+            #circleSlideHolder{
+                button{
+                    margin: 0 .75rem;  
+                }
             }
         }
         #features{
@@ -584,9 +603,11 @@ header{
                 @include horseParts($top: 47px, $border: 23px);
             }
         }
-        #circleSlideHolder{
-            button{
-                margin: 0 .15rem;
+        #featured{
+            #circleSlideHolder{
+                button{
+                    margin: 0 1rem;  
+                }
             }
         }
         #features{
@@ -641,11 +662,6 @@ header{
                 @include horseParts($top: 47px, $border: 26px);
             }
         }
-        #circleSlideHolder{
-            button{
-                margin: 0 .25rem;
-            }
-        }
         #features{
             ul{
                 li{
@@ -696,11 +712,6 @@ header{
                 @include horseParts($top: 49px, $left: -6px, $border: 26px);
             }
         }
-        #circleSlideHolder{
-            button{
-                margin: 0 .35rem;
-            }
-        }
         #features{
             ul{
                 li{
@@ -724,5 +735,79 @@ header{
             }
         }
     }
+
+    @media screen and (orientation: landscape) {
+        header{
+            position: initial;
+            button{
+                svg{
+                    max-width: 49px;
+                    max-height: 49px;
+                }
+            }
+            nav{
+                ul{
+                    li{
+                        margin-bottom: 0;
+                    }  
+                }
+            }
+        }
+        #featured{
+            ul{
+                margin: 1rem 0 0 0;
+                @include media-breakpoint-up(sm){
+                    @include make-col(10);
+                }
+                li{
+                    display: initial;
+                    margin: 0 1rem;
+                    
+                    data{
+                        figure{
+                            figcaption{
+                                min-height: initial;
+                                margin-top: 1.5rem;
+                            }
+                        }
+                    }
+                }
+                .active{
+                    animation-duration: 0;
+                    animation-name: none;
+                }
+            }
+            button{
+                display: none;
+            }
+        }
+        #upArrow{
+            display: initial;
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            max-width: 40px;
+            background-color: unset;
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            a{
+                svg{
+                    max-height: 40px;
+                    background-color: blue;
+                    opacity: .5;
+                    border-radius: 50%;  
+                }
+            }
+        }
+
+        @media screen and (min-width: 667px) {
+            html{
+                scroll-padding-top: 10px;
+            }
+        }
+       
+    }
+      
 }
 

@@ -52,17 +52,29 @@ const slideCircle = (x) => {
   featuredCircles[i].classList.add('activeCircle')
 }
 
-if (window.innerWidth < 1000){
+const landScape = window.matchMedia('(orientation: landscape)')
+const portrait = window.matchMedia('(orientation: portrait)')
+let windoww = window.matchMedia('(max-width: 768px)')
+if(portrait.matches && windoww.matches){
   clearInterval(slideShow)
   slideShow = setInterval(slideForward, 5000)
 }
-let windowSize = window.matchMedia('(min-width: 1000px)')
-windowSize.addEventListener('change', (media) => {
-  if(media.matches){
+
+landScape.addEventListener('change', (media) => {
+  if (media.matches){
     clearInterval(slideShow)
-  } else {
+  } else if (!media.matches && window.innerWidth < 769){
     clearInterval(slideShow)
-    slideShow = setInterval(slideForward, 2000)
+    slideShow = setInterval(slideForward, 5000)
+  }
+})
+
+windoww.addEventListener('change', (media) => {
+  if (media.matches && portrait.matches){
+    clearInterval(slideShow)
+    slideShow = setInterval(slideForward, 5000)
+  } else{
+    clearInterval(slideShow)
   }
 })
 
