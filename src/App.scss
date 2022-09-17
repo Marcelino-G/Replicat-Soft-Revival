@@ -4,189 +4,6 @@
 
 // additional css
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: whitesmoke;
-}
-
-@mixin contentOverBackground {
-    position: absolute;
-    right: 0;
-    padding: 1rem 2.5rem;
-    // color: white;
-    font-size: 2rem;
-}
-
-ul{
-    list-style: none;
-}
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-header{
-    h1{
-        padding: 0;
-        margin: 0;
-        text-align: end;
-    }
-
-    #logo{
-        
-        width: 85px;
-        min-height: 65px;
-    }
-
-    nav{
-        padding: 0;
-        margin-left: 1rem;
-        ul{
-            li{
-                a{
-                    font-size: 1.35rem;
-                }
-            }
-        }
-    }
-}
-
-#quote{
-    padding: 0;
-    margin: 1rem 0;
-    img{
-        padding: 0;
-    }
-    figure{
-        // @include contentOverBackground;
-        // text-align: center;
-        // margin: 0;
-        // color: white;
-    }
-}
-
-#featured{
-    padding: 0;
-    margin: 1rem 0;
-    text-align: center;
-
-    ul{
-        li{
-            margin: 0 5rem 
-        }
-    }
-}
-
-#features{
-    padding: 0;
-    margin: 1rem 0;
-    text-align: center;
-
-    ul{
-        
-        li:nth-child(odd){
-            figure{
-                // flex-direction: row-reverse;
-                
-            } 
-        }
-        li{
-            margin: auto;
-            h3{
-                padding: 0;
-                margin: 0;
-            }
-            figure{
-                margin: auto;
-                padding: 0;
-                picture{
-                    img{
-                        min-height: 350px;
-                        max-height: 400px;
-                        min-width: 325px;
-                        max-width: 425px; 
-                    }
-                }
-            }
-        }
-    }
-}
-
-#faq{
-    padding: 0;
-    margin: 1rem 0;
-
-    img{
-        padding: 0;
-    }
-    #questions{
-        margin: auto;
-        // @include contentOverBackground;
-        padding: 1rem 0;
-        h2{
-            padding:0;
-            
-        }
-        ul{
-            padding: 0;
-            li{
-                margin: .5rem 0;
-            }
-        }
-    }
-}
-
-#footerr{
-    padding: 0;
-    margin: 1rem 0;
-    text-align: center;
-    figure{
-        margin: 0;
-        padding: 0;
-    }
-    div{
-        padding: 0;
-    }
-    // #copyright{
-
-    //     display: flex;
-    //     flex-direction: column-reverse;
-    //     padding: 0;
-    //     p{
-    //         margin: 0; 
-    //         text-align: end;
-            
-    //     }
-    // }
-    form{
-        padding: 0;
-        fieldset{
-            
-            .subscribePart{
-                display: flex;
-                flex-direction: column;
-                text-align: start;
-                margin: .25rem 0;
-            }
-        }
-    }
-    // address{
-    //     display: flex;
-    //     justify-content: space-evenly;
-    //     padding: 0;
-    //     margin: 0;
-    //     ul{
-    //         margin: 0;
-    //         padding: 0;  
-    //         li{
-    //             margin: .5rem 0;
-    //         }
-    //     }
-    // }
-}
-
 @mixin newSectionTopBorder{
     border-top: solid #d5bdbd 3px;
     border-top-left-radius: 10px;
@@ -207,607 +24,823 @@ header{
     text-align: $textAlign;
 }
 
-@media screen and (max-width: 768px){
-    *{
-        font-family: Helvetica, Arial, sans-serif;
+*{
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: whitesmoke;
+}
+html{
+    scroll-padding-top: 60px;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #0E1409;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+header{
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    padding: .5rem 0 .5rem 0;
+    background-color: #cae0e1;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    #hamburger{
+        border: none;
+        background-color: unset;
+        svg{
+            position: relative;
+            z-index: -1;
+            path{
+                color: black;
+            }
+        }
     }
-    html{
-        scroll-padding-top: 60px;
-        scroll-behavior: smooth;
+    .pressedHam{
+        border: solid #4a6e74 1px;
+        border-radius: 2px;
+        box-shadow: inset 0px 0px 4px 1px #2b545c;
     }
-    body{
-        background-color: #0E1409;
+    h1{
+        margin: 0;
+        font-size: 1.4rem;
+        text-align: end;
+        color: black; 
     }
-    header{
-        position: sticky;
-        top: 0px;
-        z-index: 3;
-        padding: .5rem 0 .5rem 0;
-        background-color: #cae0e1;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
+    #logo{
+        display: none;
+    }
+    nav{
+        display: none;
+        box-shadow: inset 0px 6px 10px 0px rgba(43, 84, 92, 0.36);
+        ul{
+            margin: 0;
+            li{
+                margin-bottom: .25rem;
+                color: black;
+                a{
+                    // display: flex;
+                    padding: .5rem 0 .5rem .75rem;
+                    font-size: 1.25rem;
+                }
+            }
+            li:nth-child(odd){
+                background-color: #aecfd1;
+            }
+            li:last-child{
+                margin: 0;
+            }
+        }
+    }
+}
+#quote{
+    margin: 0 0 1rem 0;
+    padding: 0;
+    img{
+        padding: 0;
+    }
+    figure{
+        @include newSectionTopBorder;
+        padding: 1rem;
+        text-align: center;
+    }
+}
+#horse{
+    position: absolute;
+    top: 430px;
+    z-index: -1;
+    transform: rotate(0deg) scaleX(-1);
+    padding: 0;
+    text-align: end;
+    .horn{
+        @include horseParts($left: 102px);
+        clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
+    }    
+    .snout{
+        @include horseParts($top: 17px, $left: 70px);
+        clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
+    }
+    .neck{
+        @include horseParts($top: 22px, $left: 56px);
+        clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
+    }
+    .shoulder{
+        @include horseParts($top: 27px, $left: 26px);
+        clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
+    }
+    .leg{
+        @include horseParts($top: 52px, $left: -6px);
+        clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
+    }
+}
+#featured{
+    margin: 0;
+    text-align: center;
+    h2{
+        margin: 0 0 1rem 0;
+    }
+    ul{
+        margin: 2rem 0 0 0;
+        padding: 0;
+        li{
+            margin: auto;
+            display: none;
+            data{
+                figure{
+                    figcaption{
+                        min-height: 85px;
+                        margin-top: 1.5rem;
+                    }
+                }
+            }
+        }
+        .active{
+            display: initial;
+            animation-duration: 5s;
+            animation-name: featuredBlurIn;
+        }
+        @keyframes featuredBlurIn {
+            from{
+                opacity: .0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    }
+    button{
+        background-color: unset;
+        border: none;
+        max-height: 50px;
+        align-self: center;
+    }
+    #circleSlideHolder{
+        margin: .5rem 0;
         button{
-            border: none;
-            background-color: unset;
+            max-height: initial;
+            max-width: initial;
+            margin: 0 .5rem;
+            .activeCircle{
+                background-color: #d5bdbd;
+                border-radius: 50%;
+            }
             svg{
                 position: relative;
                 z-index: -1;
-                path{
-                    color: black;
+            }  
+        }
+    }
+}
+#features{
+    margin: 1rem 0 0 0;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: #1b2c2c;
+    @include newSectionTopBorder;
+    h2{
+        margin: 0 0 1rem 0;
+    }
+    ul{
+        li{
+            margin: .5rem 0;
+            padding: .5rem;
+            @include featuresList($shadowColor: #55848C, $topLeftBottomRight: 35%, $textAlign: end);
+            h3{
+                padding: 0;
+                margin: 0;
+            }
+            figure{
+                margin-top: 1rem;
+                padding: 0;
+                text-align: center;
+                picture{
+                    img{  
+                        min-width: 65px;
+                        min-height: 90px;
+                        max-width: 165px; 
+                        max-height: 140px;
+                        
+                    }
                 }
             }
         }
-        .pressedHam{
-            border: solid #4a6e74 1px;
-            border-radius: 2px;
-            box-shadow: inset 0px 0px 4px 1px #2b545c;
+        li:nth-child(odd){
+            @include featuresList($shadowColor: #e3c6a1, $topRightBottomLeft: 35%, $textAlign: start);
+            figure{
+                display: flex;
+                flex-direction: row-reverse;
+            }
         }
-        h1{
-            font-size: 1.4rem;
-            color: black; 
+    }
+}
+#faq{
+    margin: 0;
+    padding: 0;
+    background-color: #637b99a3;
+    img{
+        padding: 0;
+    }
+    #questions{
+        margin: 0 auto;
+        padding: 1rem 0;
+        @include newSectionTopBorder;
+        text-align: center;
+        h2{
+            padding:0;
         }
-        #logo{
-            display: none;
-        }
-        nav{
-            display: none;
-            box-shadow: inset 0px 6px 10px 0px rgba(43, 84, 92, 0.36);
-            ul{
-                margin: 0;
-                li{
-                    margin-bottom: .25rem;
-                    color: black;
-                    a{
-                        display: flex;
-                        padding: .5rem 0 .5rem .75rem;
+        ul{
+            margin: 0;
+            li{
+                padding: .5rem;
+                margin: 1rem 0;
+                p[class~='question']{
+                    padding: .75rem;
+                    margin:0 auto;
+                    box-shadow: 0px 0px 5px 2px #97C4BE;
+                }
+                p[class~='question'].removeListShadow{
+                    box-shadow: unset;
+                }
+                p[class~="answer"]{
+                    visibility: hidden;
+                    margin: 1rem auto 0 auto;
+                    padding: .75rem;
+                    box-shadow: 0px 0px 5px 2px #25ffe2;
+                }
+                p[class~="answer"].stinkyAnimation{
+                    visibility: visible;
+                    animation-name: fadeOpen;
+                    animation-duration: .5s;
+                }
+                @keyframes fadeOpen{
+                    0% {
+                        opacity: 0; 
                     }
+                    100% {
+                        opacity: 1;
+                        
+                    }
+                }          
+            }    
+        }
+    }
+}
+#socials{
+    padding: 1rem 0;
+    @include newSectionTopBorder;
+    h2{
+        text-align: center;
+    }
+    ul{
+        margin: 1rem 0 0 0;
+    }
+}
+#footerr{
+    margin: 1rem 0 0 0;
+    padding: 1rem 0;
+    background-color: #1b2c2c;
+    text-align: center;
+    @include newSectionTopBorder;
+    figure{
+        margin: 0;
+        padding: 1rem 0;
+        figcaption{
+            margin-top: .5rem;
+        }
+    }
+    form{
+        padding: 0;
+        margin: auto;
+        fieldset{
+            .subscribePart{
+                display: flex;
+                flex-direction: column;
+                text-align: start;
+                margin: 1rem auto;
+                label{
+                    padding: 0 0 0 .5rem;
                 }
-                li:nth-child(odd){
-                    background-color: #aecfd1;
+                input{
+                    color: black;
+                    padding: 0 0 0 .5rem;
                 }
-                li:last-child{
-                    margin: 0;
+            }
+            div{
+                input[type=submit]{
+                    background: #c999b6;
+                    padding: 0;
                 }
             }
         }
     }
-    #quote{
-        margin: 0 0 1rem 0;
-        figure{
-            @include newSectionTopBorder;
-            padding: 1rem;
-            text-align: center;
+    address{
+        padding: 0;
+        margin: 1rem 0;
+        ul{
+            margin: 0;
+            padding: 1rem;  
+            li{
+                margin: .5rem 0;
+            }
+        }
+    }
+    #copyright{
+        padding: 0 0 0 1rem;
+        margin-top: 1rem;
+        p{
+            margin: 0; 
+            text-align: start;
+        }
+    }
+}
+#upArrow{
+    display: none;
+}
+
+@media screen and (min-width: 435px){
+    html{
+        scroll-padding-top: 65px;
+    }
+    header{
+        h1{
+            font-size: 1.55rem;
         }
     }
     #horse{
-        position: absolute;
-        top: 430px;
-        z-index: -1;
-        transform: rotate(0deg) scaleX(-1);
-        padding: 0;
-        text-align: end;
+        top:445px;
         .horn{
-            @include horseParts($left: 102px);
-            clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
-        }    
+            @include horseParts($left: 126px, $top: -13px, $border: 20px);
+        }
         .snout{
-            @include horseParts($top: 17px, $left: 70px);
-            clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
+            @include horseParts($top: 7px, $left: 87px, $border: 20px);
         }
         .neck{
-            @include horseParts($top: 22px, $left: 56px);
-            clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
+            @include horseParts($top: 13px, $left: 71px, $border: 20px);
         }
         .shoulder{
-            @include horseParts($top: 27px, $left: 26px);
-            clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
+            @include horseParts($top: 18px, $left: 35px, $border:20px);
         }
         .leg{
-            @include horseParts($top: 52px, $left: -6px);
-            clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
+            @include horseParts($top: 47px, $left: -2px, $border: 20px);
         }
     }
     #featured{
-        margin: 0;
-        h2{
-            margin: 0 0 1rem 0;
+        #circleSlideHolder{
+            button{
+                margin: 0 .75rem;  
+            }
         }
+    }
+    #features{
         ul{
-            margin: 2rem 0 0 0;
-            padding: 0;
             li{
-                margin: auto;
-                display: none;
+                h3{
+                    padding: 0 .25rem 0 0  
+                }
+                figure{
+                    picture{
+                        img{  
+                            max-width: 175px; 
+                            max-height: 150px;
+                        }
+                    }
+                }
+            }
+            li:nth-child(odd){
+                h3{
+                    padding: 0 0 0 .25rem
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 530px){
+    html{
+        scroll-padding-top: 75px;
+    }
+    header{
+        h1{
+            font-size: 1.85rem;
+        }
+    }
+    #horse{
+        top: 470px;
+        .horn{
+            @include horseParts($left: 146px, $top: -21px, $border: 23px);
+        }
+        .snout{
+            @include horseParts($top: 1px, $left: 102px, $border: 23px);
+        }
+        .neck{
+            @include horseParts($top: 8px, $left: 84px, $border: 23px);
+        }
+        .shoulder{
+            @include horseParts($top: 14px, $left: 42px, $border:23px);
+        }
+        .leg{
+            @include horseParts($top: 47px, $border: 23px);
+        }
+    }
+    #featured{
+        #circleSlideHolder{
+            button{
+                margin: 0 1rem;  
+            }
+        }
+    }
+    #features{
+        ul{
+            li{
+                h3{
+                    padding: 0 .5rem 0 0  
+                }
+                figure{
+                    picture{
+                        img{  
+                            max-width: 185px; 
+                            max-height: 160px;
+                        }
+                    }
+                }
+            }
+            li:nth-child(odd){
+                h3{
+                    padding: 0 0 0 .5rem
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 615px){
+    html{
+        scroll-padding-top: 85px;
+    }
+    header{
+        h1{
+            font-size: 2.05rem;
+        }
+    }
+    #horse{
+        top: 500px;
+        .horn{
+            @include horseParts($left: 164px, $top: -31px, $border: 26px);
+        }
+        .snout{
+            @include horseParts($top: -5px, $left: 114px, $border: 26px);
+        }
+        .neck{
+            @include horseParts($top: 3px, $left: 94px, $border: 26px);
+        }
+        .shoulder{
+            @include horseParts($top: 10px, $left: 47px, $border:26px);
+        }
+        .leg{
+            @include horseParts($top: 47px, $border: 26px);
+        }
+    }
+    #features{
+        ul{
+            li{
+                h3{
+                    padding: 0 .75rem 0 0  
+                }
+                figure{
+                    picture{
+                        img{  
+                            max-width: 205px; 
+                            max-height: 180px;
+                        }
+                    }
+                }
+            }
+            li:nth-child(odd){
+                h3{
+                    padding: 0 0 0 .75rem
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 700px){
+    html{
+        scroll-padding-top: 95px;
+    }
+    header{
+        h1{
+            font-size: 2.25rem;
+        }
+    }
+    #horse{
+        top: 530px;
+        .horn{
+            @include horseParts($left: 178px, $top: -33px, $border: 29px);
+        }
+        .snout{
+            @include horseParts($top: -4px, $left: 122px, $border: 29px);
+        }
+        .neck{
+            @include horseParts($top: 5px, $left: 99px, $border: 29px);
+        }
+        .shoulder{
+            @include horseParts($top: 11px, $left: 47px, $border:29px);
+        }
+        .leg{
+            @include horseParts($top: 49px, $left: -6px, $border: 26px);
+        }
+    }
+    #features{
+        ul{
+            li{
+                h3{
+                    padding: 0 1rem 0 0  
+                }
+                figure{
+                    picture{
+                        img{  
+                            max-width: 220px; 
+                            max-height: 195px;
+                        }
+                    }
+                }
+            }
+            li:nth-child(odd){
+                h3{
+                    padding: 0 0 0 1rem
+                }
+            }
+        }
+    }
+}
+
+@media screen and (orientation: landscape) {
+    header{
+        position: initial;
+        button{
+            svg{
+                max-width: 49px;
+                max-height: 49px;
+            }
+        }
+        nav{
+            ul{
+                li{
+                    margin-bottom: 0;
+                }  
+            }
+        }
+    }
+    #featured{
+        ul{
+            margin: 1rem 0 0 0;
+            @include make-col(10);
+            // @include media-breakpoint-up(sm){
+            //     @include make-col(11);
+            // }
+            li{
+                display: initial;
+                margin: 0 1rem;
                 data{
                     figure{
                         figcaption{
-                            min-height: 85px;
+                            min-height: initial;
                             margin-top: 1.5rem;
                         }
                     }
                 }
             }
             .active{
-                display: initial;
-                animation-duration: 5s;
-                animation-name: featuredBlurIn;
-            }
-            @keyframes featuredBlurIn {
-                from{
-                    opacity: .0;
-                }
-                to{
-                    opacity: 1;
-                }
+                animation-duration: 0;
+                animation-name: none;
             }
         }
         button{
-            background-color: unset;
-            border: none;
-            max-height: 50px;
-            align-self: center;
-        }
-        #circleSlideHolder{
-            margin: .5rem 0;
-            button{
-                max-height: initial;
-                max-width: initial;
-                margin: 0 .5rem;
-                .activeCircle{
-                    background-color: #d5bdbd;
-                    border-radius: 50%;
-                }
-                svg{
-                    position: relative;
-                    z-index: -1;
-                }  
-            }
-        }
-    }
-    #features{
-        margin: 1rem 0 0 0;
-        padding: 1rem 0;
-        background-color: #1b2c2c;
-        @include newSectionTopBorder;
-        h2{
-            margin: 0 0 1rem 0;
-        }
-        ul{
-            li{
-                margin: .5rem 0;
-                padding: .5rem;
-                @include featuresList($shadowColor: #55848C, $topLeftBottomRight: 35%, $textAlign: end);
-                figure{
-                    margin-top: 1rem;
-                    text-align: center;
-                    picture{
-                        img{  
-                            min-width: 65px;
-                            min-height: 90px;
-                            max-width: 165px; 
-                            max-height: 140px;
-                            
-                        }
-                    }
-                }
-            }
-            li:nth-child(odd){
-                @include featuresList($shadowColor: #e3c6a1, $topRightBottomLeft: 35%, $textAlign: start);
-                figure{
-                    display: flex;
-                    flex-direction: row-reverse;
-                }
-            }
-        }
-    }
-    #faq{
-        margin: 0;
-        background-color: #637b99a3;
-        #questions{
-            padding: 1rem 0;
-            @include newSectionTopBorder;
-            text-align: center;
-            // h2{
-            //     text-align: center;
-            // }
-            ul{
-                margin: 0;
-                li{
-                    padding: .5rem;
-                    margin: 1rem 0;
-                    p[class~='question']{
-                        padding: .75rem;
-                        margin:0 auto;
-                        box-shadow: 0px 0px 5px 2px #97C4BE;
-                    }
-                    p[class~='question'].removeListShadow{
-                        box-shadow: unset;
-                    }
-                    p[class~="answer"]{
-                        visibility: hidden;
-                        margin: 1rem auto 0 auto;
-                        padding: .75rem;
-                        box-shadow: 0px 0px 5px 2px #25ffe2;
-                    }
-                    p[class~="answer"].stinkyAnimation{
-                        visibility: visible;
-                        animation-name: fadeOpen;
-                        animation-duration: .5s;
-                    }
-                    @keyframes fadeOpen{
-                        0% {
-                            opacity: 0; 
-                        }
-                        100% {
-                            opacity: 1;
-                           
-                        }
-                    }          
-                }    
-            }
-        }
-    }
-    #socials{
-        padding: 1rem 0;
-        @include newSectionTopBorder;
-        h2{
-            text-align: center;
-        }
-        ul{
-            margin: 1rem 0 0 0;
-        }
-    }
-    #footerr{
-        margin: 1rem 0 0 0;
-        padding: 1rem 0;
-        background-color: #1b2c2c;
-        text-align: center;
-        @include newSectionTopBorder;
-        figure{
-            margin: 0;
-            padding: 1rem 0;
-            figcaption{
-                margin-top: .5rem;
-            }
-        }
-        form{
-            padding: 0;
-            margin: auto;
-            fieldset{
-                .subscribePart{
-                    display: flex;
-                    flex-direction: column;
-                    text-align: start;
-                    margin: 1rem auto;
-                    label{
-                        padding: 0 0 0 .5rem;
-                    }
-                    input{
-                        color: black;
-                        padding: 0 0 0 .5rem;
-                    }
-                }
-                div{
-                    input[type=submit]{
-                        background: #c999b6;
-                        padding: 0;
-                    }
-                }
-            }
-        }
-        address{
-            padding: 0;
-            margin: 1rem 0;
-            ul{
-                margin: 0;
-                padding: 1rem;  
-                li{
-                    margin: .5rem 0;
-                }
-            }
-        }
-        #copyright{
-            padding: 0 0 0 1rem;
-            margin-top: 1rem;
-            p{
-                margin: 0; 
-                text-align: start;
-            }
+            display: none;
         }
     }
     #upArrow{
-        display: none;
+        display: initial;
+        position: fixed;
+        bottom: 20px;
+        right: 15px;
+        max-width: 40px;
+        background-color: unset;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        a{
+            svg{
+                max-height: 40px;
+                background-color: blue;
+                opacity: .5;
+                border-radius: 50%;  
+            }
+        }
     }
 
-    @media screen and (min-width: 435px){
+    @media screen and (min-width: 667px) {
         html{
-            scroll-padding-top: 65px;
-        }
-        header{
-            h1{
-                font-size: 1.55rem;
-            }
-        }
-        #horse{
-            top:445px;
-            .horn{
-                @include horseParts($left: 126px, $top: -13px, $border: 20px);
-            }
-            .snout{
-                @include horseParts($top: 7px, $left: 87px, $border: 20px);
-            }
-            .neck{
-                @include horseParts($top: 13px, $left: 71px, $border: 20px);
-            }
-            .shoulder{
-                @include horseParts($top: 18px, $left: 35px, $border:20px);
-            }
-            .leg{
-                @include horseParts($top: 47px, $left: -2px, $border: 20px);
-            }
-        }
-        #featured{
-            #circleSlideHolder{
-                button{
-                    margin: 0 .75rem;  
-                }
-            }
-        }
-        #features{
-            ul{
-                li{
-                    h3{
-                        padding: 0 .25rem 0 0  
-                    }
-                    figure{
-                        picture{
-                            img{  
-                                max-width: 175px; 
-                                max-height: 150px;
-                            }
-                        }
-                    }
-                }
-                li:nth-child(odd){
-                    h3{
-                        padding: 0 0 0 .25rem
-                    }
-                }
-            }
+            scroll-padding-top: 10px;
         }
     }
-    @media screen and (min-width: 530px){
-        html{
-            scroll-padding-top: 75px;
-        }
-        header{
-            h1{
-                font-size: 1.85rem;
-            }
-        }
-        #horse{
-            top: 470px;
-            .horn{
-                @include horseParts($left: 146px, $top: -21px, $border: 23px);
-            }
-            .snout{
-                @include horseParts($top: 1px, $left: 102px, $border: 23px);
-            }
-            .neck{
-                @include horseParts($top: 8px, $left: 84px, $border: 23px);
-            }
-            .shoulder{
-                @include horseParts($top: 14px, $left: 42px, $border:23px);
-            }
-            .leg{
-                @include horseParts($top: 47px, $border: 23px);
-            }
-        }
-        #featured{
-            #circleSlideHolder{
-                button{
-                    margin: 0 1rem;  
-                }
-            }
-        }
-        #features{
-            ul{
-                li{
-                    h3{
-                        padding: 0 .5rem 0 0  
-                    }
-                    figure{
-                        picture{
-                            img{  
-                                max-width: 185px; 
-                                max-height: 160px;
-                            }
-                        }
-                    }
-                }
-                li:nth-child(odd){
-                    h3{
-                        padding: 0 0 0 .5rem
-                    }
-                }
-            }
-        }
-    }
-
-
-    @media screen and (min-width: 615px){
-        html{
-            scroll-padding-top: 85px;
-        }
-        header{
-            h1{
-                font-size: 2.05rem;
-            }
-        }
-        #horse{
-            top: 500px;
-            .horn{
-                @include horseParts($left: 164px, $top: -31px, $border: 26px);
-            }
-            .snout{
-                @include horseParts($top: -5px, $left: 114px, $border: 26px);
-            }
-            .neck{
-                @include horseParts($top: 3px, $left: 94px, $border: 26px);
-            }
-            .shoulder{
-                @include horseParts($top: 10px, $left: 47px, $border:26px);
-            }
-            .leg{
-                @include horseParts($top: 47px, $border: 26px);
-            }
-        }
-        #features{
-            ul{
-                li{
-                    h3{
-                        padding: 0 .75rem 0 0  
-                    }
-                    figure{
-                        picture{
-                            img{  
-                                max-width: 205px; 
-                                max-height: 180px;
-                            }
-                        }
-                    }
-                }
-                li:nth-child(odd){
-                    h3{
-                        padding: 0 0 0 .75rem
-                    }
-                }
-            }
-        }
-    }
-    @media screen and (min-width: 700px){
-        html{
-            scroll-padding-top: 95px;
-        }
-        header{
-            h1{
-                font-size: 2.25rem;
-            }
-        }
-        #horse{
-            top: 530px;
-            .horn{
-                @include horseParts($left: 178px, $top: -33px, $border: 29px);
-            }
-            .snout{
-                @include horseParts($top: -4px, $left: 122px, $border: 29px);
-            }
-            .neck{
-                @include horseParts($top: 5px, $left: 99px, $border: 29px);
-            }
-            .shoulder{
-                @include horseParts($top: 11px, $left: 47px, $border:29px);
-            }
-            .leg{
-                @include horseParts($top: 49px, $left: -6px, $border: 26px);
-            }
-        }
-        #features{
-            ul{
-                li{
-                    h3{
-                        padding: 0 1rem 0 0  
-                    }
-                    figure{
-                        picture{
-                            img{  
-                                max-width: 220px; 
-                                max-height: 195px;
-                            }
-                        }
-                    }
-                }
-                li:nth-child(odd){
-                    h3{
-                        padding: 0 0 0 1rem
-                    }
-                }
-            }
-        }
-    }
-
-    @media screen and (orientation: landscape) {
-        header{
-            position: initial;
-            button{
-                svg{
-                    max-width: 49px;
-                    max-height: 49px;
-                }
-            }
-            nav{
-                ul{
-                    li{
-                        margin-bottom: 0;
-                    }  
-                }
-            }
-        }
-        #featured{
-            ul{
-                margin: 1rem 0 0 0;
-                @include media-breakpoint-up(sm){
-                    @include make-col(10);
-                }
-                li{
-                    display: initial;
-                    margin: 0 1rem;
-                    
-                    data{
-                        figure{
-                            figcaption{
-                                min-height: initial;
-                                margin-top: 1.5rem;
-                            }
-                        }
-                    }
-                }
-                .active{
-                    animation-duration: 0;
-                    animation-name: none;
-                }
-            }
-            button{
-                display: none;
-            }
-        }
-        #upArrow{
-            display: initial;
-            position: fixed;
-            bottom: 20px;
-            right: 15px;
-            max-width: 40px;
-            background-color: unset;
-            border: none;
-            border-radius: 50%;
-            padding: 0;
-            a{
-                svg{
-                    max-height: 40px;
-                    background-color: blue;
-                    opacity: .5;
-                    border-radius: 50%;  
-                }
-            }
-        }
-
-        @media screen and (min-width: 667px) {
-            html{
-                scroll-padding-top: 10px;
-            }
-        }
-       
-    }
-      
 }
+
+@media screen and (min-width: 768px) {
+
+    header{
+        position: initial;
+        #hamburger{
+            display: none;
+        }
+        #logo{
+            display: initial;
+            width: 85px;
+            min-height: 65px;
+        }
+        nav{
+            display: initial;
+            box-shadow: unset;
+            ul{
+                margin-top: 1.5rem;
+                li{
+                    display: inline-block;
+                    margin: 0 1.5rem 0 0;
+                    a{
+                        padding: 0;
+                    }
+                }
+                li:nth-child(odd){
+                    background-color: initial;
+                }
+            }
+        }
+    }
+
+
+    @mixin upUpand($bottom: 0, $seconds: 0) {
+        display: inline-block;
+        position: relative;
+        animation-duration: $seconds;
+        animation-name: upUpAnd;
+
+        @keyframes upUpAnd {
+            from{
+                bottom: $bottom;
+            }
+            to{
+                bottom: 0;
+            }
+        }
+    }
+
+    .fun{
+        @include upUpand($bottom: -1000px, $seconds: 2s);
+    }
+    .fun1{
+        @include upUpand($bottom: -900px, $seconds: 2.5s);
+    }
+    .fun2{
+        @include upUpand($bottom: -800px, $seconds: 3s);
+    }
+    .fun3{
+        @include upUpand($bottom: -700px, $seconds: 3.5s);
+    }
+    .fun4{
+        @include upUpand($bottom: -600px, $seconds: 4s);
+    }
+    
+    .fun5{
+        @include upUpand($bottom: -500px, $seconds: 4.3s);
+    }
+    
+
+   
+
+    
+
+
+
+
+    #quote{
+        
+        // margin: 1rem 0;
+        
+        figure{
+            // @include contentOverBackground;
+            // text-align: center;
+            // margin: 0;
+            // color: white;
+        }
+    }
+    
+    #featured{
+        // padding: 0;
+        // margin: 1rem 0;
+        
+    
+        ul{
+            li{
+                // margin: 0 5rem 
+            }
+        }
+    }
+    
+    #features{
+        // padding: 0;
+        // margin: 1rem 0;
+        
+    
+        ul{
+            li{
+                // margin: auto;
+                
+                figure{
+                    // margin: auto;
+                    
+                    picture{
+                        img{
+                            // min-height: 350px;
+                            // max-height: 400px;
+                            // min-width: 325px;
+                            // max-width: 425px; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    #faq{
+        
+        // margin: 1rem 0;
+    
+        
+        #questions{
+            
+            // @include contentOverBackground;
+            
+            ul{
+                // padding: 0;
+                li{
+                    // margin: .5rem 0;
+                }
+            }
+        }
+    }
+    
+    #footerr{
+        // padding: 0;
+        // margin: 1rem 0;
+        figure{
+            // padding: 0;
+        }
+        // div{
+        //     padding: 0;
+        // }
+        // #copyright{
+    
+        //     display: flex;
+        //     flex-direction: column-reverse;
+        //     padding: 0;
+        //     p{
+        //         margin: 0; 
+        //         text-align: end;
+                
+        //     }
+        // }
+        form{
+            fieldset{
+                
+                .subscribePart{
+                    // margin: .25rem 0;
+                }
+            }
+        }
+        // address{
+        //     display: flex;
+        //     justify-content: space-evenly;
+        //     padding: 0;
+        //     margin: 0;
+        //     ul{
+        //         margin: 0;
+        //         padding: 0;  
+        //         li{
+        //             margin: .5rem 0;
+        //         }
+        //     }
+        // }
+    }
+}
+
+
+
 

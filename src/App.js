@@ -4,18 +4,18 @@ function App(props) {
   return (
     <div className="border border-4 border-primary container-fluid row p-0 mx-auto justify-content-center">
 
-      <header className="row m-0 px-0 justify-content-around">
+      <header className="row m-0 px-0 justify-content-around justify-content-md-evenly">
         <button aria-label="Hamburger nav" id="hamburger" onClick={props.hamburger} className="col-1 p-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
         </button>
-        <h1 className="col-10 p-0">
+        <h1 className="col-10 col-md-12 p-0 pe-md-3">
           THE SIBER CORPORATION
         </h1>
         <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
       
-        <nav className="row pt-2 px-0 mx-auto mt-1 col-lg-4">
+        <nav className="pt-2 px-0 mx-auto mt-1 col-md-10 m-md-0 p-md-0 col-lg-4">
           <ul onClick={props.hamburger} className="p-0">
             <li className="flex-fill-lg"><a>Home</a></li>
             <li className="flex-fill-lg"><a>About</a></li>
@@ -31,7 +31,7 @@ function App(props) {
         <img src={Imgs.city} alt='Blade Runner city'/>
         <figure>
           <blockquote>
-            <p>
+            <p  id='eldonMessage' onClick={props.mes}>
             Early in the 21st Century, THE SIBER CORPORATION advanced Robot evolution into the 
             <dfn> NEXUS phase </dfn> — a being virtually identical to a cat — known as a Replicat. 
             The NEXUS 6 Replicats were superior in strength and agility, and at least equal in intelligence, 
@@ -62,7 +62,7 @@ function App(props) {
             <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
           </svg>
         </button>
-        <ul className="col-8 list-group list-group-horizontal-sm">
+        <ul className="col-8 list-group list-group-horizontal">
           <li className="flex-fill-lg col-lg-3 replicat active">
             <data value='Hurricane'>
               <figure className="m-0">

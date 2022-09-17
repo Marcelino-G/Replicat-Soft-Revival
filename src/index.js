@@ -16,6 +16,14 @@ let slideShow;
 const questions = document.getElementsByClassName('question')
 const answers = document.getElementsByClassName('answer')
 
+
+
+
+
+
+
+
+
 const slideForward = () => {
   featuredReplicats[i].classList.remove('active')
   featuredCircles[i].classList.remove('activeCircle')
@@ -54,7 +62,7 @@ const slideCircle = (x) => {
 
 const landScape = window.matchMedia('(orientation: landscape)')
 const portrait = window.matchMedia('(orientation: portrait)')
-let windoww = window.matchMedia('(max-width: 768px)')
+let windoww = window.matchMedia('(max-width: 767px)')
 if(portrait.matches && windoww.matches){
   clearInterval(slideShow)
   slideShow = setInterval(slideForward, 5000)
@@ -80,12 +88,14 @@ windoww.addEventListener('change', (media) => {
 
 const Parent = () => {
 
-  const [hamToggle, setHamToggle] = useState(false); 
+  const [hamToggle, setHamToggle] = useState(null); 
   
   useEffect(() => {
     const nav = document.querySelector('nav');
-    const ham = document.querySelector('#hamburger')
+    const ham = document.querySelector('#hamburger');
     switch (hamToggle){
+      case null: 
+        break
       case true: 
         nav.style.display = 'initial'
         ham.classList.add('pressedHam')
@@ -98,7 +108,14 @@ const Parent = () => {
   }, [hamToggle])
 
   const handleOnClickHamburgerAndNavLinks = () => {
-    setHamToggle(!hamToggle)
+    if(!windoww.matches){
+      return
+    }
+    else if (hamToggle === null){
+      setHamToggle(true)
+    } else {
+      setHamToggle(!hamToggle)
+    }
   }
 
   const handleOnSubmit = (e) =>{
@@ -152,6 +169,62 @@ const Parent = () => {
     pElement.classList.add('stinkyAnimation')
   }
 
+  const handleOnClickMes = (e) => {
+    let eldonMes = document.getElementById('eldonMessage')
+    let mes = e.target.textContent
+    let mesArray = Array.from(mes)
+
+    for(let i=0; i<mesArray.length; i++){
+      let letter = document.createElement('p')
+      if (mesArray[i] === " "){
+        letter.textContent = '\u00A0';
+      } else {
+        letter.textContent = mesArray[i]
+      }
+
+     
+
+
+      // if (i < 150 && i % 2 === 0){
+      //   letter.classList.add('fun')
+      // } else if (i < 150) {
+      //   letter.classList.add('fun1')
+      // } else if (i < 300 && i % 2 === 0){
+      //   letter.classList.add('fun2')
+      // } else if (i < 300){
+      //   letter.classList.add('fun3')
+      // } else if (i < 400 && i % 2 === 0){
+      //   letter.classList.add('fun4')
+      // } else if (i < 400){
+      //   letter.classList.add('fun5')
+      // }
+
+      if (i % 6 === 0){
+        letter.classList.add('fun')
+      } else if (i % 5 === 0) {
+        letter.classList.add('fun1')
+      } else if (i % 4 === 0){
+        letter.classList.add('fun2')
+      } else if (i % 3 === 0){
+        letter.classList.add('fun3')
+      } else if (i % 2 === 0){
+        letter.classList.add('fun4')
+      } else if (i % 1 === 0){
+        letter.classList.add('fun5')
+      }
+
+
+
+
+
+
+
+      console.log(i)
+      eldonMes.append(letter)
+    }
+
+  }
+
   return (
     <div>
       <App 
@@ -161,6 +234,7 @@ const Parent = () => {
       back = {handleOnClickBack}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
       question = {handleOnClickQuestion}
+      mes = {handleOnClickMes}
       />
     </div>
   )
