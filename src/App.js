@@ -146,7 +146,7 @@ function App(props) {
               Artificial Intelligence
             </h3>
             <figure className="row col-lg-12">
-              <picture className="col-6 col-lg-4">
+              <picture ref={props.reff} className="col-6 col-lg-4">
                 <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
               <figcaption className="col-6">

@@ -24,6 +24,31 @@
     text-align: $textAlign;
 }
 
+@mixin showFeaturedHorizontal() {
+    ul{
+        margin: 1rem 0 0 0;
+        li{
+            display: initial;
+            margin: 0 1rem;
+            data{
+                figure{
+                    figcaption{
+                        min-height: initial;
+                        margin-top: 1.5rem;
+                    }
+                }
+            }
+        }
+        .active{
+            animation-duration: 0;
+            animation-name: none;
+        }
+    }
+    button{
+        display: none;
+    }
+}
+
 *{
     font-family: Helvetica, Arial, sans-serif;
     padding: 0;
@@ -555,7 +580,7 @@ header{
             @include horseParts($top: 11px, $left: 47px, $border:29px);
         }
         .leg{
-            @include horseParts($top: 49px, $left: -6px, $border: 26px);
+            @include horseParts($top: 54px, $left: -6px, $border: 29px);
         }
     }
     #features{
@@ -600,31 +625,9 @@ header{
         }
     }
     #featured{
+        @include showFeaturedHorizontal();
         ul{
-            margin: 1rem 0 0 0;
             @include make-col(10);
-            // @include media-breakpoint-up(sm){
-            //     @include make-col(11);
-            // }
-            li{
-                display: initial;
-                margin: 0 1rem;
-                data{
-                    figure{
-                        figcaption{
-                            min-height: initial;
-                            margin-top: 1.5rem;
-                        }
-                    }
-                }
-            }
-            .active{
-                animation-duration: 0;
-                animation-name: none;
-            }
-        }
-        button{
-            display: none;
         }
     }
     #upArrow{
@@ -685,16 +688,42 @@ header{
         }
     }
 
+    #horse{
+        top: 580px;
+        // .horn{
+        //     @include horseParts($left: 194px, $top: -40px, $border: 30px);
+        // }
+        // .snout{
+        //     @include horseParts($top: -9px, $left: 133px, $border: 30px);
+        // }
+        // .neck{
+        //     @include horseParts($top: 1px, $left: 109px, $border: 30px);
+        // }
+        // .shoulder{
+        //     @include horseParts($top: 8px, $left: 52px, $border: 30px);
+        // }
+        // .leg{
+        //     @include horseParts($top: 55px, $left: -7px, $border: 30px);
+        // }
+    }
 
-    @mixin upUpand($bottom: 0, $seconds: 0) {
-        display: inline-block;
+    
+    
+    #featured{
+        @include showFeaturedHorizontal;
+        ul{
+            @include make-col(10);
+        }
+    }
+    
+    @mixin featuresGlideUp() {
         position: relative;
-        animation-duration: $seconds;
-        animation-name: upUpAnd;
-
-        @keyframes upUpAnd {
+        animation-duration: 2s;
+        animation-name: glideUp;
+    
+        @keyframes glideUp {
             from{
-                bottom: $bottom;
+                bottom: -600px;
             }
             to{
                 bottom: 0;
@@ -702,144 +731,63 @@ header{
         }
     }
 
-    .fun{
-        @include upUpand($bottom: -1000px, $seconds: 2s);
+    .glideUp{
+        @include featuresGlideUp()
     }
-    .fun1{
-        @include upUpand($bottom: -900px, $seconds: 2.5s);
-    }
-    .fun2{
-        @include upUpand($bottom: -800px, $seconds: 3s);
-    }
-    .fun3{
-        @include upUpand($bottom: -700px, $seconds: 3.5s);
-    }
-    .fun4{
-        @include upUpand($bottom: -600px, $seconds: 4s);
-    }
-    
-    .fun5{
-        @include upUpand($bottom: -500px, $seconds: 4.3s);
-    }
-    
 
-   
-
-    
-
-
-
-
-    #quote{
-        
-        // margin: 1rem 0;
-        
-        figure{
-            // @include contentOverBackground;
-            // text-align: center;
-            // margin: 0;
-            // color: white;
-        }
-    }
-    
-    #featured{
-        // padding: 0;
-        // margin: 1rem 0;
-        
-    
-        ul{
-            li{
-                // margin: 0 5rem 
-            }
-        }
-    }
-    
     #features{
-        // padding: 0;
-        // margin: 1rem 0;
-        
-    
         ul{
             li{
-                // margin: auto;
-                
                 figure{
-                    // margin: auto;
-                    
                     picture{
                         img{
-                            // min-height: 350px;
-                            // max-height: 400px;
-                            // min-width: 325px;
-                            // max-width: 425px; 
+                            max-width: 240px; 
+                            max-height: 215px;
                         }
                     }
                 }
             }
         }
     }
-    
-    #faq{
-        
-        // margin: 1rem 0;
-    
-        
-        #questions{
-            
-            // @include contentOverBackground;
-            
-            ul{
-                // padding: 0;
-                li{
-                    // margin: .5rem 0;
-                }
-            }
-        }
-    }
-    
-    #footerr{
-        // padding: 0;
-        // margin: 1rem 0;
-        figure{
-            // padding: 0;
-        }
-        // div{
-        //     padding: 0;
-        // }
-        // #copyright{
-    
-        //     display: flex;
-        //     flex-direction: column-reverse;
-        //     padding: 0;
-        //     p{
-        //         margin: 0; 
-        //         text-align: end;
-                
-        //     }
-        // }
-        form{
-            fieldset{
-                
-                .subscribePart{
-                    // margin: .25rem 0;
-                }
-            }
-        }
-        // address{
-        //     display: flex;
-        //     justify-content: space-evenly;
-        //     padding: 0;
-        //     margin: 0;
-        //     ul{
-        //         margin: 0;
-        //         padding: 0;  
-        //         li{
-        //             margin: .5rem 0;
-        //         }
-        //     }
-        // }
-    }
 }
+
+
+
+// @mixin upUpand($bottom: 0, $seconds: 0) {
+    //     display: inline-block;
+    //     position: relative;
+    //     animation-duration: $seconds;
+    //     animation-name: upUpAnd;
+
+    //     @keyframes upUpAnd {
+    //         from{
+    //             bottom: $bottom;
+    //         }
+    //         to{
+    //             bottom: 0;
+    //         }
+    //     }
+    // }
+
+    // .fun{
+    //     @include upUpand($bottom: -1000px, $seconds: 2s);
+    // }
+    // .fun1{
+    //     @include upUpand($bottom: -900px, $seconds: 2.5s);
+    // }
+    // .fun2{
+    //     @include upUpand($bottom: -800px, $seconds: 3s);
+    // }
+    // .fun3{
+    //     @include upUpand($bottom: -700px, $seconds: 3.5s);
+    // }
+    // .fun4{
+    //     @include upUpand($bottom: -600px, $seconds: 4s);
+    // }
+    
+    // .fun5{
+    //     @include upUpand($bottom: -500px, $seconds: 4.3s);
+    // }
 
 
 

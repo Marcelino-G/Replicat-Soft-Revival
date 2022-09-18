@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { useState } from 'react';
@@ -15,7 +15,6 @@ let slideShow;
 
 const questions = document.getElementsByClassName('question')
 const answers = document.getElementsByClassName('answer')
-
 
 
 
@@ -68,23 +67,7 @@ if(portrait.matches && windoww.matches){
   slideShow = setInterval(slideForward, 5000)
 }
 
-landScape.addEventListener('change', (media) => {
-  if (media.matches){
-    clearInterval(slideShow)
-  } else if (!media.matches && window.innerWidth < 769){
-    clearInterval(slideShow)
-    slideShow = setInterval(slideForward, 5000)
-  }
-})
 
-windoww.addEventListener('change', (media) => {
-  if (media.matches && portrait.matches){
-    clearInterval(slideShow)
-    slideShow = setInterval(slideForward, 5000)
-  } else{
-    clearInterval(slideShow)
-  }
-})
 
 const Parent = () => {
 
@@ -107,11 +90,45 @@ const Parent = () => {
     }
   }, [hamToggle])
 
+  landScape.addEventListener('change', (media) => {
+    const nav = document.querySelector('nav');
+    const ham = document.querySelector('#hamburger');
+    setHamToggle(null)
+    if (media.matches && window.innerWidth < 768){
+      nav.style.display = 'none'
+      ham.classList.remove('pressedHam')
+      clearInterval(slideShow)
+    } else if (media.matches){
+      nav.style.display = 'initial'
+      clearInterval(slideShow)
+    } else if (!media.matches && window.innerWidth < 768){
+      nav.style.display = 'none'
+      ham.classList.remove('pressedHam')
+      clearInterval(slideShow)
+      slideShow = setInterval(slideForward, 5000)
+    }
+  })
+  
+  windoww.addEventListener('change', (media) => {
+    const nav = document.querySelector('nav');
+    const ham = document.querySelector('#hamburger');
+    if (media.matches && portrait.matches){
+      setHamToggle(null)
+      nav.style.display = 'none'
+      ham.classList.remove('pressedHam')
+      clearInterval(slideShow)
+      slideShow = setInterval(slideForward, 5000)
+    } else{
+      setHamToggle(null)
+      nav.style.display = 'initial'
+      clearInterval(slideShow)
+    }
+  })
+
   const handleOnClickHamburgerAndNavLinks = () => {
     if(!windoww.matches){
       return
-    }
-    else if (hamToggle === null){
+    } else if (hamToggle === null){
       setHamToggle(true)
     } else {
       setHamToggle(!hamToggle)
@@ -140,8 +157,6 @@ const Parent = () => {
     slideCircle(e.target.id)
   }
 
-  
-
   const handleOnClickQuestion = (e) => {
     if(e.target.classList.contains('answer')){
       for (let i = 0; i < questions.length; i++){
@@ -169,61 +184,79 @@ const Parent = () => {
     pElement.classList.add('stinkyAnimation')
   }
 
-  const handleOnClickMes = (e) => {
-    let eldonMes = document.getElementById('eldonMessage')
-    let mes = e.target.textContent
-    let mesArray = Array.from(mes)
+  // const [featuresPics, setFeaturesPics] = useState(document.getElementsByClassName('featuresPic'))
+  
+  
 
-    for(let i=0; i<mesArray.length; i++){
-      let letter = document.createElement('p')
-      if (mesArray[i] === " "){
-        letter.textContent = '\u00A0';
-      } else {
-        letter.textContent = mesArray[i]
-      }
-
-     
+  // useEffect(() => {
+  //   console.log(reff['current'])
+  //   const observer = new IntersectionObserver(entries => {
+  //     // We will fill in the callback later...
+  //   });
+  //   observer.observe(reff)
+  // }, [])
 
 
-      // if (i < 150 && i % 2 === 0){
-      //   letter.classList.add('fun')
-      // } else if (i < 150) {
-      //   letter.classList.add('fun1')
-      // } else if (i < 300 && i % 2 === 0){
-      //   letter.classList.add('fun2')
-      // } else if (i < 300){
-      //   letter.classList.add('fun3')
-      // } else if (i < 400 && i % 2 === 0){
-      //   letter.classList.add('fun4')
-      // } else if (i < 400){
-      //   letter.classList.add('fun5')
-      // }
+  const reff = useRef(null)
+  const observerFunc = (entries) => {
+    const [entry] = entries
+    if (entry.isIntersecting){
+      // entry.classList.add('glideUp')
+      entry.target.classList.add('glideUp')
+    }
+  }
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  }
 
-      if (i % 6 === 0){
-        letter.classList.add('fun')
-      } else if (i % 5 === 0) {
-        letter.classList.add('fun1')
-      } else if (i % 4 === 0){
-        letter.classList.add('fun2')
-      } else if (i % 3 === 0){
-        letter.classList.add('fun3')
-      } else if (i % 2 === 0){
-        letter.classList.add('fun4')
-      } else if (i % 1 === 0){
-        letter.classList.add('fun5')
-      }
+  useEffect(() => {
 
-
-
-
-
-
-
-      console.log(i)
-      eldonMes.append(letter)
+    const observer = new IntersectionObserver(observerFunc, observerOptions)
+    if (reff.current){
+      observer.observe(reff.current)
     }
 
-  }
+  })
+
+  
+
+
+  
+
+  
+
+  // const handleOnClickMes = (e) => {
+  //   let eldonMes = document.getElementById('eldonMessage')
+  //   let mes = e.target.textContent
+  //   let mesArray = Array.from(mes)
+
+  //   for(let i=0; i<mesArray.length; i++){
+  //     let letter = document.createElement('p')
+  //     if (mesArray[i] === " "){
+  //       letter.textContent = '\u00A0';
+  //     } else {
+  //       letter.textContent = mesArray[i]
+  //     }
+
+  //     if (i % 6 === 0){
+  //       letter.classList.add('fun')
+  //     } else if (i % 5 === 0) {
+  //       letter.classList.add('fun1')
+  //     } else if (i % 4 === 0){
+  //       letter.classList.add('fun2')
+  //     } else if (i % 3 === 0){
+  //       letter.classList.add('fun3')
+  //     } else if (i % 2 === 0){
+  //       letter.classList.add('fun4')
+  //     } else if (i % 1 === 0){
+  //       letter.classList.add('fun5')
+  //     }
+
+  //     eldonMes.append(letter)
+  //   }
+  // }
 
   return (
     <div>
@@ -234,7 +267,8 @@ const Parent = () => {
       back = {handleOnClickBack}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
       question = {handleOnClickQuestion}
-      mes = {handleOnClickMes}
+      // mes = {handleOnClickMes}
+      reff = {reff}
       />
     </div>
   )
