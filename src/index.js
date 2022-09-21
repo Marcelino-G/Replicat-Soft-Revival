@@ -184,49 +184,6 @@ const Parent = () => {
     pElement.classList.add('stinkyAnimation')
   }
 
-  // const [featuresPics, setFeaturesPics] = useState(document.getElementsByClassName('featuresPic'))
-  
-  
-
-  // useEffect(() => {
-  //   console.log(reff['current'])
-  //   const observer = new IntersectionObserver(entries => {
-  //     // We will fill in the callback later...
-  //   });
-  //   observer.observe(reff)
-  // }, [])
-
-
-  const reff = useRef(null)
-  const observerFunc = (entries) => {
-    const [entry] = entries
-    if (entry.isIntersecting){
-      // entry.classList.add('glideUp')
-      entry.target.classList.add('glideUp')
-    }
-  }
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0
-  }
-
-  useEffect(() => {
-
-    const observer = new IntersectionObserver(observerFunc, observerOptions)
-    if (reff.current){
-      observer.observe(reff.current)
-    }
-
-  })
-
-  
-
-
-  
-
-  
-
   // const handleOnClickMes = (e) => {
   //   let eldonMes = document.getElementById('eldonMessage')
   //   let mes = e.target.textContent
@@ -257,6 +214,34 @@ const Parent = () => {
   //     eldonMes.append(letter)
   //   }
   // }
+
+  const reff = useRef(null)
+  const [isIntersecting, setIsIntersecting] = useState(false)
+  useEffect(() => {
+    
+    const observer = new IntersectionObserver(([entry]) => {
+      
+      setIsIntersecting(entry.isIntersecting)
+      console.log(isIntersecting)
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    })
+
+    if(reff.current){
+      observer.observe(reff.current)
+    }
+    return () => {
+      observer.unobserve(reff.current)
+    }
+    
+    
+  }, [])
+
+  useEffect(() => {
+    console.log(isIntersecting)
+  }, [isIntersecting])
 
   return (
     <div>
