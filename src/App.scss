@@ -129,9 +129,9 @@ header{
 #quote{
     margin: 0 0 1rem 0;
     padding: 0;
+    min-height: 400px;
     img{
         padding: 0;
-        height: 330px
     }
     figure{
         @include newSectionTopBorder;
@@ -680,6 +680,7 @@ header{
                     margin: 0 1.5rem 0 0;
                     a{
                         padding: 0;
+                        font-size: 1.5rem;
                     }
                 }
                 li:nth-child(odd){
@@ -689,8 +690,34 @@ header{
         }
     }
 
+    #quote{
+        figure{
+            font-size: 1.5rem;
+        }
+    }
+
+    #featured{
+        h2{
+            font-size: 2rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            font-size: 1.25rem;
+                            h3{
+                                font-size: 1.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     #horse{
-        top: 580px;
+        top: 610px;
         // .horn{
         //     @include horseParts($left: 194px, $top: -40px, $border: 30px);
         // }
@@ -708,6 +735,12 @@ header{
         // }
     }
 
+    @media screen and (min-width: 900px) {
+        #horse{
+            top:640px;
+        }  
+    }
+
     
     
     #featured{
@@ -718,16 +751,15 @@ header{
     }
     
     @mixin featuresGlideUp() {
-        position: relative;
-        animation-duration: 2s;
+        animation-duration: 1s;
         animation-name: glideUp;
     
         @keyframes glideUp {
             from{
-                bottom: -600px;
+                transform: translate(0 , 150px) ;
             }
             to{
-                bottom: 0;
+                transform: translate(0, 0);
             }
         }
     }
@@ -748,6 +780,23 @@ header{
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    header{
+        h1{
+            font-size: 2.5rem;
+        }
+        nav{
+            ul{
+                li{
+                    a{
+                        font-size: 2rem;
+                    }
+                }
+            }  
         }
     }
 }

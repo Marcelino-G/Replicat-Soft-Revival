@@ -215,33 +215,42 @@ const Parent = () => {
   //   }
   // }
 
-  const reff = useRef(null)
-  const [isIntersecting, setIsIntersecting] = useState(false)
+  const brainPic = useRef(null)
+  const cameraPic = useRef(null)
+  const brushPic = useRef(null)
   useEffect(() => {
-    
-    const observer = new IntersectionObserver(([entry]) => {
-      
-      setIsIntersecting(entry.isIntersecting)
-      console.log(isIntersecting)
-    }, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1.0,
-    })
 
-    if(reff.current){
-      observer.observe(reff.current)
+
+    if (!windoww.matches && !landScape.matches){
+      const observer = new IntersectionObserver(([entry]) => {
+        console.log(entry.isIntersecting)
+        if(entry.isIntersecting){
+          entry.target.classList.add('glideUp')
+          
+        }
+        
+        
+      }, {
+        root: null,
+        rootMargin: '0px 0px 15px 0px',
+        threshold: .01,
+      })
+  
+      if(brainPic.current && cameraPic.current && brushPic.current){
+        observer.observe(brainPic.current)
+        observer.observe(cameraPic.current)
+        observer.observe(brushPic.current)
+      }
+      return () => {
+        observer.unobserve(brainPic.current)
+        observer.unobserve(cameraPic.current)
+        observer.unobserve(brushPic.current)
+      }
     }
-    return () => {
-      observer.unobserve(reff.current)
-    }
+
     
     
   }, [])
-
-  useEffect(() => {
-    console.log(isIntersecting)
-  }, [isIntersecting])
 
   return (
     <div>
@@ -253,7 +262,9 @@ const Parent = () => {
       featuredCircle = {handleOnClickFeaturedCircleOrder}
       question = {handleOnClickQuestion}
       // mes = {handleOnClickMes}
-      reff = {reff}
+      brain = {brainPic}
+      camera = {cameraPic}
+      brush = {brushPic}
       />
     </div>
   )

@@ -15,14 +15,14 @@ function App(props) {
         </h1>
         <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
       
-        <nav className="pt-2 px-0 mx-auto mt-1 col-md-10 m-md-0 p-md-0 col-lg-4">
+        <nav className="pt-2 px-0 mx-auto mt-1 col-md-10 m-md-0 p-md-0">
           <ul onClick={props.hamburger} className="p-0">
-            <li className="flex-fill-lg"><a>Home</a></li>
-            <li className="flex-fill-lg"><a>About</a></li>
-            <li className="flex-fill-lg"><a href="#featured">Featured</a></li>
-            <li className="flex-fill-lg"><a href="#features">Features</a></li>
-            <li className="flex-fill-lg"><a href="#faq">FAQ</a></li>
-            <li className="flex-fill-lg"><a href="#footerr">Contact Us</a></li>
+            <li className=""><a>Home</a></li>
+            <li className=""><a>About</a></li>
+            <li className=""><a href="#featured">Featured</a></li>
+            <li className=""><a href="#features">Features</a></li>
+            <li className=""><a href="#faq">FAQ</a></li>
+            <li className=""><a href="#footerr">Contact Us</a></li>
           </ul>
         </nav>
       </header>
@@ -146,7 +146,7 @@ function App(props) {
               Artificial Intelligence
             </h3>
             <figure className="row col-lg-12">
-              <picture ref={props.reff} className="col-6 col-lg-4">
+              <picture ref={props.brain} className="col-6 col-lg-4">
                 <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
               <figcaption className="col-6">
@@ -160,7 +160,7 @@ function App(props) {
               Security System
             </h3>
             <figure className="row col-lg-12">
-              <picture className="col-6 col-lg-4">
+              <picture ref={props.camera} className="col-6 col-lg-4">
                 <img src= {Imgs.cam} alt='Security System (camera picture)'/>
               </picture>
               <figcaption className="col-6">
@@ -174,7 +174,7 @@ function App(props) {
               Household Tasks
             </h3>
             <figure className="row col-lg-12">
-              <picture className="col-6 col-lg-4">
+              <picture ref={props.brush} className="col-6 col-lg-4">
                 <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
               </picture>
               <figcaption className="col-6">
