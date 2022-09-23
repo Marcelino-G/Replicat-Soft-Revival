@@ -63,7 +63,7 @@ function App(props) {
           </svg>
         </button>
         <ul className="col-8 list-group list-group-horizontal">
-          <li className="flex-fill-lg col-lg-3 replicat active">
+          <li className="replicat active">
             <data value='Hurricane'>
               <figure className="m-0">
                 <picture>
@@ -79,7 +79,7 @@ function App(props) {
             </data>
           </li>
 
-          <li className="flex-fill-lg col-lg-3 replicat">
+          <li className="replicat">
             <data value='Flood'>
               <figure className="m-0">
                 <picture>
@@ -95,7 +95,7 @@ function App(props) {
             </data>
           </li>
 
-          <li className="flex-fill-lg col-lg-3 replicat">
+          <li className="replicat">
             <data value='Avalanche'>
               <figure className="m-0">
                 <picture>
@@ -141,12 +141,12 @@ function App(props) {
           Features
         </h2>
         <ul className="list-group">
-          <li className="row col-lg-12">
-            <h3 className="col-lg-12">
+          <li className="row">
+            <h3>
               Artificial Intelligence
             </h3>
-            <figure className="row col-lg-12">
-              <picture ref={props.brain} className="col-6 col-lg-4">
+            <figure className="row">
+              <picture ref={props.brain} className="col-6">
                 <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
               </picture>
               <figcaption className="col-6">
@@ -155,12 +155,12 @@ function App(props) {
             </figure>
           </li>
 
-          <li className="row col-lg-12">
-            <h3 className="col-lg-12">
+          <li className="row">
+            <h3>
               Security System
             </h3>
-            <figure className="row col-lg-12">
-              <picture ref={props.camera} className="col-6 col-lg-4">
+            <figure className="row">
+              <picture ref={props.camera} className="col-6">
                 <img src= {Imgs.cam} alt='Security System (camera picture)'/>
               </picture>
               <figcaption className="col-6">
@@ -169,12 +169,12 @@ function App(props) {
             </figure>
           </li>
 
-          <li className="row col-lg-12">
-            <h3 className="col-lg-12">
+          <li className="row">
+            <h3>
               Household Tasks
             </h3>
-            <figure className="row col-lg-12">
-              <picture ref={props.brush} className="col-6 col-lg-4">
+            <figure className="row">
+              <picture ref={props.brush} className="col-6">
                 <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
               </picture>
               <figcaption className="col-6">
@@ -187,7 +187,7 @@ function App(props) {
 
       <div id='faq' className="row">
         <img src={Imgs.questions} alt='Blade Runner (man smirking)'/>
-        <section id='questions' className="row justify-content-center col-lg-5">
+        <section id='questions' className="row justify-content-center">
           <h2>
             FAQ
           </h2>
@@ -274,14 +274,14 @@ function App(props) {
       </section>
 
       <footer id='footerr' className="row">
-        <figure>
+        <figure className="col-lg-6">
           <img src={Imgs.altLogo} alt='THE SIBER CORPORATION logo' className="col-2"/>
           <figcaption>
             THE SIBER CORPORATION 
           </figcaption>
         </figure>
 
-        <section className="col-lg-3">
+        <section className="col-lg-6">
           <h2>
             Mission Statement
           </h2>
@@ -290,7 +290,7 @@ function App(props) {
           </p>
         </section>
 
-        <form className="col-10 col-lg-3" onSubmit={props.subscribe}>
+        <form className="col-10 col-lg-4" onSubmit={props.subscribe}>
           <fieldset>
             <legend>Subscribe!</legend>
             <div className="subscribePart col-sm-10">
@@ -311,7 +311,7 @@ function App(props) {
           </fieldset>
         </form>
 
-        <address className="row col-lg-3">
+        <address className="row col-lg-8">
           <ul className="col-6">
             <li><a href="#">Contact Us</a></li>
             <li><a href="https://twitter.com/xProtocall" target="_blank" rel="noopener noreferrer">Twitter</a></li>
@@ -328,7 +328,7 @@ function App(props) {
           </ul>
         </address>
 
-        <div id='copyright' className="col-lg-3">
+        <div id='copyright'>
           <p> &copy; 2022 THE SIBER CORPORATION </p>
         </div>
         

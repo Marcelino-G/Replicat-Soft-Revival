@@ -221,9 +221,10 @@ const Parent = () => {
   useEffect(() => {
 
 
-    if (!windoww.matches && !landScape.matches){
+    if (!windoww.matches && window.innerHeight > 900){
       const observer = new IntersectionObserver(([entry]) => {
         console.log(entry.isIntersecting)
+        console.log(observer)
         if(entry.isIntersecting){
           entry.target.classList.add('glideUp')
           
@@ -232,8 +233,8 @@ const Parent = () => {
         
       }, {
         root: null,
-        rootMargin: '0px 0px 15px 0px',
-        threshold: .01,
+        rootMargin: '0px 0px 20px 0px',
+        threshold: .01
       })
   
       if(brainPic.current && cameraPic.current && brushPic.current){

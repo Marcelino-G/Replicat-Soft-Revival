@@ -170,6 +170,7 @@ header{
 #featured{
     margin: 0;
     text-align: center;
+    min-height: 400px;
     h2{
         margin: 0 0 1rem 0;
     }
@@ -565,6 +566,20 @@ header{
         h1{
             font-size: 2.25rem;
         }
+        nav{
+            ul{
+                li{
+                    a{
+                        font-size: 1.45rem;
+                    }
+                }
+            }
+        }
+    }
+    #quote{
+        figure{
+            font-size: 1.25rem;
+        }
     }
     #horse{
         top: 530px;
@@ -584,11 +599,34 @@ header{
             @include horseParts($top: 54px, $left: -6px, $border: 29px);
         }
     }
+    #featured{
+        h2{
+            font-size: 1.85rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            font-size: 1.25rem;
+                            h3{
+                                font-size: 1.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     #features{
+        h2{
+            font-size: 1.85rem;
+        }
         ul{
             li{
                 h3{
-                    padding: 0 1rem 0 0  
+                    padding: 0 1rem 0 0;
+                    font-size: 1.75rem;  
                 }
                 figure{
                     picture{
@@ -597,6 +635,9 @@ header{
                             max-height: 195px;
                         }
                     }
+                    figcaption{
+                        font-size: 1.25rem;
+                    }
                 }
             }
             li:nth-child(odd){
@@ -604,6 +645,58 @@ header{
                     padding: 0 0 0 1rem
                 }
             }
+        }
+    }
+    #faq{
+        #questions{
+            h2{
+                font-size: 1.85rem;
+            }
+            ul{
+                li{
+                    p{
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #socials{
+        h2{
+            font-size: 1.85rem;
+        }
+    }
+
+    #footerr{
+        figure{
+            font-size: 1.25rem;
+        }
+
+        section{
+            h2{
+                font-size: 1.85rem;
+            }
+            p{
+                font-size: 1.25rem;
+            }
+        }
+
+        form{
+            fieldset{
+                font-size: 1.25rem;
+                legend{
+                    font-size: 1.75rem;
+                }
+            }
+        }
+
+        address{
+            font-size: 1.25rem;
+        }
+
+        #copyright{
+            font-size: 1.25rem;
         }
     }
 }
@@ -650,18 +743,42 @@ header{
             }
         }
     }
+}
 
-    @media screen and (min-width: 667px) {
-        html{
-            scroll-padding-top: 10px;
+@media screen and (min-height: 1050px) {
+    #quote{
+        min-height: 670px;
+    }
+    #featured{
+        min-height: 455px;
+    }
+}
+
+@mixin featuresGlideUp() {
+    animation-duration: 1s;
+    animation-name: glideUp;
+
+    @keyframes glideUp {
+        from{
+            transform: translate(0 , 150px) ;
+        }
+        to{
+            transform: translate(0, 0);
         }
     }
+}
+
+.glideUp{
+    @include featuresGlideUp()
 }
 
 @media screen and (min-width: 768px) {
 
     header{
         position: initial;
+        h1{
+            
+        }
         #hamburger{
             display: none;
         }
@@ -677,10 +794,10 @@ header{
                 margin-top: 1.5rem;
                 li{
                     display: inline-block;
-                    margin: 0 1.5rem 0 0;
+                    margin: 0 1.65rem 0 0;
                     a{
                         padding: 0;
-                        font-size: 1.5rem;
+                        
                     }
                 }
                 li:nth-child(odd){
@@ -692,22 +809,24 @@ header{
 
     #quote{
         figure{
-            font-size: 1.5rem;
+            // font-size: 1.5rem;
         }
     }
 
     #featured{
+        @include showFeaturedHorizontal;
         h2{
-            font-size: 2rem;
+            // font-size: 2rem;
         }
         ul{
+            @include make-col(10);
             li{
                 data{
                     figure{
                         figcaption{
-                            font-size: 1.25rem;
+                            // font-size: 1.25rem;
                             h3{
-                                font-size: 1.75rem;
+                                // font-size: 1.75rem;
                             }
                         }
                     }
@@ -735,39 +854,6 @@ header{
         // }
     }
 
-    @media screen and (min-width: 900px) {
-        #horse{
-            top:640px;
-        }  
-    }
-
-    
-    
-    #featured{
-        @include showFeaturedHorizontal;
-        ul{
-            @include make-col(10);
-        }
-    }
-    
-    @mixin featuresGlideUp() {
-        animation-duration: 1s;
-        animation-name: glideUp;
-    
-        @keyframes glideUp {
-            from{
-                transform: translate(0 , 150px) ;
-            }
-            to{
-                transform: translate(0, 0);
-            }
-        }
-    }
-
-    .glideUp{
-        @include featuresGlideUp()
-    }
-
     #features{
         ul{
             li{
@@ -787,16 +873,358 @@ header{
 @media screen and (min-width: 992px) {
     header{
         h1{
-            font-size: 2.5rem;
+            font-size: 2.40rem;
         }
         nav{
             ul{
                 li{
+                    margin: 0 1.75rem 0 0;
                     a{
-                        font-size: 2rem;
+                        font-size: 1.60rem;
                     }
                 }
-            }  
+            }
+        }
+    }
+    #quote{
+        figure{
+            font-size: 1.40rem;
+        }
+    }
+    #featured{
+        h2{
+            font-size: 2.00rem;
+        }
+        ul{
+            @include make-col(11);
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            font-size: 1.40rem;
+                            h3{
+                                font-size: 1.90rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #features{
+        h2{
+            font-size: 2.0rem;
+        }
+        ul{
+            li{
+                h3{
+                    font-size: 1.90rem;
+                }
+                figure{
+                    picture{
+                        img{
+                            max-width: 260px;
+                            max-height: 235px;
+                        }
+                    }
+                    figcaption{
+                        font-size: 1.40rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #faq{
+        #questions{
+            h2{
+                font-size: 2.0rem;
+            }
+            ul{
+                li{
+                    p{
+                        font-size: 1.40rem;
+                    }
+                }
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 2.0rem;
+        }
+    }
+    #footerr{
+        figure{
+            font-size: 1.40rem;
+        }
+
+        section{
+            h2{
+                font-size: 2.0rem;
+            }
+            p{
+                font-size: 1.40rem;
+            }
+        }
+
+        form{
+            margin-top: 1.5rem;
+            fieldset{
+                font-size: 1.40rem;
+                legend{
+                    font-size: 1.90rem;
+                }
+            }
+        }
+
+        address{
+            font-size: 1.40rem;
+            margin: 1rem 0;
+            ul{
+                align-self: center;
+                li{
+                    margin: 1.5rem 0;
+                }
+            }
+        }
+
+        #copyright{
+            font-size: 1.40rem;
+            padding: 0 0 0 2.5rem;
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header{
+        h1{
+            font-size: 2.85rem;
+        }
+        nav{
+            ul{
+                li{
+                    margin: 0 2.25rem 0 0;
+                    a{
+                        font-size: 2.05rem;
+                    }
+                }
+            }
+        }
+    }
+    #quote{
+        figure{
+            font-size: 1.85rem;
+        }
+    }
+    #featured{
+        h2{
+            font-size: 2.45rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            font-size: 1.85rem;
+                            h3{
+                                font-size: 2.35rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #features{
+        h2{
+            font-size: 2.45rem;
+        }
+        ul{
+            li{
+                h3{
+                    font-size: 2.35rem;
+                }
+                figure{
+                    picture{
+                        img{
+                            max-width: 300px;
+                            max-height: 275px;
+                        }
+                    }
+                    figcaption{
+                        font-size: 1.85rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #faq{
+        #questions{
+            h2{
+                font-size: 2.45rem;
+            }
+            ul{
+                li{
+                    p{
+                        font-size: 1.85rem;
+                    }
+                }
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 2.45rem;
+        }
+    }
+    #footerr{
+        figure{
+            font-size: 1.85rem;
+        }
+
+        section{
+            h2{
+                font-size: 2.45rem;
+            }
+            p{
+                font-size: 1.85rem;
+            }
+        }
+
+        form{
+            fieldset{
+                font-size: 1.85rem;
+                legend{
+                    font-size: 2.35rem;
+                }
+            }
+        }
+
+        address{
+            font-size: 1.85rem;
+        }
+
+        #copyright{
+            font-size: 1.85rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    header{
+        h1{
+            font-size: 3.30rem;
+        }
+        nav{
+            ul{
+                li{
+                    margin: 0 2.75rem 0 0;
+                    a{
+                        font-size: 2.50rem;
+                    }
+                }
+            }
+        }
+    }
+    #quote{
+        figure{
+            font-size: 2.30rem;
+        }
+    }
+    #featured{
+        h2{
+            font-size: 2.90rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            font-size: 2.30rem;
+                            h3{
+                                font-size: 2.80rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #features{
+        h2{
+            font-size: 2.90rem;
+        }
+        ul{
+            li{
+                h3{
+                    font-size: 2.80rem;
+                }
+                figure{
+                    picture{
+                        img{
+                            max-width: 340px;
+                            max-height: 315px;
+                        }
+                    }
+                    figcaption{
+                        font-size: 2.30rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #faq{
+        #questions{
+            h2{
+                font-size: 2.90rem;
+            }
+            ul{
+                li{
+                    p{
+                        font-size: 2.30rem;
+                    }
+                }
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 2.90rem;
+        }
+    }
+    #footerr{
+        figure{
+            font-size: 2.30rem;
+        }
+
+        section{
+            h2{
+                font-size: 2.90rem;
+            }
+            p{
+                font-size: 2.30rem;
+            }
+        }
+
+        form{
+            fieldset{
+                font-size: 2.30rem;
+                legend{
+                    font-size: 2.80rem;
+                }
+            }
+        }
+
+        address{
+            font-size: 2.30rem;
+        }
+
+        #copyright{
+            font-size: 2.30rem;
         }
     }
 }
