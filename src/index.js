@@ -221,7 +221,7 @@ const Parent = () => {
   useEffect(() => {
 
 
-    if (!windoww.matches && window.innerHeight > 900){
+    if (window.innerWidth > 767 && window.innerHeight > 549){
       const observer = new IntersectionObserver(([entry]) => {
         console.log(entry.isIntersecting)
         console.log(observer)
@@ -233,7 +233,7 @@ const Parent = () => {
         
       }, {
         root: null,
-        rootMargin: '0px 0px 20px 0px',
+        rootMargin: '0px 0px 15px 0px',
         threshold: .01
       })
   

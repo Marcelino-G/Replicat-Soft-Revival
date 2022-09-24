@@ -96,7 +96,7 @@ header{
     }
     h1{
         margin: 0;
-        font-size: 1.4rem;
+        font-size: 1.40rem;
         text-align: end;
         color: black; 
     }
@@ -109,12 +109,12 @@ header{
         ul{
             margin: 0;
             li{
-                margin-bottom: .25rem;
+                margin-bottom: .5rem;
                 color: black;
                 a{
                     // display: flex;
                     padding: .5rem 0 .5rem .75rem;
-                    font-size: 1.25rem;
+                    // font-size: 1.25rem;
                 }
             }
             li:nth-child(odd){
@@ -134,7 +134,7 @@ header{
         padding: 0;
     }
     figure{
-        @include newSectionTopBorder;
+        // @include newSectionTopBorder;
         padding: 1rem;
         text-align: center;
     }
@@ -173,6 +173,7 @@ header{
     min-height: 400px;
     h2{
         margin: 0 0 1rem 0;
+        font-size: 1.20rem;
     }
     ul{
         margin: 2rem 0 0 0;
@@ -185,6 +186,9 @@ header{
                     figcaption{
                         min-height: 85px;
                         margin-top: 1.5rem;
+                        h3{
+                            font-size: 1.10rem;
+                        }
                     }
                 }
             }
@@ -234,6 +238,7 @@ header{
     @include newSectionTopBorder;
     h2{
         margin: 0 0 1rem 0;
+        font-size: 1.20rem;
     }
     ul{
         li{
@@ -243,6 +248,7 @@ header{
             h3{
                 padding: 0;
                 margin: 0;
+                font-size: 1.10rem;
             }
             figure{
                 margin-top: 1rem;
@@ -282,6 +288,7 @@ header{
         text-align: center;
         h2{
             padding:0;
+            font-size: 1.20rem;
         }
         ul{
             margin: 0;
@@ -325,9 +332,13 @@ header{
     @include newSectionTopBorder;
     h2{
         text-align: center;
+        font-size: 1.20rem;
     }
     ul{
         margin: 1rem 0 0 0;
+        li{
+            margin: 0 1rem;
+        }
     }
 }
 #footerr{
@@ -336,6 +347,11 @@ header{
     background-color: #1b2c2c;
     text-align: center;
     @include newSectionTopBorder;
+    section{
+        h2{
+            font-size: 1.20rem;
+        }
+    }
     figure{
         margin: 0;
         padding: 1rem 0;
@@ -347,6 +363,9 @@ header{
         padding: 0;
         margin: auto;
         fieldset{
+            legend{
+                font-size: 1.10rem;
+            }
             .subscribePart{
                 display: flex;
                 flex-direction: column;
@@ -398,7 +417,7 @@ header{
     }
     header{
         h1{
-            font-size: 1.55rem;
+            font-size: 1.65rem;
         }
     }
     #horse{
@@ -420,6 +439,22 @@ header{
         }
     }
     #featured{
+        h2{
+            font-size: 1.45rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            h3{
+                                font-size: 1.35rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         #circleSlideHolder{
             button{
                 margin: 0 .75rem;  
@@ -427,10 +462,14 @@ header{
         }
     }
     #features{
+        h2{
+            font-size: 1.45rem;
+        }
         ul{
             li{
                 h3{
-                    padding: 0 .25rem 0 0  
+                    padding: 0 .25rem 0 0;  
+                    font-size: 1.35rem;  
                 }
                 figure{
                     picture{
@@ -448,14 +487,46 @@ header{
             }
         }
     }
+    #faq{
+        #questions{
+            h2{
+                font-size: 1.45rem;
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 1.45rem;
+        }
+        ul{
+            li{
+                margin: 0 1.15rem;
+            }
+        }
+    }
+    #footerr{
+        section{
+            h2{
+                font-size: 1.45rem;
+            }
+        }
+
+        form{
+            fieldset{
+                legend{
+                    font-size: 1.35rem;
+                }
+            }
+        }
+    }
 }
 @media screen and (min-width: 530px){
     html{
-        scroll-padding-top: 75px;
+        scroll-padding-top: 70px;
     }
     header{
         h1{
-            font-size: 1.85rem;
+            font-size: 1.75rem;
         }
     }
     #horse{
@@ -477,6 +548,22 @@ header{
         }
     }
     #featured{
+        h2{
+            font-size: 1.55rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            h3{
+                                font-size: 1.45rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         #circleSlideHolder{
             button{
                 margin: 0 1rem;  
@@ -484,10 +571,14 @@ header{
         }
     }
     #features{
+        h2{
+            font-size: 1.55rem;
+        }
         ul{
             li{
                 h3{
-                    padding: 0 .5rem 0 0  
+                    padding: 0 .5rem 0 0;  
+                    font-size: 1.45rem;  
                 }
                 figure{
                     picture{
@@ -505,16 +596,48 @@ header{
             }
         }
     }
+    #faq{
+        #questions{
+            h2{
+                font-size: 1.55rem;
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 1.55rem;
+        }
+        ul{
+            li{
+                margin: 0 1.25rem;
+            }
+        }
+    }
+    #footerr{
+        section{
+            h2{
+                font-size: 1.55rem;
+            }
+        }
+
+        form{
+            fieldset{
+                legend{
+                    font-size: 1.45rem;
+                }
+            }
+        }
+    }
 }
 
 
 @media screen and (min-width: 615px){
     html{
-        scroll-padding-top: 85px;
+        scroll-padding-top: 75px;
     }
     header{
         h1{
-            font-size: 2.05rem;
+            font-size: 1.85rem;
         }
     }
     #horse{
@@ -535,11 +658,33 @@ header{
             @include horseParts($top: 47px, $border: 26px);
         }
     }
+    #featured{
+        h2{
+            font-size: 1.65rem;
+        }
+        ul{
+            li{
+                data{
+                    figure{
+                        figcaption{
+                            h3{
+                                font-size: 1.55rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     #features{
+        h2{
+            font-size: 1.65rem;
+        }
         ul{
             li{
                 h3{
-                    padding: 0 .75rem 0 0  
+                    padding: 0 .75rem 0 0;  
+                    font-size: 1.55rem;  
                 }
                 figure{
                     picture{
@@ -557,20 +702,52 @@ header{
             }
         }
     }
+    #faq{
+        #questions{
+            h2{
+                font-size: 1.65rem;
+            }
+        }
+    }
+    #socials{
+        h2{
+            font-size: 1.65rem;
+        }
+        ul{
+            li{
+                margin: 0 1.5rem;
+            }
+        }
+    }
+    #footerr{
+        section{
+            h2{
+                font-size: 1.65rem;
+            }
+        }
+
+        form{
+            fieldset{
+                legend{
+                    font-size: 1.55rem;
+                }
+            }
+        }
+    }
 }
 @media screen and (min-width: 700px){
     html{
-        scroll-padding-top: 95px;
+        scroll-padding-top: 80px;
     }
     header{
         h1{
-            font-size: 2.25rem;
+            font-size: 1.95rem;
         }
         nav{
             ul{
                 li{
                     a{
-                        font-size: 1.45rem;
+                        font-size: 1.15rem;
                     }
                 }
             }
@@ -578,7 +755,7 @@ header{
     }
     #quote{
         figure{
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
     }
     #horse{
@@ -601,16 +778,16 @@ header{
     }
     #featured{
         h2{
-            font-size: 1.85rem;
+            font-size: 1.75rem;
         }
         ul{
             li{
                 data{
                     figure{
                         figcaption{
-                            font-size: 1.25rem;
+                            font-size: 1rem;
                             h3{
-                                font-size: 1.75rem;
+                                font-size: 1.65rem;
                             }
                         }
                     }
@@ -620,13 +797,13 @@ header{
     }
     #features{
         h2{
-            font-size: 1.85rem;
+            font-size: 1.75rem;
         }
         ul{
             li{
                 h3{
                     padding: 0 1rem 0 0;
-                    font-size: 1.75rem;  
+                    font-size: 1.65rem;  
                 }
                 figure{
                     picture{
@@ -636,7 +813,7 @@ header{
                         }
                     }
                     figcaption{
-                        font-size: 1.25rem;
+                        font-size: 1rem;
                     }
                 }
             }
@@ -650,12 +827,12 @@ header{
     #faq{
         #questions{
             h2{
-                font-size: 1.85rem;
+                font-size: 1.75rem;
             }
             ul{
                 li{
                     p{
-                        font-size: 1.25rem;
+                        font-size: 1rem;
                     }
                 }
             }
@@ -664,39 +841,44 @@ header{
 
     #socials{
         h2{
-            font-size: 1.85rem;
+            font-size: 1.75rem;
+        }
+        ul{
+            li{
+                margin: 0 2rem;
+            }
         }
     }
 
     #footerr{
         figure{
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
 
         section{
             h2{
-                font-size: 1.85rem;
+                font-size: 1.75rem;
             }
             p{
-                font-size: 1.25rem;
+                font-size: 1rem;
             }
         }
 
         form{
             fieldset{
-                font-size: 1.25rem;
+                font-size: 1rem;
                 legend{
-                    font-size: 1.75rem;
+                    font-size: 1.65rem;
                 }
             }
         }
 
         address{
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
 
         #copyright{
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
     }
 }
@@ -721,41 +903,53 @@ header{
     #featured{
         @include showFeaturedHorizontal();
         ul{
-            @include make-col(10);
+            // @include make-col(10);
         }
     }
-    #upArrow{
-        display: initial;
-        position: fixed;
-        bottom: 20px;
-        right: 15px;
-        max-width: 40px;
-        background-color: unset;
-        border: none;
-        border-radius: 50%;
-        padding: 0;
-        a{
-            svg{
-                max-height: 40px;
-                background-color: blue;
-                opacity: .5;
-                border-radius: 50%;  
+    @media screen and (max-height: 549px) {
+        #upArrow{
+            display: initial;
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            max-width: 40px;
+            background-color: unset;
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            a{
+                svg{
+                    max-height: 40px;
+                    background-color: blue;
+                    opacity: .5;
+                    border-radius: 50%;  
+                }
             }
         }
     }
+    
 }
 
-@media screen and (min-height: 1050px) {
+@media screen and (min-height: 1000px) {
     #quote{
-        min-height: 670px;
+        min-height: 675px;
     }
     #featured{
-        min-height: 455px;
+        min-height: 540px;
     }
 }
 
+// @media screen and (min-height: 1050px) {
+//     #quote{
+//         min-height: 670px;
+//     }
+//     #featured{
+//         min-height: 455px;
+//     }
+// }
+
 @mixin featuresGlideUp() {
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-name: glideUp;
 
     @keyframes glideUp {
@@ -773,12 +967,11 @@ header{
 }
 
 @media screen and (min-width: 768px) {
-
+    html{
+        scroll-padding-top: 10px;
+    }
     header{
         position: initial;
-        h1{
-            
-        }
         #hamburger{
             display: none;
         }
@@ -794,10 +987,9 @@ header{
                 margin-top: 1.5rem;
                 li{
                     display: inline-block;
-                    margin: 0 1.65rem 0 0;
+                    margin: 0 1.85rem 0 0;
                     a{
                         padding: 0;
-                        
                     }
                 }
                 li:nth-child(odd){
@@ -806,33 +998,8 @@ header{
             }
         }
     }
-
-    #quote{
-        figure{
-            // font-size: 1.5rem;
-        }
-    }
-
     #featured{
         @include showFeaturedHorizontal;
-        h2{
-            // font-size: 2rem;
-        }
-        ul{
-            @include make-col(10);
-            li{
-                data{
-                    figure{
-                        figcaption{
-                            // font-size: 1.25rem;
-                            h3{
-                                // font-size: 1.75rem;
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     #horse{
@@ -860,8 +1027,8 @@ header{
                 figure{
                     picture{
                         img{
-                            max-width: 240px; 
-                            max-height: 215px;
+                            max-width: 195px; 
+                            max-height: 185px;
                         }
                     }
                 }
@@ -873,14 +1040,14 @@ header{
 @media screen and (min-width: 992px) {
     header{
         h1{
-            font-size: 2.40rem;
+            font-size: 2.05rem;
         }
         nav{
             ul{
                 li{
-                    margin: 0 1.75rem 0 0;
+                    margin: 0 1.95rem 0 0;
                     a{
-                        font-size: 1.60rem;
+                        font-size: 1.25rem;
                     }
                 }
             }
@@ -888,22 +1055,23 @@ header{
     }
     #quote{
         figure{
-            font-size: 1.40rem;
+            font-size: 1.05rem;
+            margin: 0 auto;
         }
     }
     #featured{
         h2{
-            font-size: 2.00rem;
+            font-size: 1.85rem;
         }
         ul{
-            @include make-col(11);
             li{
+                margin: 0 2rem;
                 data{
                     figure{
                         figcaption{
-                            font-size: 1.40rem;
+                            font-size: 1.05rem;
                             h3{
-                                font-size: 1.90rem;
+                                font-size: 1.75rem;
                             }
                         }
                     }
@@ -913,22 +1081,22 @@ header{
     }
     #features{
         h2{
-            font-size: 2.0rem;
+            font-size: 1.85rem;
         }
         ul{
             li{
                 h3{
-                    font-size: 1.90rem;
+                    font-size: 1.75rem;
                 }
                 figure{
                     picture{
                         img{
-                            max-width: 260px;
-                            max-height: 235px;
+                            max-width: 150px;
+                            max-height: 145px;
                         }
                     }
                     figcaption{
-                        font-size: 1.40rem;
+                        font-size: 1.05rem;
                     }
                 }
             }
@@ -938,12 +1106,12 @@ header{
     #faq{
         #questions{
             h2{
-                font-size: 2.0rem;
+                font-size: 1.85rem;
             }
             ul{
                 li{
                     p{
-                        font-size: 1.40rem;
+                        font-size: 1.05rem;
                     }
                 }
             }
@@ -951,38 +1119,44 @@ header{
     }
     #socials{
         h2{
-            font-size: 2.0rem;
+            font-size: 1.85rem;
+        }
+        ul{
+            li{
+                margin: 0 3rem;
+            }
         }
     }
     #footerr{
         figure{
-            font-size: 1.40rem;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
         }
 
         section{
             h2{
-                font-size: 2.0rem;
+                font-size: 1.85rem;
             }
             p{
-                font-size: 1.40rem;
+                font-size: 1.05rem;
             }
         }
 
         form{
-            margin-top: 1.5rem;
             fieldset{
-                font-size: 1.40rem;
+                font-size: 1.05rem;
                 legend{
-                    font-size: 1.90rem;
+                    font-size: 1.75rem;
                 }
             }
         }
 
         address{
-            font-size: 1.40rem;
-            margin: 1rem 0;
+            align-items: center;
+            padding: 2rem;
+            margin: 0;
+            font-size: 1.05rem;
             ul{
-                align-self: center;
                 li{
                     margin: 1.5rem 0;
                 }
@@ -990,9 +1164,9 @@ header{
         }
 
         #copyright{
-            font-size: 1.40rem;
+            font-size: 1.05rem;
             padding: 0 0 0 2.5rem;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
         }
     }
 }
@@ -1000,36 +1174,41 @@ header{
 @media screen and (min-width: 1200px) {
     header{
         h1{
-            font-size: 2.85rem;
+            font-size: 2.15rem;
         }
         nav{
             ul{
                 li{
-                    margin: 0 2.25rem 0 0;
+                    margin: 0 2.05rem 0 0;
                     a{
-                        font-size: 2.05rem;
+                        font-size: 1.35rem;
                     }
                 }
             }
         }
     }
     #quote{
+        #bladeCity{
+            max-height: 375px;
+        }
         figure{
-            font-size: 1.85rem;
+            font-size: 1.15rem;
+            margin: 0 auto;
         }
     }
     #featured{
         h2{
-            font-size: 2.45rem;
+            font-size: 1.95rem;
         }
         ul{
             li{
+                margin: 0 3rem;
                 data{
                     figure{
                         figcaption{
-                            font-size: 1.85rem;
+                            font-size: 1.15rem;
                             h3{
-                                font-size: 2.35rem;
+                                font-size: 1.85rem;
                             }
                         }
                     }
@@ -1039,22 +1218,22 @@ header{
     }
     #features{
         h2{
-            font-size: 2.45rem;
+            font-size: 1.95rem;
         }
         ul{
             li{
                 h3{
-                    font-size: 2.35rem;
+                    font-size: 1.85rem;
                 }
                 figure{
                     picture{
                         img{
-                            max-width: 300px;
-                            max-height: 275px;
+                            max-width: 210px;
+                            max-height: 200px;
                         }
                     }
                     figcaption{
-                        font-size: 1.85rem;
+                        font-size: 1.15rem;
                     }
                 }
             }
@@ -1062,14 +1241,17 @@ header{
     }
 
     #faq{
+        #manSmirking{
+            max-height: 450px;
+        }
         #questions{
             h2{
-                font-size: 2.45rem;
+                font-size: 1.95rem;
             }
             ul{
                 li{
                     p{
-                        font-size: 1.85rem;
+                        font-size: 1.15rem;
                     }
                 }
             }
@@ -1077,38 +1259,43 @@ header{
     }
     #socials{
         h2{
-            font-size: 2.45rem;
+            font-size: 1.95rem;
+        }
+        ul{
+            li{
+                margin: 0 3.5rem;
+            }
         }
     }
     #footerr{
         figure{
-            font-size: 1.85rem;
+            font-size: 1.15rem;   
         }
 
         section{
             h2{
-                font-size: 2.45rem;
+                font-size: 1.95rem;
             }
             p{
-                font-size: 1.85rem;
+                font-size: 1.15rem;
             }
         }
 
         form{
             fieldset{
-                font-size: 1.85rem;
+                font-size: 1.15rem;
                 legend{
-                    font-size: 2.35rem;
+                    font-size: 1.85rem;
                 }
             }
         }
 
         address{
-            font-size: 1.85rem;
+            font-size: 1.15rem;
         }
 
         #copyright{
-            font-size: 1.85rem;
+            font-size: 1.15rem;
         }
     }
 }
@@ -1116,36 +1303,40 @@ header{
 @media screen and (min-width: 1400px) {
     header{
         h1{
-            font-size: 3.30rem;
+            font-size: 2.25rem;
         }
         nav{
             ul{
                 li{
-                    margin: 0 2.75rem 0 0;
+                    margin: 0 2.15rem 0 0;
                     a{
-                        font-size: 2.50rem;
+                        font-size: 1.45rem;
                     }
                 }
             }
         }
     }
     #quote{
+        #bladeCity{
+            max-height: 685px;
+        }
         figure{
-            font-size: 2.30rem;
+            font-size: 1.25rem;
         }
     }
     #featured{
         h2{
-            font-size: 2.90rem;
+            font-size: 2.05rem;
         }
         ul{
             li{
+                margin: 0 4rem;
                 data{
                     figure{
                         figcaption{
-                            font-size: 2.30rem;
+                            font-size: 1.25rem;
                             h3{
-                                font-size: 2.80rem;
+                                font-size: 1.95rem;
                             }
                         }
                     }
@@ -1155,22 +1346,22 @@ header{
     }
     #features{
         h2{
-            font-size: 2.90rem;
+            font-size: 2.05rem;
         }
         ul{
             li{
                 h3{
-                    font-size: 2.80rem;
+                    font-size: 1.95rem;
                 }
                 figure{
                     picture{
                         img{
-                            max-width: 340px;
-                            max-height: 315px;
+                            max-width: 300px;
+                            max-height: 290px;
                         }
                     }
                     figcaption{
-                        font-size: 2.30rem;
+                        font-size: 1.25rem;
                     }
                 }
             }
@@ -1178,14 +1369,17 @@ header{
     }
 
     #faq{
+        #manSmirking{
+            max-height: 705px;
+        }
         #questions{
             h2{
-                font-size: 2.90rem;
+                font-size: 2.05rem;
             }
             ul{
                 li{
                     p{
-                        font-size: 2.30rem;
+                        font-size: 1.25rem;
                     }
                 }
             }
@@ -1193,38 +1387,43 @@ header{
     }
     #socials{
         h2{
-            font-size: 2.90rem;
+            font-size: 2.05rem;
+        }
+        ul{
+            li{
+                margin: 0 4.5rem;
+            }
         }
     }
     #footerr{
         figure{
-            font-size: 2.30rem;
+            font-size: 1.25rem;
         }
 
         section{
             h2{
-                font-size: 2.90rem;
+                font-size: 2.05rem;
             }
             p{
-                font-size: 2.30rem;
+                font-size: 1.25rem;
             }
         }
 
         form{
             fieldset{
-                font-size: 2.30rem;
+                font-size: 1.25rem;
                 legend{
-                    font-size: 2.80rem;
+                    font-size: 1.95rem;
                 }
             }
         }
 
         address{
-            font-size: 2.30rem;
+            font-size: 1.25rem;
         }
 
         #copyright{
-            font-size: 2.30rem;
+            font-size: 1.25rem;
         }
     }
 }
