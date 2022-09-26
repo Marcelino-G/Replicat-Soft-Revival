@@ -10,7 +10,7 @@
     border-top-right-radius: 10px;
 }
 
-@mixin horseParts($top: 0px ,$left: 0px, $border: 17px){
+@mixin horseParts($top: 0px ,$left: 0px, $border: 12px){
     display: inline-block;
     position: relative;
     top: $top;
@@ -18,13 +18,13 @@
     border: solid #d5bdbd $border;
 }
 
-@mixin featuresList($shadowColor: null, $topLeftBottomRight: 0, $topRightBottomLeft: 0, $textAlign: null) {
+@mixin featuresList($shadowColor: null, $topLeftBottomRight: 0, $topRightBottomLeft: 0, $textAlign: null){
     box-shadow: inset 0px 0px 70px -35px $shadowColor;
     border-radius: $topLeftBottomRight $topRightBottomLeft;
     text-align: $textAlign;
 }
 
-@mixin showFeaturedHorizontal() {
+@mixin showFeaturedHorizontal(){
     ul{
         margin: 1rem 0 0 0;
         li{
@@ -51,8 +51,8 @@
 
 *{
     font-family: Helvetica, Arial, sans-serif;
-    padding: 0;
-    margin: 0;
+    // padding: 0;
+    // margin: 0;
     box-sizing: border-box;
     color: whitesmoke;
 }
@@ -112,9 +112,7 @@ header{
                 margin-bottom: .5rem;
                 color: black;
                 a{
-                    // display: flex;
                     padding: .5rem 0 .5rem .75rem;
-                    // font-size: 1.25rem;
                 }
             }
             li:nth-child(odd){
@@ -134,36 +132,37 @@ header{
         padding: 0;
     }
     figure{
-        // @include newSectionTopBorder;
+        margin: 0 auto;
         padding: 1rem;
         text-align: center;
     }
 }
 #horse{
     position: absolute;
-    top: 430px;
+    top: 460px;
+    left: -2px;
     z-index: -1;
     transform: rotate(0deg) scaleX(-1);
     padding: 0;
     text-align: end;
     .horn{
-        @include horseParts($left: 102px);
+        @include horseParts($left: 70px);
         clip-path: polygon(55% 14%, 85% 78%, 100% 63%);
     }    
     .snout{
-        @include horseParts($top: 17px, $left: 70px);
+        @include horseParts($top: 12px, $left: 47px);
         clip-path: polygon(100% 15%, 100% 68%, 23% 100%, 34% 65%);
     }
     .neck{
-        @include horseParts($top: 22px, $left: 56px);
+        @include horseParts($top: 16px, $left: 38px);
         clip-path: polygon(40% 0, 66% 7%, 93% 47%, 77% 89%, 30% 100%, 47% 40%);
     }
     .shoulder{
-        @include horseParts($top: 27px, $left: 26px);
+        @include horseParts($top: 19px, $left: 16px);
         clip-path: polygon(86% 36%, 100% 36%, 89% 68%, 70% 77%);
     }
     .leg{
-        @include horseParts($top: 52px, $left: -6px);
+        @include horseParts($top: 36px, $left: -5px);
         clip-path: polygon(81% 0, 85% 29%, 66% 60%, 3% 100%, 26% 34%, 13% 19%);
     }
 }
@@ -174,6 +173,19 @@ header{
     h2{
         margin: 0 0 1rem 0;
         font-size: 1.20rem;
+    }
+    .active{
+        display: initial;
+        animation-duration: 5s;
+        animation-name: featuredBlurIn;
+    }
+    @keyframes featuredBlurIn {
+        from{
+            opacity: .0;
+        }
+        to{
+            opacity: 1;
+        }
     }
     ul{
         margin: 2rem 0 0 0;
@@ -191,19 +203,6 @@ header{
                         }
                     }
                 }
-            }
-        }
-        .active{
-            display: initial;
-            animation-duration: 5s;
-            animation-name: featuredBlurIn;
-        }
-        @keyframes featuredBlurIn {
-            from{
-                opacity: .0;
-            }
-            to{
-                opacity: 1;
             }
         }
     }
@@ -295,6 +294,15 @@ header{
             li{
                 padding: .5rem;
                 margin: 1rem 0;
+                @keyframes fadeOpen{
+                    0% {
+                        opacity: 0; 
+                    }
+                    100% {
+                        opacity: 1;
+                        
+                    }
+                }  
                 p[class~='question']{
                     padding: .75rem;
                     margin:0 auto;
@@ -313,16 +321,7 @@ header{
                     visibility: visible;
                     animation-name: fadeOpen;
                     animation-duration: .5s;
-                }
-                @keyframes fadeOpen{
-                    0% {
-                        opacity: 0; 
-                    }
-                    100% {
-                        opacity: 1;
-                        
-                    }
-                }          
+                }        
             }    
         }
     }
@@ -411,6 +410,28 @@ header{
     display: none;
 }
 
+@media screen and (max-width: 375px) {
+    #horse{
+        top: 500px;
+        left: -30px;
+        .horn{
+            @include horseParts($left: 10px, $top: -40px, $border: 8px);
+        }
+        .snout{
+            @include horseParts($top: -32px, $left: -5px, $border: 8px);
+        }
+        .neck{
+            @include horseParts($top: -29px, $left: -11px, $border: 8px);
+        }
+        .shoulder{
+            @include horseParts($top: -27px, $left: -25px, $border: 8px);
+        }
+        .leg{
+            @include horseParts($top: -15px, $left: -40px, $border: 8px);
+        }
+    }
+}
+
 @media screen and (min-width: 435px){
     html{
         scroll-padding-top: 65px;
@@ -422,20 +443,21 @@ header{
     }
     #horse{
         top:445px;
+        left: -6px;
         .horn{
-            @include horseParts($left: 126px, $top: -13px, $border: 20px);
+            @include horseParts($left: 80px, $top: -13px, $border: 14px);
         }
         .snout{
-            @include horseParts($top: 7px, $left: 87px, $border: 20px);
+            @include horseParts($top: 1px, $left: 53px, $border: 14px);
         }
         .neck{
-            @include horseParts($top: 13px, $left: 71px, $border: 20px);
+            @include horseParts($top: 5px, $left: 42px, $border: 14px);
         }
         .shoulder{
-            @include horseParts($top: 18px, $left: 35px, $border:20px);
+            @include horseParts($top: 8px, $left: 17px, $border: 14px);
         }
         .leg{
-            @include horseParts($top: 47px, $left: -2px, $border: 20px);
+            @include horseParts($top: 28px, $left: -8px, $border: 14px);
         }
     }
     #featured{
@@ -520,6 +542,7 @@ header{
         }
     }
 }
+
 @media screen and (min-width: 530px){
     html{
         scroll-padding-top: 70px;
@@ -531,20 +554,21 @@ header{
     }
     #horse{
         top: 470px;
+        left: -8px;
         .horn{
-            @include horseParts($left: 146px, $top: -21px, $border: 23px);
+            @include horseParts($left: 90px, $top: -21px, $border: 16px);
         }
         .snout{
-            @include horseParts($top: 1px, $left: 102px, $border: 23px);
+            @include horseParts($top: -5px, $left: 60px, $border: 16px);
         }
         .neck{
-            @include horseParts($top: 8px, $left: 84px, $border: 23px);
+            @include horseParts($top: 0px, $left: 48px, $border: 16px);
         }
         .shoulder{
-            @include horseParts($top: 14px, $left: 42px, $border:23px);
+            @include horseParts($top: 4px, $left: 19px, $border: 16px);
         }
         .leg{
-            @include horseParts($top: 47px, $border: 23px);
+            @include horseParts($top: 27px, $left: -10px, $border: 16px);
         }
     }
     #featured{
@@ -630,7 +654,6 @@ header{
     }
 }
 
-
 @media screen and (min-width: 615px){
     html{
         scroll-padding-top: 75px;
@@ -641,21 +664,22 @@ header{
         }
     }
     #horse{
-        top: 500px;
+        top: 515px;
+        left: -12px;
         .horn{
-            @include horseParts($left: 164px, $top: -31px, $border: 26px);
+            @include horseParts($left: 100px, $top: -31px, $border: 18px);
         }
         .snout{
-            @include horseParts($top: -5px, $left: 114px, $border: 26px);
+            @include horseParts($top: -13px, $left: 66px, $border: 18px);
         }
         .neck{
-            @include horseParts($top: 3px, $left: 94px, $border: 26px);
+            @include horseParts($top: -7px, $left: 52px, $border: 18px);
         }
         .shoulder{
-            @include horseParts($top: 10px, $left: 47px, $border:26px);
+            @include horseParts($top: -3px, $left: 20px, $border: 18px);
         }
         .leg{
-            @include horseParts($top: 47px, $border: 26px);
+            @include horseParts($top: 23px, $left: -13px, $border: 18px);
         }
     }
     #featured{
@@ -735,6 +759,7 @@ header{
         }
     }
 }
+
 @media screen and (min-width: 700px){
     html{
         scroll-padding-top: 80px;
@@ -759,21 +784,22 @@ header{
         }
     }
     #horse{
-        top: 530px;
+        top: 545px;
+        left: -14px;
         .horn{
-            @include horseParts($left: 178px, $top: -33px, $border: 29px);
+            @include horseParts($left: 110px, $top: -33px, $border: 20px);
         }
         .snout{
-            @include horseParts($top: -4px, $left: 122px, $border: 29px);
+            @include horseParts($top: -13px, $left: 72px, $border: 20px);
         }
         .neck{
-            @include horseParts($top: 5px, $left: 99px, $border: 29px);
+            @include horseParts($top: -7px, $left: 57px, $border: 20px);
         }
         .shoulder{
-            @include horseParts($top: 11px, $left: 47px, $border:29px);
+            @include horseParts($top: -2px, $left: 21px, $border:20px);
         }
         .leg{
-            @include horseParts($top: 54px, $left: -6px, $border: 29px);
+            @include horseParts($top: 27px, $left: -16px, $border: 20px);
         }
     }
     #featured{
@@ -838,7 +864,6 @@ header{
             }
         }
     }
-
     #socials{
         h2{
             font-size: 1.75rem;
@@ -849,12 +874,10 @@ header{
             }
         }
     }
-
     #footerr{
         figure{
             font-size: 1rem;
         }
-
         section{
             h2{
                 font-size: 1.75rem;
@@ -863,7 +886,6 @@ header{
                 font-size: 1rem;
             }
         }
-
         form{
             fieldset{
                 font-size: 1rem;
@@ -872,11 +894,9 @@ header{
                 }
             }
         }
-
         address{
             font-size: 1rem;
         }
-
         #copyright{
             font-size: 1rem;
         }
@@ -903,9 +923,13 @@ header{
     #featured{
         @include showFeaturedHorizontal();
         ul{
-            // @include make-col(10);
+            @include make-col(10);
+            li{
+                @include make-col(3);
+            }
         }
     }
+
     @media screen and (max-height: 549px) {
         #upArrow{
             display: initial;
@@ -926,11 +950,10 @@ header{
                 }
             }
         }
-    }
-    
+    }  
 }
 
-@media screen and (min-height: 1000px) {
+@media screen and (min-height: 1000px){
     #quote{
         min-height: 675px;
     }
@@ -938,15 +961,6 @@ header{
         min-height: 540px;
     }
 }
-
-// @media screen and (min-height: 1050px) {
-//     #quote{
-//         min-height: 670px;
-//     }
-//     #featured{
-//         min-height: 455px;
-//     }
-// }
 
 @mixin featuresGlideUp() {
     animation-duration: 2s;
@@ -961,7 +975,6 @@ header{
         }
     }
 }
-
 .glideUp{
     @include featuresGlideUp()
 }
@@ -1001,26 +1014,25 @@ header{
     #featured{
         @include showFeaturedHorizontal;
     }
-
     #horse{
-        top: 610px;
-        // .horn{
-        //     @include horseParts($left: 194px, $top: -40px, $border: 30px);
-        // }
-        // .snout{
-        //     @include horseParts($top: -9px, $left: 133px, $border: 30px);
-        // }
-        // .neck{
-        //     @include horseParts($top: 1px, $left: 109px, $border: 30px);
-        // }
-        // .shoulder{
-        //     @include horseParts($top: 8px, $left: 52px, $border: 30px);
-        // }
-        // .leg{
-        //     @include horseParts($top: 55px, $left: -7px, $border: 30px);
-        // }
+        top: 635px;
+        left: -16px;
+        .horn{
+            @include horseParts($left: 120px, $top: -40px, $border: 22px);
+        }
+        .snout{
+            @include horseParts($top: -18px, $left: 78px, $border: 22px);
+        }
+        .neck{
+            @include horseParts($top: -11px, $left: 61px, $border: 22px);
+        }
+        .shoulder{
+            @include horseParts($top: -6px, $left: 21px, $border: 22px);
+        }
+        .leg{
+            @include horseParts($top: 26px, $left: -19px, $border: 22px);
+        }
     }
-
     #features{
         ul{
             li{
@@ -1056,7 +1068,6 @@ header{
     #quote{
         figure{
             font-size: 1.05rem;
-            margin: 0 auto;
         }
     }
     #featured{
@@ -1077,6 +1088,25 @@ header{
                     }
                 }
             }
+        }
+    }
+    #horse{
+        top: 695px;
+        left: -18px;
+        .horn{
+            @include horseParts($left: 130px, $top: -40px, $border: 24px);
+        }
+        .snout{
+            @include horseParts($top: -16px, $left: 84px, $border: 24px);
+        }
+        .neck{
+            @include horseParts($top: -8px, $left: 66px, $border: 24px);
+        }
+        .shoulder{
+            @include horseParts($top: -2px, $left: 22px, $border: 24px);
+        }
+        .leg{
+            @include horseParts($top: 32px, $left: -21px, $border: 24px);
         }
     }
     #features{
@@ -1102,7 +1132,6 @@ header{
             }
         }
     }
-
     #faq{
         #questions{
             h2{
@@ -1132,7 +1161,6 @@ header{
             font-size: 1.05rem;
             margin-bottom: 1rem;
         }
-
         section{
             h2{
                 font-size: 1.85rem;
@@ -1141,7 +1169,6 @@ header{
                 font-size: 1.05rem;
             }
         }
-
         form{
             fieldset{
                 font-size: 1.05rem;
@@ -1150,7 +1177,6 @@ header{
                 }
             }
         }
-
         address{
             align-items: center;
             padding: 2rem;
@@ -1162,7 +1188,6 @@ header{
                 }
             }
         }
-
         #copyright{
             font-size: 1.05rem;
             padding: 0 0 0 2.5rem;
@@ -1193,7 +1218,6 @@ header{
         }
         figure{
             font-size: 1.15rem;
-            margin: 0 auto;
         }
     }
     #featured{
@@ -1214,6 +1238,25 @@ header{
                     }
                 }
             }
+        }
+    }
+    #horse{
+        top: 675px;
+        left: -20px;
+        .horn{
+            @include horseParts($left: 140px, $top: -40px, $border: 26px);
+        }
+        .snout{
+            @include horseParts($top: -14px, $left: 90px, $border: 26px);
+        }
+        .neck{
+            @include horseParts($top: -5px, $left: 71px, $border: 26px);
+        }
+        .shoulder{
+            @include horseParts($top: 1px, $left: 23px, $border: 26px);
+        }
+        .leg{
+            @include horseParts($top: 38px, $left: -23px, $border: 26px);
         }
     }
     #features{
@@ -1239,7 +1282,6 @@ header{
             }
         }
     }
-
     #faq{
         #manSmirking{
             max-height: 450px;
@@ -1271,7 +1313,6 @@ header{
         figure{
             font-size: 1.15rem;   
         }
-
         section{
             h2{
                 font-size: 1.95rem;
@@ -1280,7 +1321,6 @@ header{
                 font-size: 1.15rem;
             }
         }
-
         form{
             fieldset{
                 font-size: 1.15rem;
@@ -1289,11 +1329,9 @@ header{
                 }
             }
         }
-
         address{
             font-size: 1.15rem;
         }
-
         #copyright{
             font-size: 1.15rem;
         }
@@ -1344,6 +1382,25 @@ header{
             }
         }
     }
+    #horse{
+        top: 855px;
+        left: -22px;
+        .horn{
+            @include horseParts($left: 151px, $top: -39px, $border: 28px);
+        }
+        .snout{
+            @include horseParts($top: -11px, $left: 97px, $border: 28px);
+        }
+        .neck{
+            @include horseParts($top: -2px, $left: 76px, $border: 28px);
+        }
+        .shoulder{
+            @include horseParts($top: 4px, $left: 25px, $border: 28px);
+        }
+        .leg{
+            @include horseParts($top: 45px, $left: -26px, $border: 28px);
+        }
+    }
     #features{
         h2{
             font-size: 2.05rem;
@@ -1367,7 +1424,6 @@ header{
             }
         }
     }
-
     #faq{
         #manSmirking{
             max-height: 705px;
@@ -1399,7 +1455,6 @@ header{
         figure{
             font-size: 1.25rem;
         }
-
         section{
             h2{
                 font-size: 2.05rem;
@@ -1408,7 +1463,6 @@ header{
                 font-size: 1.25rem;
             }
         }
-
         form{
             fieldset{
                 font-size: 1.25rem;
@@ -1417,18 +1471,20 @@ header{
                 }
             }
         }
-
         address{
             font-size: 1.25rem;
         }
-
         #copyright{
             font-size: 1.25rem;
         }
     }
 }
 
-
+@media screen and (min-width: 1600px){
+    #horse{
+        top: 935px;
+    }
+}
 
 // @mixin upUpand($bottom: 0, $seconds: 0) {
     //     display: inline-block;
