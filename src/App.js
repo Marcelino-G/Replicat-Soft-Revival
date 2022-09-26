@@ -4,7 +4,7 @@ function App(props) {
   return (
     <div className="container-fluid row justify-content-center p-0 mx-auto">
 
-      <header className="row justify-content-around justify-content-md-evenly m-0 px-0 ">
+      <header className="row justify-content-around justify-content-md-evenly m-0 px-0">
         <button aria-label="Hamburger nav" id="hamburger" onClick={props.hamburger} className="col-1 p-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -18,7 +18,7 @@ function App(props) {
         <nav className="col-md-10 pt-2 px-0 mx-auto mt-1 m-md-0 p-md-0">
           <ul onClick={props.hamburger} className="p-0">
             <li><a>Home</a></li>
-            <li><a>About</a></li>
+            <li><a>About Us</a></li>
             <li><a href="#featured">Featured</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#faq">FAQ</a></li>
@@ -57,39 +57,39 @@ function App(props) {
         <h2>
           NEXUS Replicats
         </h2>
-        <button aria-label="Go to previous featured item" className="col-2" onClick={props.back}>
+        <button aria-label="Go to previous featured item" className="col-2" onClick={props.backFeatured}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-left" viewBox="0 0 16 16">
             <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
           </svg>
         </button>
         <ul className="col-8 col-md-12 list-group list-group-horizontal justify-content-center">
           <li className="col-md-3 col-lg-2 replicat active">
-            <data value='Hurricane'>
+            <data value='Whirlwind'>
               <figure className="m-0">
                 <picture>
-                  <img className="img-fluid" src= {Imgs.modelLeon} alt='NEXUS Replicat (Hurricane model)'/>
+                  <img className="img-fluid" src= {Imgs.modelLeon} alt='NEXUS Replicat (Whirlwind model)'/>
                 </picture>
                 <figcaption>
                   <h3>
-                    Hurricane
+                    Whirlwind
                   </h3>
-                  Expect the filtration of poisoned air
+                    Expect the filtering of toxic infested air
                 </figcaption>
               </figure>
             </data>
           </li>
 
           <li className="col-md-3 col-lg-2 replicat">
-            <data value='Flood'>
+            <data value='Tsunami'>
               <figure className="m-0">
                 <picture>
-                  <img className="img-fluid" src= {Imgs.modelPris} alt='NEXUS Replicat (Flood model)'/>
+                  <img className="img-fluid" src= {Imgs.modelPris} alt='NEXUS Replicat (Tsunami model)'/>
                 </picture>
                 <figcaption>
                   <h3>
-                    Flood
+                    Tsunami
                   </h3>
-                  Expect the cleansing of stained concrete
+                    Expect the cleansing of stained concrete
                 </figcaption>
               </figure>
             </data>
@@ -105,13 +105,13 @@ function App(props) {
                   <h3>
                     Avalanche
                   </h3>
-                  Expect the rearranging of mountains
+                    Expect the rearranging of smelted structures
                 </figcaption>
               </figure>
             </data>
           </li>
         </ul>
-        <button aria-label="Go to next featured item" className="col-2" onClick={props.next}>
+        <button aria-label="Go to next featured item" className="col-2" onClick={props.nextFeatured}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
             <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
           </svg>
@@ -143,42 +143,45 @@ function App(props) {
         <ul className="list-group">
           <li className="row">
             <h3>
-              Artificial Intelligence
+              Rapid Learning
             </h3>
             <figure className="row">
               <picture ref={props.brain} className="col-6">
-                <img src= {Imgs.brain} alt='Artificial Intelligence (brain picture)'/>
+                <img src= {Imgs.brain} alt='Rapid Learning (brain picture)'/>
               </picture>
               <figcaption className="col-6">
-                Mood and demeanor based on environment stimuli  
+                Advanced environmental absorbing stimuli 
+                processing chip that powers never-ending neuroplasticity  
               </figcaption>
             </figure>
           </li>
 
           <li className="row">
             <h3>
-              Security System
+              Surveillance Systems
             </h3>
             <figure className="row">
               <picture ref={props.camera} className="col-6">
-                <img src= {Imgs.cam} alt='Security System (camera picture)'/>
+                <img src= {Imgs.cam} alt='Surveillance Systems (camera picture)'/>
               </picture>
               <figcaption className="col-6">
-                pa
+                Five levels of procedures that
+                prevent, warn, and eliminate any suspected life threatening scenarios
               </figcaption>
             </figure>
           </li>
 
           <li className="row">
             <h3>
-              Household Tasks
+              Chores Mode
             </h3>
             <figure className="row">
               <picture ref={props.brush} className="col-6">
-                <img src= {Imgs.paint} alt='Household Tasks (paint brush)'/>
+                <img src= {Imgs.paint} alt='Chores Mode (paint brush)'/>
               </picture>
               <figcaption className="col-6">
-                pa
+                Hundreds of preloaded programmed skills that 
+                are tailored towards everyday mundane tasks
               </figcaption>
             </figure>
           </li>
@@ -191,53 +194,58 @@ function App(props) {
           <h2>
             FAQ
           </h2>
-          <ul className="row justify-content-evenly col-lg-10 col-xl-8" onClick={props.question}>
+          <ul className="row justify-content-evenly col-lg-10 col-xl-8" onClick={props.faq}>
             <li className="col-6">
               <p className="question col-sm-10">
-                How old is Audrey?
+                What is the refund policy?
               </p>
               <p className="answer col-10 col-sm-8">
-                at least 8 years old.
+                The Replicat can only be refunded if it is still in the box and if the
+                box has it's original seal.
               </p>
             </li>
             <li className="col-6">
               <p className="question col-sm-10">
-                What?
+                Can the Replicat withstand extreme weather conditions? 
               </p>
               <p className="answer col-10 col-sm-8">
-                answer
+                Yes, the many layers of "fur" coats shield off harsh weather
+                from reaching it's internal components. 
               </p>
             </li>
             <li className="col-6">
               <p className="question col-sm-10">
-                What?
+                Should the Replicat be left unattended?
               </p>
               <p className="answer col-10 col-sm-8">
-                answer
+                This is dependent on the mood of the Replicat, please 
+                refer to the manual for advanced handling.
               </p>
             </li>
             <li className="col-6">
               <p className="question col-sm-10">
-                What?
+                Does the Replicat have any type of emergency shut down method?
               </p>
               <p className="answer col-10 col-sm-8">
-                answer
+                It does not since THE SIBER CORPORATION feels
+                that the Replicat does not need one.
               </p>
             </li>
             <li className="col-6">
               <p className="question col-sm-10">
-                What?
+                How often can one expect software updates to be made? 
               </p>
               <p className="answer col-10 col-sm-8">
-                answer
+                Updates related to new features and system maintenance 
+                will be routinely made available every three months.
               </p>
             </li>
             <li className="col-6">
               <p className="question col-sm-10">
-                What?
+                Can the Replicat become dangerous?
               </p>
               <p className="answer col-10 col-sm-8">
-                answer
+                No.
               </p>
             </li>
           </ul>
@@ -285,8 +293,9 @@ function App(props) {
           <h2>
             Mission Statement
           </h2>
-          <p>
-            /////
+          <p className="col-11 col-sm-10 col-md-9 col-lg-11">
+            To reform the bond between man and machine once more, proving
+            that they can coexist and benefit from one another in harmony.
           </p>
         </section>
 
@@ -313,7 +322,6 @@ function App(props) {
 
         <address className="row col-lg-5">
           <ul className="col-6">
-            <li><a href="#">Contact Us</a></li>
             <li><a href="https://twitter.com/xProtocall" target="_blank" rel="noopener noreferrer">Twitter</a></li>
             <li><a href="https://www.linkedin.com/in/marcelino-g/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="https://github.com/Marcelino-G" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -342,7 +350,6 @@ function App(props) {
         </a>
       </button>
       
-
     </div>
   );
 }

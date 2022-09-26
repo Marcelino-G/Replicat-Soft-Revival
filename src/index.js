@@ -258,10 +258,10 @@ const Parent = () => {
       <App 
       hamburger = {handleOnClickHamburgerAndNavLinks}
       subscribe = {handleOnSubmit}
-      next = {handleOnClickNext}
-      back = {handleOnClickBack}
+      nextFeatured = {handleOnClickNext}
+      backFeatured = {handleOnClickBack}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
-      question = {handleOnClickQuestion}
+      faq = {handleOnClickQuestion}
       // mes = {handleOnClickMes}
       brain = {brainPic}
       camera = {cameraPic}
