@@ -17,54 +17,97 @@ const questions = document.getElementsByClassName('question')
 const answers = document.getElementsByClassName('answer')
 
 
+const addActiveFeaturedClasses = () => {
+  featuredReplicats[i].classList.add('active')
+  featuredCircles[i].classList.add('activeCircle')
+}
 
-
-
-
-
-
-const slideForward = () => {
+const removeActiveFeaturedClasses = () => {
   featuredReplicats[i].classList.remove('active')
-  featuredCircles[i].classList.remove('activeCircle')
-  i++;
+  featuredCircles[i].classList.remove('activeCircle') 
+}
+
+const autoSlideForward = () => {
+  removeActiveFeaturedClasses();
+  i++
   if (i === featuredReplicats.length){
     i = 0;
-    featuredReplicats[i].classList.add('active')
-    featuredCircles[i].classList.add('activeCircle')
+    addActiveFeaturedClasses();
     return
   }
-  featuredReplicats[i].classList.add('active')
-  featuredCircles[i].classList.add('activeCircle')
+  addActiveFeaturedClasses();
 }
 
-const slideBackward = () => {
-  featuredReplicats[i].classList.remove('active')
-  featuredCircles[i].classList.remove('activeCircle')
-  i--;
-  if (i === -1){
-    i = 2;
-    featuredReplicats[i].classList.add('active')
-    featuredCircles[i].classList.add('activeCircle')
-    return
+const handleOnClickSlideControl = (e) => {
+  clearInterval(slideShow);
+  removeActiveFeaturedClasses();
+
+  if(e.target.classList.contains('backFeatured')){
+    i--
+    if (i === -1){
+      i = 2;
+      addActiveFeaturedClasses();
+      return
+    }
+  } else if (e.target.classList.contains('nextFeatured')){
+    i++
+    if (i === featuredReplicats.length){
+      i = 0;
+      addActiveFeaturedClasses();
+      return
+    }
   }
-  featuredReplicats[i].classList.add('active')
-  featuredCircles[i].classList.add('activeCircle')
+
+  addActiveFeaturedClasses();
 }
+
+
+
+
+
+
+
+// const slideForward = () => {
+//   featuredReplicats[i].classList.remove('active')
+//   featuredCircles[i].classList.remove('activeCircle')
+//   i++;
+//   if (i === featuredReplicats.length){
+//     i = 0;
+//     featuredReplicats[i].classList.add('active')
+//     featuredCircles[i].classList.add('activeCircle')
+//     return
+//   }
+//   featuredReplicats[i].classList.add('active')
+//   featuredCircles[i].classList.add('activeCircle')
+// }
+
+// const slideBackward = () => {
+//   featuredReplicats[i].classList.remove('active')
+//   featuredCircles[i].classList.remove('activeCircle')
+//   i--;
+//   if (i === -1){
+//     i = 2;
+//     featuredReplicats[i].classList.add('active')
+//     featuredCircles[i].classList.add('activeCircle')
+//     return
+//   }
+//   featuredReplicats[i].classList.add('active')
+//   featuredCircles[i].classList.add('activeCircle')
+// }
 
 const slideCircle = (x) => {
-  featuredReplicats[i].classList.remove('active')
-  featuredCircles[i].classList.remove('activeCircle')
+  removeActiveFeaturedClasses();
   i= x;
-  featuredReplicats[i].classList.add('active')
-  featuredCircles[i].classList.add('activeCircle')
+  addActiveFeaturedClasses();
 }
 
-const landScape = window.matchMedia('(orientation: landscape)')
-const portrait = window.matchMedia('(orientation: portrait)')
-let windoww = window.matchMedia('(max-width: 767px)')
-if(portrait.matches && windoww.matches){
+const landScapeOR = window.matchMedia('(orientation: landscape)')
+const portraitOR = window.matchMedia('(orientation: portrait)')
+const smWindowWidth = window.matchMedia('(max-width: 767px)')
+
+if(portraitOR.matches && smWindowWidth.matches){
   clearInterval(slideShow)
-  slideShow = setInterval(slideForward, 5000)
+  slideShow = setInterval(autoSlideForward, 5000)
 }
 
 
@@ -72,7 +115,7 @@ if(portrait.matches && windoww.matches){
 const Parent = () => {
 
   const [hamToggle, setHamToggle] = useState(null); 
-  
+
   useEffect(() => {
     const nav = document.querySelector('nav');
     const ham = document.querySelector('#hamburger');
@@ -90,43 +133,8 @@ const Parent = () => {
     }
   }, [hamToggle])
 
-  landScape.addEventListener('change', (media) => {
-    const nav = document.querySelector('nav');
-    const ham = document.querySelector('#hamburger');
-    setHamToggle(null)
-    if (media.matches && window.innerWidth < 768){
-      nav.style.display = 'none'
-      ham.classList.remove('pressedHam')
-      clearInterval(slideShow)
-    } else if (media.matches){
-      nav.style.display = 'initial'
-      clearInterval(slideShow)
-    } else if (!media.matches && window.innerWidth < 768){
-      nav.style.display = 'none'
-      ham.classList.remove('pressedHam')
-      clearInterval(slideShow)
-      slideShow = setInterval(slideForward, 5000)
-    }
-  })
-  
-  windoww.addEventListener('change', (media) => {
-    const nav = document.querySelector('nav');
-    const ham = document.querySelector('#hamburger');
-    if (media.matches && portrait.matches){
-      setHamToggle(null)
-      nav.style.display = 'none'
-      ham.classList.remove('pressedHam')
-      clearInterval(slideShow)
-      slideShow = setInterval(slideForward, 5000)
-    } else{
-      setHamToggle(null)
-      nav.style.display = 'initial'
-      clearInterval(slideShow)
-    }
-  })
-
   const handleOnClickHamburgerAndNavLinks = () => {
-    if(!windoww.matches){
+    if(!smWindowWidth.matches){
       return
     } else if (hamToggle === null){
       setHamToggle(true)
@@ -135,19 +143,55 @@ const Parent = () => {
     }
   }
 
+  const navHamAppearanceToggles = (navDisplay) => {
+    const nav = document.querySelector('nav');
+    const ham = document.querySelector('#hamburger');
+    nav.style.display = navDisplay
+    ham.classList.remove('pressedHam')
+  }
+  landScapeOR.addEventListener('change', (media) => {
+    setHamToggle(null)
+    if(media.matches && smWindowWidth.matches){
+      navHamAppearanceToggles('none')
+      clearInterval(slideShow)
+    } else if (media.matches && !smWindowWidth.matches){
+      navHamAppearanceToggles('initial')
+      clearInterval(slideShow)
+    } 
+  })
+  portraitOR.addEventListener('change', (media) => {
+    setHamToggle(null)
+    if (media.matches && smWindowWidth.matches){
+      navHamAppearanceToggles('none')
+      clearInterval(slideShow)
+      slideShow = setInterval(autoSlideForward, 5000)
+    } else if (media.matches && !smWindowWidth.matches){
+      navHamAppearanceToggles('initial')
+      clearInterval(slideShow)
+    }
+  })
+  smWindowWidth.addEventListener('change', (media) => {
+    setHamToggle(null)
+    if(media.matches && landScapeOR.matches){
+      navHamAppearanceToggles('none')
+      clearInterval(slideShow)
+    } else if (media.matches && portraitOR.matches){
+      navHamAppearanceToggles('none')
+      clearInterval(slideShow)
+      slideShow = setInterval(autoSlideForward, 5000)
+    } else if (!media.matches && landScapeOR.matches){
+      navHamAppearanceToggles('initial')
+      clearInterval(slideShow)
+    } else if (!media.matches && portraitOR.matches){
+      navHamAppearanceToggles('initial')
+      clearInterval(slideShow)
+    }
+  })
+
   const handleOnSubmit = (e) =>{
     e.preventDefault();
   }
 
-  const handleOnClickNext = () => {
-    clearInterval(slideShow)
-    slideForward();
-  }
-
-  const handleOnClickBack = () => {
-    clearInterval(slideShow)
-    slideBackward();
-  }
 
   const handleOnClickFeaturedCircleOrder = (e) => {
     if (e.target.tagName !== "BUTTON"){
@@ -158,30 +202,25 @@ const Parent = () => {
   }
 
   const handleOnClickQuestion = (e) => {
+
     if(e.target.classList.contains('answer')){
       for (let i = 0; i < questions.length; i++){
-        answers[i].classList.remove('stinkyAnimation');
-        questions[i].classList.remove('removeListShadow');
+        answers[i].classList.remove('answerRevealAnimation');
+        questions[i].classList.remove('removeQuestionShadow');
       }
       return
-
     } else if (!e.target.classList.contains('question')){
       return
-
-    } else if (e.target.nextElementSibling.classList.contains('stinkyAnimation')){
-      e.target.nextElementSibling.classList.remove('stinkyAnimation')
-      e.target.classList.remove('removeListShadow')
-      return
     }
-
+    
     for (let i = 0; i < questions.length; i++){
-      answers[i].classList.remove('stinkyAnimation');
-      questions[i].classList.remove('removeListShadow');
+      answers[i].classList.remove('answerRevealAnimation');
+      questions[i].classList.remove('removeQuestionShadow');
     }
 
-    e.target.classList.add('removeListShadow')
-    let pElement = e.target.nextElementSibling
-    pElement.classList.add('stinkyAnimation')
+    let answerElement = e.target.nextElementSibling
+    e.target.classList.add('removeQuestionShadow')
+    answerElement.classList.add('answerRevealAnimation')
   }
 
   // const handleOnClickMes = (e) => {
@@ -222,15 +261,11 @@ const Parent = () => {
 
 
     if (window.innerWidth > 767 && window.innerHeight > 549){
+
       const observer = new IntersectionObserver(([entry]) => {
-        console.log(entry.isIntersecting)
-        console.log(observer)
         if(entry.isIntersecting){
           entry.target.classList.add('glideUp')
-          
-        }
-        
-        
+        } 
       }, {
         root: null,
         rootMargin: '0px 0px 15px 0px',
@@ -248,9 +283,6 @@ const Parent = () => {
         observer.unobserve(brushPic.current)
       }
     }
-
-    
-    
   }, [])
 
   return (
@@ -258,8 +290,9 @@ const Parent = () => {
       <App 
       hamburger = {handleOnClickHamburgerAndNavLinks}
       subscribe = {handleOnSubmit}
-      nextFeatured = {handleOnClickNext}
-      backFeatured = {handleOnClickBack}
+      // nextFeatured = {handleOnClickNext}
+      // backFeatured = {handleOnClickBack}
+      slideControl = {handleOnClickSlideControl}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
       faq = {handleOnClickQuestion}
       // mes = {handleOnClickMes}

@@ -310,7 +310,7 @@ header{
                     box-shadow: 0px 0px 5px 2px #97C4BE;
                     cursor: pointer;
                 }
-                p[class~='question'].removeListShadow{
+                p[class~='question'].removeQuestionShadow{
                     box-shadow: unset;
                 }
                 p[class~="answer"]{
@@ -320,7 +320,7 @@ header{
                     box-shadow: 0px 0px 5px 2px #25ffe2;
                     cursor: pointer;
                 }
-                p[class~="answer"].stinkyAnimation{
+                p[class~="answer"].answerRevealAnimation{
                     visibility: visible;
                     animation-name: fadeOpen;
                     animation-duration: .5s;
@@ -959,15 +959,6 @@ header{
     }  
 }
 
-@media screen and (min-height: 1000px){
-    #quote{
-        min-height: 675px;
-    }
-    #featured{
-        min-height: 540px;
-    }
-}
-
 @mixin featuresGlideUp() {
     animation-duration: 2s;
     animation-name: glideUp;
@@ -1489,6 +1480,18 @@ header{
 @media screen and (min-width: 1600px){
     #horse{
         top: 935px;
+    }
+}
+
+@media screen and (min-height: 1000px){
+    #quote{
+        min-height: 675px;
+    }
+    #horse{
+        top: 750px;
+    }
+    #featured{
+        min-height: 540px;
     }
 }
 
