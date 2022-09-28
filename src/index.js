@@ -10,49 +10,46 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const featuredReplicats = document.getElementsByClassName('replicat');
 const featuredCircles = document.getElementsByClassName("circle")
-let i = 0;
+let currentCat = 0;
 let slideShow;
 
-const questions = document.getElementsByClassName('question')
-const answers = document.getElementsByClassName('answer')
-
-
 const addActiveFeaturedClasses = () => {
-  featuredReplicats[i].classList.add('active')
-  featuredCircles[i].classList.add('activeCircle')
+  featuredReplicats[currentCat].classList.add('active')
+  featuredCircles[currentCat].classList.add('activeCircle')
 }
-
 const removeActiveFeaturedClasses = () => {
-  featuredReplicats[i].classList.remove('active')
-  featuredCircles[i].classList.remove('activeCircle') 
+  featuredReplicats[currentCat].classList.remove('active')
+  featuredCircles[currentCat].classList.remove('activeCircle') 
 }
 
+// function used in interval for slideshow
 const autoSlideForward = () => {
   removeActiveFeaturedClasses();
-  i++
-  if (i === featuredReplicats.length){
-    i = 0;
+  currentCat++
+  if (currentCat === featuredReplicats.length){
+    currentCat = 0;
     addActiveFeaturedClasses();
     return
   }
   addActiveFeaturedClasses();
 }
 
+// button control for slideshow (forward/back)
 const handleOnClickSlideControl = (e) => {
   clearInterval(slideShow);
   removeActiveFeaturedClasses();
 
   if(e.target.classList.contains('backFeatured')){
-    i--
-    if (i === -1){
-      i = 2;
+    currentCat--
+    if (currentCat === -1){
+      currentCat = 2;
       addActiveFeaturedClasses();
       return
     }
   } else if (e.target.classList.contains('nextFeatured')){
-    i++
-    if (i === featuredReplicats.length){
-      i = 0;
+    currentCat++
+    if (currentCat === featuredReplicats.length){
+      currentCat = 0;
       addActiveFeaturedClasses();
       return
     }
@@ -61,43 +58,11 @@ const handleOnClickSlideControl = (e) => {
   addActiveFeaturedClasses();
 }
 
-
-
-
-
-
-
-// const slideForward = () => {
-//   featuredReplicats[i].classList.remove('active')
-//   featuredCircles[i].classList.remove('activeCircle')
-//   i++;
-//   if (i === featuredReplicats.length){
-//     i = 0;
-//     featuredReplicats[i].classList.add('active')
-//     featuredCircles[i].classList.add('activeCircle')
-//     return
-//   }
-//   featuredReplicats[i].classList.add('active')
-//   featuredCircles[i].classList.add('activeCircle')
-// }
-
-// const slideBackward = () => {
-//   featuredReplicats[i].classList.remove('active')
-//   featuredCircles[i].classList.remove('activeCircle')
-//   i--;
-//   if (i === -1){
-//     i = 2;
-//     featuredReplicats[i].classList.add('active')
-//     featuredCircles[i].classList.add('activeCircle')
-//     return
-//   }
-//   featuredReplicats[i].classList.add('active')
-//   featuredCircles[i].classList.add('activeCircle')
-// }
-
+// function used in the handleOnClickFeaturedCircleOrder function
+// so that circle and cat match in the slideshow order
 const slideCircle = (x) => {
   removeActiveFeaturedClasses();
-  i= x;
+  currentCat = x;
   addActiveFeaturedClasses();
 }
 
@@ -105,17 +70,24 @@ const landScapeOR = window.matchMedia('(orientation: landscape)')
 const portraitOR = window.matchMedia('(orientation: portrait)')
 const smWindowWidth = window.matchMedia('(max-width: 767px)')
 
+// featured items slideshow automatically starts when this is met 
 if(portraitOR.matches && smWindowWidth.matches){
   clearInterval(slideShow)
   slideShow = setInterval(autoSlideForward, 5000)
 }
 
-
+// these two are used down below in our
+// handleOnClickQuestion function
+const questions = document.getElementsByClassName('question')
+const answers = document.getElementsByClassName('answer')
 
 const Parent = () => {
 
   const [hamToggle, setHamToggle] = useState(null); 
 
+  // determines the appearance of the nav
+  // and hamburger button when the hamToggle state
+  // is changed
   useEffect(() => {
     const nav = document.querySelector('nav');
     const ham = document.querySelector('#hamburger');
@@ -133,6 +105,8 @@ const Parent = () => {
     }
   }, [hamToggle])
 
+  // changes the value of hamtoggle so the 
+  // useeffect is started again
   const handleOnClickHamburgerAndNavLinks = () => {
     if(!smWindowWidth.matches){
       return
@@ -143,6 +117,8 @@ const Parent = () => {
     }
   }
 
+  // used for the landscapeOR, portraitOR, and smWindowWidth
+  // event listeners ('change') to determine nav/hamburger appearance.
   const navHamAppearanceToggles = (navDisplay) => {
     const nav = document.querySelector('nav');
     const ham = document.querySelector('#hamburger');
@@ -188,11 +164,8 @@ const Parent = () => {
     }
   })
 
-  const handleOnSubmit = (e) =>{
-    e.preventDefault();
-  }
-
-
+  // changes the display of the cat AND circle
+  // depending on circle clicked
   const handleOnClickFeaturedCircleOrder = (e) => {
     if (e.target.tagName !== "BUTTON"){
       return
@@ -201,8 +174,9 @@ const Parent = () => {
     slideCircle(e.target.id)
   }
 
+  // function that makes it that only one answer
+  // from a question is selected and viewable at a time.
   const handleOnClickQuestion = (e) => {
-
     if(e.target.classList.contains('answer')){
       for (let i = 0; i < questions.length; i++){
         answers[i].classList.remove('answerRevealAnimation');
@@ -221,6 +195,43 @@ const Parent = () => {
     let answerElement = e.target.nextElementSibling
     e.target.classList.add('removeQuestionShadow')
     answerElement.classList.add('answerRevealAnimation')
+  }
+
+  const brainPic = useRef(null)
+  const cameraPic = useRef(null)
+  const brushPic = useRef(null)
+
+  // targets glide up in animation when the condition is met
+  // and when they become visible in the viewport
+  useEffect(() => {
+
+    if (window.innerWidth > 767 && window.innerHeight > 549){
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('glideUp')
+        } 
+      }, {
+        root: null,
+        rootMargin: '0px 0px 15px 0px',
+        threshold: .01
+      })
+  
+      if(brainPic.current && cameraPic.current && brushPic.current){
+        observer.observe(brainPic.current)
+        observer.observe(cameraPic.current)
+        observer.observe(brushPic.current)
+      }
+      return () => {
+        observer.unobserve(brainPic.current)
+        observer.unobserve(cameraPic.current)
+        observer.unobserve(brushPic.current)
+      }
+    }
+  }, [])
+
+  const handleOnSubmit = (e) =>{
+    e.preventDefault();
   }
 
   // const handleOnClickMes = (e) => {
@@ -253,45 +264,11 @@ const Parent = () => {
   //     eldonMes.append(letter)
   //   }
   // }
-
-  const brainPic = useRef(null)
-  const cameraPic = useRef(null)
-  const brushPic = useRef(null)
-  useEffect(() => {
-
-
-    if (window.innerWidth > 767 && window.innerHeight > 549){
-
-      const observer = new IntersectionObserver(([entry]) => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('glideUp')
-        } 
-      }, {
-        root: null,
-        rootMargin: '0px 0px 15px 0px',
-        threshold: .01
-      })
-  
-      if(brainPic.current && cameraPic.current && brushPic.current){
-        observer.observe(brainPic.current)
-        observer.observe(cameraPic.current)
-        observer.observe(brushPic.current)
-      }
-      return () => {
-        observer.unobserve(brainPic.current)
-        observer.unobserve(cameraPic.current)
-        observer.unobserve(brushPic.current)
-      }
-    }
-  }, [])
-
   return (
     <div>
       <App 
       hamburger = {handleOnClickHamburgerAndNavLinks}
       subscribe = {handleOnSubmit}
-      // nextFeatured = {handleOnClickNext}
-      // backFeatured = {handleOnClickBack}
       slideControl = {handleOnClickSlideControl}
       featuredCircle = {handleOnClickFeaturedCircleOrder}
       faq = {handleOnClickQuestion}
@@ -302,7 +279,6 @@ const Parent = () => {
       />
     </div>
   )
-
 }
 
 root.render(

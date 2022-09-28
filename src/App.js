@@ -149,7 +149,7 @@ function App(props) {
               <picture ref={props.brain} className="col-6">
                 <img src= {Imgs.brain} alt='Rapid Learning (brain picture)'/>
               </picture>
-              <figcaption className="col-6">
+              <figcaption className="col-5">
                 Advanced environmental absorbing stimuli 
                 processing chip that powers never-ending neuroplasticity  
               </figcaption>
@@ -164,7 +164,7 @@ function App(props) {
               <picture ref={props.camera} className="col-6">
                 <img src= {Imgs.cam} alt='Surveillance Systems (camera picture)'/>
               </picture>
-              <figcaption className="col-6">
+              <figcaption className="col-5">
                 Five levels of procedures that
                 prevent, warn, and eliminate any suspected life threatening scenarios
               </figcaption>
@@ -179,7 +179,7 @@ function App(props) {
               <picture ref={props.brush} className="col-6">
                 <img src= {Imgs.paint} alt='Chores Mode (paint brush)'/>
               </picture>
-              <figcaption className="col-6">
+              <figcaption className="col-5">
                 Hundreds of preloaded programmed skills that 
                 are tailored towards everyday mundane tasks
               </figcaption>
