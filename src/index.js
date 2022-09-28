@@ -1,12 +1,46 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
+import Root from './routes/root';
+import ErrorPage from "./error-page";
+import App from './routes/App';
+import AboutUs from './routes/aboutus';
+
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+    children: [{
+      path: "Replicat-Soft-Revival",
+      element: <App/>
+    },
+    {
+      path: "About-us",
+      element: <AboutUs/>
+    }]
+  }
+])
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
 
 const featuredReplicats = document.getElementsByClassName('replicat');
 const featuredCircles = document.getElementsByClassName("circle")
@@ -264,26 +298,27 @@ const Parent = () => {
   //     eldonMes.append(letter)
   //   }
   // }
-  return (
-    <div>
-      <App 
-      hamburger = {handleOnClickHamburgerAndNavLinks}
-      subscribe = {handleOnSubmit}
-      slideControl = {handleOnClickSlideControl}
-      featuredCircle = {handleOnClickFeaturedCircleOrder}
-      faq = {handleOnClickQuestion}
-      // mes = {handleOnClickMes}
-      brain = {brainPic}
-      camera = {cameraPic}
-      brush = {brushPic}
-      />
-    </div>
-  )
+  // return (
+  //   <div>
+  //     <App 
+  //     hamburger = {handleOnClickHamburgerAndNavLinks}
+  //     subscribe = {handleOnSubmit}
+  //     slideControl = {handleOnClickSlideControl}
+  //     featuredCircle = {handleOnClickFeaturedCircleOrder}
+  //     faq = {handleOnClickQuestion}
+  //     // mes = {handleOnClickMes}
+  //     brain = {brainPic}
+  //     camera = {cameraPic}
+  //     brush = {brushPic}
+  //     />
+  //   </div>
+  // )
 }
 
 root.render(
   <React.StrictMode>
-    <Parent />
+    {/* <Parent /> */}
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

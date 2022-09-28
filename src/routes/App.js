@@ -1,31 +1,10 @@
-import Imgs from "./imgs";
+import Imgs from "../imgs";
 
 function App(props) {
   return (
     <div className="container-fluid row justify-content-center p-0 mx-auto">
 
-      <header className="row justify-content-around justify-content-md-evenly m-0 px-0">
-        <button aria-label="Hamburger nav" id="hamburger" onClick={props.hamburger} className="col-1 p-0">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-            <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-        </button>
-        <h1 className="col-10 col-md-12 p-0 pe-md-4">
-          THE SIBER CORPORATION
-        </h1>
-        <img id="logo" src={Imgs.altLogo} alt='THE SIBER CORPORATION logo'/>
       
-        <nav className="col-md-10 pt-2 px-0 mx-auto mt-1 m-md-0 p-md-0">
-          <ul onClick={props.hamburger} className="p-0">
-            <li><a>Home</a></li>
-            <li><a>About Us</a></li>
-            <li><a href="#featured">Featured</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#footerr">Contact Us</a></li>
-          </ul>
-        </nav>
-      </header>
       
       <main id='quote' className="row">
         <img id="bladeCity" src={Imgs.city} alt='Blade Runner city'/>
