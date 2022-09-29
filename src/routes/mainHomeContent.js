@@ -1,11 +1,181 @@
 import Imgs from "../imgs";
+import { useRef } from "react";
+import { useEffect } from "react";
+import React from "react";
 
-function App(props) {
+const featuredReplicats = document.getElementsByClassName('replicat');
+const featuredCircles = document.getElementsByClassName("circle")
+let currentCat = 0;
+let slideShow;
+
+const addActiveFeaturedClasses = () => {
+  featuredReplicats[currentCat].classList.add('active')
+  featuredCircles[currentCat].classList.add('activeCircle')
+}
+const removeActiveFeaturedClasses = () => {
+  featuredReplicats[currentCat].classList.remove('active')
+  featuredCircles[currentCat].classList.remove('activeCircle') 
+}
+
+// function used in interval for slideshow
+const autoSlideForward = () => {
+  removeActiveFeaturedClasses();
+  currentCat++
+  if (currentCat === featuredReplicats.length){
+    currentCat = 0;
+    addActiveFeaturedClasses();
+    return
+  }
+  addActiveFeaturedClasses();
+}
+
+// button control for slideshow (forward/back)
+const handleOnClickSlideControl = (e) => {
+  clearInterval(slideShow);
+  removeActiveFeaturedClasses();
+
+  if(e.target.classList.contains('backFeatured')){
+    currentCat--
+    if (currentCat === -1){
+      currentCat = 2;
+      addActiveFeaturedClasses();
+      return
+    }
+  } else if (e.target.classList.contains('nextFeatured')){
+    currentCat++
+    if (currentCat === featuredReplicats.length){
+      currentCat = 0;
+      addActiveFeaturedClasses();
+      return
+    }
+  }
+
+  addActiveFeaturedClasses();
+}
+
+// function used in the handleOnClickFeaturedCircleOrder function
+// so that circle and cat match in the slideshow order
+const slideCircle = (x) => {
+  removeActiveFeaturedClasses();
+  currentCat = x;
+  addActiveFeaturedClasses();
+}
+
+// changes the display of the cat AND circle
+// depending on circle clicked
+const handleOnClickFeaturedCircleOrder = (e) => {
+  if (e.target.tagName !== "BUTTON"){
+    return
+  }
+  clearInterval(slideShow)
+  slideCircle(e.target.id)
+}
+
+// these two are used down below in our
+// handleOnClickQuestion function
+const questions = document.getElementsByClassName('question')
+const answers = document.getElementsByClassName('answer')
+
+// function that makes it that only one answer
+// from a question is selected and viewable at a time.
+const handleOnClickQuestion = (e) => {
+  if(e.target.classList.contains('answer')){
+    for (let i = 0; i < questions.length; i++){
+      answers[i].classList.remove('answerRevealAnimation');
+      questions[i].classList.remove('removeQuestionShadow');
+    }
+    return
+  } else if (!e.target.classList.contains('question')){
+    return
+  }
+  
+  for (let i = 0; i < questions.length; i++){
+    answers[i].classList.remove('answerRevealAnimation');
+    questions[i].classList.remove('removeQuestionShadow');
+  }
+
+  let answerElement = e.target.nextElementSibling
+  e.target.classList.add('removeQuestionShadow')
+  answerElement.classList.add('answerRevealAnimation')
+}
+
+
+function MainHomeContent(props) {
+
+  const brainPic = useRef(null)
+  const cameraPic = useRef(null)
+  const brushPic = useRef(null)
+
+  // targets glide up in animation when the condition is met
+  // and when they become visible in the viewport
+  useEffect(() => {
+
+    if (window.innerWidth > 767 && window.innerHeight > 549){
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('glideUp')
+        } 
+      }, {
+        root: null,
+        rootMargin: '0px 0px 15px 0px',
+        threshold: .01
+      })
+  
+      if(brainPic.current && cameraPic.current && brushPic.current){
+        observer.observe(brainPic.current)
+        observer.observe(cameraPic.current)
+        observer.observe(brushPic.current)
+      }
+
+      return () => {
+        if(brainPic.current && cameraPic.current && brushPic.current){
+          observer.unobserve(brainPic.current)
+          observer.unobserve(cameraPic.current)
+          observer.unobserve(brushPic.current)
+        } 
+      }
+    }
+  }, [brainPic, cameraPic, brushPic])
+
+  // featured items slideshow automatically starts when this is met 
+  if(props.portraitOR.matches && props.smWindowWidth.matches){
+    clearInterval(slideShow)
+    slideShow = setInterval(autoSlideForward, 5000)
+  }
+
+  props.landScapeOR.addEventListener('change', (media) => {
+    if(media.matches && props.smWindowWidth.matches){
+      clearInterval(slideShow)
+    } else if (media.matches && !props.smWindowWidth.matches){
+        clearInterval(slideShow)
+    } 
+  })
+  props.portraitOR.addEventListener('change', (media) => {
+    if (media.matches && props.smWindowWidth.matches){
+      clearInterval(slideShow)
+      slideShow = setInterval(autoSlideForward, 5000)
+    } else if (media.matches && !props.smWindowWidth.matches){
+        clearInterval(slideShow)
+    }
+  })
+  props.smWindowWidth.addEventListener('change', (media) => {
+    if(media.matches && props.landScapeOR.matches){
+      clearInterval(slideShow)
+    } else if (media.matches && props.portraitOR.matches){
+        clearInterval(slideShow)
+        slideShow = setInterval(autoSlideForward, 5000)
+    } else if (!media.matches && props.landScapeOR.matches){
+        clearInterval(slideShow)
+    } else if (!media.matches && props.portraitOR.matches){
+        clearInterval(slideShow)
+    }
+  })
+
+  
   return (
     <div className="container-fluid row justify-content-center p-0 mx-auto">
 
-      
-      
       <main id='quote' className="row">
         <img id="bladeCity" src={Imgs.city} alt='Blade Runner city'/>
         <figure className="col-11">
@@ -36,7 +206,7 @@ function App(props) {
         <h2>
           NEXUS Replicats
         </h2>
-        <button aria-label="Go to previous featured item" className="col-2 backFeatured" onClick={props.slideControl}>
+        <button aria-label="Go to previous featured item" className="col-2 backFeatured" onClick={handleOnClickSlideControl}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-left backFeatured" viewBox="0 0 16 16">
             <path className="backFeatured" d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
           </svg>
@@ -90,13 +260,13 @@ function App(props) {
             </data>
           </li>
         </ul>
-        <button aria-label="Go to next featured item" className="col-2 nextFeatured" onClick={props.slideControl}>
+        <button aria-label="Go to next featured item" className="col-2 nextFeatured" onClick={handleOnClickSlideControl}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-caret-right nextFeatured" viewBox="0 0 16 16">
             <path className="nextFeatured" d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
           </svg>
         </button>
 
-        <div id='circleSlideHolder' className="row justify-content-center" onClick={props.featuredCircle}>
+        <div id='circleSlideHolder' className="row justify-content-center" onClick={handleOnClickFeaturedCircleOrder}>
           <button aria-label="Featured circle order 1/3" id='0' className="col-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-circle circle activeCircle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -125,7 +295,7 @@ function App(props) {
               Rapid Learning
             </h3>
             <figure className="row">
-              <picture ref={props.brain} className="col-6">
+              <picture ref={brainPic} className="col-6">
                 <img src= {Imgs.brain} alt='Rapid Learning (brain picture)'/>
               </picture>
               <figcaption className="col-5">
@@ -140,7 +310,7 @@ function App(props) {
               Surveillance Systems
             </h3>
             <figure className="row">
-              <picture ref={props.camera} className="col-6">
+              <picture ref={cameraPic} className="col-6">
                 <img src= {Imgs.cam} alt='Surveillance Systems (camera picture)'/>
               </picture>
               <figcaption className="col-5">
@@ -155,7 +325,7 @@ function App(props) {
               Chores Mode
             </h3>
             <figure className="row">
-              <picture ref={props.brush} className="col-6">
+              <picture ref={brushPic} className="col-6">
                 <img src= {Imgs.paint} alt='Chores Mode (paint brush)'/>
               </picture>
               <figcaption className="col-5">
@@ -173,7 +343,7 @@ function App(props) {
           <h2>
             FAQ
           </h2>
-          <ul className="row justify-content-evenly col-lg-10 col-xl-8" onClick={props.faq}>
+          <ul className="row justify-content-evenly col-lg-10 col-xl-8" onClick={handleOnClickQuestion}>
             <li className="col-6">
               <p className="question col-sm-10">
                 What is the refund policy?
@@ -260,67 +430,6 @@ function App(props) {
         </ul>
       </section>
 
-      <footer id='footerr' className="row">
-        <figure>
-          <img src={Imgs.altLogo} alt='THE SIBER CORPORATION logo' className="col-2 col-md-1"/>
-          <figcaption>
-            THE SIBER CORPORATION 
-          </figcaption>
-        </figure>
-
-        <section className="col-lg-3">
-          <h2>
-            Mission Statement
-          </h2>
-          <p className="col-11 col-sm-10 col-md-9 col-lg-11">
-            To reform the bond between man and machine once more, proving
-            that they can coexist and benefit from one another in harmony.
-          </p>
-        </section>
-
-        <form className="col-10 col-lg-4" onSubmit={props.subscribe}>
-          <fieldset>
-            <legend>Subscribe!</legend>
-            <div className="subscribePart col-sm-10">
-              <label htmlFor='firstName'>First Name</label>
-              <input name='firstName' id='firstName' type='text'></input>
-            </div>
-            <div className="subscribePart col-sm-10">
-              <label htmlFor='lastName'>Last Name</label>
-              <input name='lastName' id='lastName' type='text'></input>
-            </div>
-            <div className="subscribePart col-sm-10">
-              <label htmlFor='email'>Email</label>
-              <input name='email' id='email' type='email'></input>
-            </div>
-            <div className="subscribePart col-6 col-sm-4">
-              <input type='submit' value='SUBMIT'></input>
-            </div>
-          </fieldset>
-        </form>
-
-        <address className="row col-lg-5">
-          <ul className="col-6">
-            <li><a href="https://twitter.com/xProtocall" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="https://www.linkedin.com/in/marcelino-g/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com/Marcelino-G" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          </ul>
-          <ul className="col-6">
-            <li>999-123-4567</li>
-            <li>
-              THE SIBER CORPORATION <br/>
-              111 Oak Ave <br/>
-              Los Angeles, CA 90000 
-            </li>
-          </ul>
-        </address>
-
-        <div id='copyright'>
-          <p> &copy; 2022 THE SIBER CORPORATION </p>
-        </div>
-        
-      </footer>
-
       <button id="upArrow" className="col-2">
         <a href="#top">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-arrow-up-circle" viewBox="0 0 16 16">
@@ -333,4 +442,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default MainHomeContent;
