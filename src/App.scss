@@ -1747,41 +1747,38 @@ header{
     }
 }
 
-// @mixin upUpand($bottom: 0, $seconds: 0) {
-    //     display: inline-block;
-    //     position: relative;
-    //     animation-duration: $seconds;
-    //     animation-name: upUpAnd;
+@mixin rainDown($translate: translate(0, -1000px), $seconds: 0) {
+        display: inline-block;
+        animation-duration: $seconds;
+        animation-name: rainDown;
+        @keyframes rainDown {
+            from{
+                transform: $translate;
+            }
+            to{
+                transform: translate(0, 0);
+            }
+        }
+    }
 
-    //     @keyframes upUpAnd {
-    //         from{
-    //             bottom: $bottom;
-    //         }
-    //         to{
-    //             bottom: 0;
-    //         }
-    //     }
-    // }
-
-    // .fun{
-    //     @include upUpand($bottom: -1000px, $seconds: 2s);
-    // }
-    // .fun1{
-    //     @include upUpand($bottom: -900px, $seconds: 2.5s);
-    // }
-    // .fun2{
-    //     @include upUpand($bottom: -800px, $seconds: 3s);
-    // }
-    // .fun3{
-    //     @include upUpand($bottom: -700px, $seconds: 3.5s);
-    // }
-    // .fun4{
-    //     @include upUpand($bottom: -600px, $seconds: 4s);
-    // }
-    
-    // .fun5{
-    //     @include upUpand($bottom: -500px, $seconds: 4.3s);
-    // }
+    .rain{
+        @include rainDown($seconds: 2s);
+    }
+    .rain1{
+        @include rainDown($translate: translate(0,-900px), $seconds: 2.5s);
+    }
+    .rain2{
+        @include rainDown($translate: translate(0,-800px), $seconds: 3s);
+    }
+    .rain3{
+        @include rainDown($translate: translate(0,-700px), $seconds: 3.5s);
+    }
+    .rain4{
+        @include rainDown($translate: translate(0,-600px), $seconds: 4s);
+    }
+    .rain5{
+        @include rainDown($translate: translate(0,-500px), $seconds: 4.3s);
+    }
 
 
 
