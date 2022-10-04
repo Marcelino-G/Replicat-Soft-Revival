@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import RootNav from './routes/rootNav';
 import MainHomeContent from './routes/mainHomeContent';
-import AboutUs from './routes/aboutUs';
+import AboutUs from './routes/aboutus';
 import Footer from './routes/footer';
 import ErrorPage from "./error-page";
 

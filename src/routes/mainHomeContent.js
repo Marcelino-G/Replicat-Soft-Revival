@@ -13,20 +13,33 @@ const addActiveFeaturedClasses = () => {
   featuredCircles[currentCat].classList.add('activeCircle')
 }
 const removeActiveFeaturedClasses = () => {
-  featuredReplicats[currentCat].classList.remove('active')
-  featuredCircles[currentCat].classList.remove('activeCircle') 
+  for (let i = 0; i < featuredReplicats.length; i++){
+    featuredReplicats[i].classList.remove('active')
+    featuredCircles[i].classList.remove('activeCircle')
+  }
+}
+const featuredReset = () => {
+  currentCat = 0;
+  clearInterval(slideShow)
 }
 
 // function used in interval for slideshow
 const autoSlideForward = () => {
-  removeActiveFeaturedClasses();
-  currentCat++
-  if (currentCat === featuredReplicats.length){
+  if (window.location.pathname !== '/Replicat-Soft-Revival' && window.location.pathname !== '/Replicat-Soft-Revival/'){
+    featuredReset();
+    return
+  }
+
+  if (currentCat === 2){
+    removeActiveFeaturedClasses();
     currentCat = 0;
     addActiveFeaturedClasses();
     return
+  } else {
+    removeActiveFeaturedClasses();
+    currentCat++
+    addActiveFeaturedClasses();
   }
-  addActiveFeaturedClasses();
 }
 
 // button control for slideshow (forward/back)
@@ -85,6 +98,7 @@ const handleOnClickQuestion = (e) => {
       questions[i].classList.remove('removeQuestionShadow');
     }
     return
+
   } else if (!e.target.classList.contains('question')){
     return
   }
@@ -98,7 +112,6 @@ const handleOnClickQuestion = (e) => {
   e.target.classList.add('removeQuestionShadow')
   answerElement.classList.add('answerRevealAnimation')
 }
-
 
 function MainHomeContent(props) {
 
@@ -140,39 +153,55 @@ function MainHomeContent(props) {
 
   // featured items slideshow automatically starts when this is met 
   if(props.portraitOR.matches && props.smWindowWidth.matches){
-    clearInterval(slideShow)
+    featuredReset();
     slideShow = setInterval(autoSlideForward, 5000)
   }
 
   props.landScapeOR.addEventListener('change', (media) => {
     if(media.matches && props.smWindowWidth.matches){
-      clearInterval(slideShow)
+      featuredReset();
     } else if (media.matches && !props.smWindowWidth.matches){
-        clearInterval(slideShow)
+        featuredReset();
     } 
   })
   props.portraitOR.addEventListener('change', (media) => {
     if (media.matches && props.smWindowWidth.matches){
-      clearInterval(slideShow)
+
+      if (window.location.pathname !== '/Replicat-Soft-Revival' && window.location.pathname !== '/Replicat-Soft-Revival/'){
+        featuredReset();
+        return
+      }
+
+      featuredReset();
+      removeActiveFeaturedClasses();
+      addActiveFeaturedClasses();
       slideShow = setInterval(autoSlideForward, 5000)
+
     } else if (media.matches && !props.smWindowWidth.matches){
-        clearInterval(slideShow)
+        featuredReset();
     }
   })
   props.smWindowWidth.addEventListener('change', (media) => {
     if(media.matches && props.landScapeOR.matches){
-      clearInterval(slideShow)
+      featuredReset();
     } else if (media.matches && props.portraitOR.matches){
-        clearInterval(slideShow)
+
+        if (window.location.pathname !== '/Replicat-Soft-Revival' && window.location.pathname !== '/Replicat-Soft-Revival/'){
+          featuredReset();
+          return
+        }
+
+        featuredReset();
+        removeActiveFeaturedClasses();
+        addActiveFeaturedClasses();
         slideShow = setInterval(autoSlideForward, 5000)
     } else if (!media.matches && props.landScapeOR.matches){
-        clearInterval(slideShow)
+        featuredReset();
     } else if (!media.matches && props.portraitOR.matches){
-        clearInterval(slideShow)
+        featuredReset();
     }
   })
 
-  
   return (
     <div className="container-fluid row justify-content-center p-0 mx-auto">
 
@@ -296,7 +325,7 @@ function MainHomeContent(props) {
             </h3>
             <figure className="row">
               <picture ref={brainPic} className="col-6">
-                <img src= {Imgs.brain} alt='Rapid Learning (brain picture)'/>
+                <img src= {Imgs.brain} alt='Rapid Learning (brain)'/>
               </picture>
               <figcaption className="col-5">
                 Advanced environmental absorbing stimuli 
@@ -311,7 +340,7 @@ function MainHomeContent(props) {
             </h3>
             <figure className="row">
               <picture ref={cameraPic} className="col-6">
-                <img src= {Imgs.cam} alt='Surveillance Systems (camera picture)'/>
+                <img src= {Imgs.cam} alt='Surveillance Systems (camera)'/>
               </picture>
               <figcaption className="col-5">
                 Five levels of procedures that

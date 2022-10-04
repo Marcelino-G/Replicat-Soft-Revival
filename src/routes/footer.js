@@ -4,7 +4,7 @@ const Footer = () => {
 
     const handleOnSubmit = (e) =>{
         e.preventDefault();
-      }
+    }
 
     return (
         <footer id='footerr' className="row">

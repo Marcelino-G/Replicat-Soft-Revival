@@ -4,12 +4,14 @@
 
 // additional css
 
+// adds a border to the top of new sections
 @mixin newSectionTopBorder{
     border-top: solid #d5bdbd 3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
+// changes the size and position of horse parts
 @mixin horseParts($top: 0px ,$left: 0px, $border: 12px){
     display: inline-block;
     position: relative;
@@ -18,12 +20,14 @@
     border: solid #d5bdbd $border;
 }
 
+// changes the colors of the box shadow and border radius
 @mixin featuresList($shadowColor: null, $topLeftBottomRight: 0, $topRightBottomLeft: 0, $textAlign: null){
     box-shadow: inset 0px 0px 70px -35px $shadowColor;
     border-radius: $topLeftBottomRight $topRightBottomLeft;
     text-align: $textAlign;
 }
 
+// changes the list to horizontal
 @mixin showFeaturedHorizontal(){
     ul{
         margin: 1rem 0 0 0;
@@ -75,19 +79,12 @@ header{
     top: 0px;
     z-index: 3;
     padding: .5rem 0 .5rem 0;
-    background-color: #cae0e1;
+    background-color: #c0d6d7;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     #hamburger{
         border: none;
         background-color: unset;
-        svg{
-            // position: relative;
-            // z-index: -1;
-            path{
-                color: black;
-            }
-        }
     }
     .pressedHam{
         border: solid #4a6e74 1px;
@@ -327,7 +324,6 @@ header{
                     padding: .75rem;
                     box-shadow: 0px 0px 5px 2px #25ffe2;
                     cursor: pointer;
-                    overflow:scroll;
                 }
                 p[class~="answer"].answerRevealAnimation{
                     visibility: visible;
@@ -353,18 +349,18 @@ header{
         }
     }
 }
-
 #aboutUs{
+    border: solid #d5bdbd 3px;
+    border-radius: 1rem;
     text-align: center;
     margin: 1rem auto;
+    padding: 1rem 1rem;
+    background-color: #8d26266b;
     h2{
-
-    }
-    p{
-
+        margin: 1rem 0;
+        font-size: 1.75rem;
     }
 }
-
 #footerr{
     min-height: 820px;
     margin: 1rem 0 0 0;
@@ -483,9 +479,9 @@ header{
                     p[class~='question']{
                         min-height: 192px;
                     }
-                    // p[class~='answer']{
-                    //     overflow:scroll;
-                    // }
+                    p[class~='answer']{
+                        overflow:scroll;
+                    }
                 }
             }
         }
@@ -603,6 +599,14 @@ header{
             li{
                 margin: 0 1.15rem;
             }
+        }
+    }
+    #aboutUs{
+        h2{
+            font-size: 1.75rem;
+        }
+        span{
+            font-size: 1.0rem;
         }
     }
     #footerr{
@@ -743,6 +747,14 @@ header{
             }
         }
     }
+    #aboutUs{
+        h2{
+            font-size: 1.85rem;
+        }
+        span{
+            font-size: 1.05rem;
+        }
+    }
     #footerr{
         min-height: 835px;
         section{
@@ -867,6 +879,14 @@ header{
             li{
                 margin: 0 1.5rem;
             }
+        }
+    }
+    #aboutUs{
+        h2{
+            font-size: 1.95rem;
+        }
+        span{
+            font-size: 1.15rem;
         }
     }
     #footerr{
@@ -1018,6 +1038,14 @@ header{
             }
         }
     }
+    #aboutUs{
+        h2{
+            font-size: 2.05rem;
+        }
+        span{
+            font-size: 1.25rem;
+        }
+    }
     #footerr{
         min-height: 790px;
         figure{
@@ -1061,6 +1089,8 @@ header{
         }
     }
 }
+// this is applied to the 'features imgs', having them 
+// glide up the page when using the intersection observer
 .glideUp{
     @include featuresGlideUp()
 }
@@ -1285,6 +1315,14 @@ header{
             }
         }
     }
+    #aboutUs{
+        h2{
+            font-size: 2.15rem;
+        }
+        span{
+            font-size: 1.35rem;
+        }
+    }
     #footerr{
         min-height: 570px;
         figure{
@@ -1452,6 +1490,14 @@ header{
             }
         }
     }
+    #aboutUs{
+        h2{
+            font-size: 2.25rem;
+        }
+        span{
+            font-size: 1.45rem;
+        }
+    }
     #footerr{
         min-height: 600px;
         figure{
@@ -1535,7 +1581,7 @@ header{
         }
     }
     #horse{
-        top: 855px;
+        top: 950px;
         left: -22px;
         .horn{
             @include horseParts($left: 151px, $top: -39px, $border: 28px);
@@ -1608,6 +1654,14 @@ header{
             }
         }
     }
+    #aboutUs{
+        h2{
+            font-size: 2.35rem;
+        }
+        span{
+            font-size: 1.55rem;
+        }
+    }
     #footerr{
         min-height: 640px;
         figure{
@@ -1638,12 +1692,6 @@ header{
     }
 }
 
-@media screen and (min-width: 1600px){
-    #horse{
-        top: 935px;
-    }
-}
-
 @media screen and (min-height: 1000px){
     #quote{
         min-height: 675px;
@@ -1654,6 +1702,9 @@ header{
     #featured{
         min-height: 540px;
     }
+    #footerr{
+        min-height: 900px;
+    }
 }
 
 @media screen and (orientation: landscape) {
@@ -1661,7 +1712,6 @@ header{
         position: initial;
         #hamburger{
             svg{
-                // z-index: initial;
                 max-width: 49px;
                 max-height: 49px;
             }
@@ -1725,8 +1775,7 @@ header{
             a{
                 svg{
                     max-height: 40px;
-                    background-color: blue;
-                    opacity: .5;
+                    background-color: #3b8d81;
                     border-radius: 50%;  
                 }
             }
@@ -1747,6 +1796,8 @@ header{
     }
 }
 
+// used on the letters in the 'about us' section
+// letters 'rain down' when the page is rendered
 @mixin rainDown($translate: translate(0, -1000px), $seconds: 0) {
         display: inline-block;
         animation-duration: $seconds;
