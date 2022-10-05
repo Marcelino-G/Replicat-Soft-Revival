@@ -23,6 +23,7 @@ Replicat Soft Revival is a website that promotes a fictional company's fictional
   - Chores Mode (paint brush)
   
 ## Site
+https://marcelino-g.github.io/Replicat-Soft-Revival/
 
 ## Video Demonstration
 https://youtu.be/Hf1A68qA274
