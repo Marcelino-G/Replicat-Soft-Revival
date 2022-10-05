@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Replicat-Soft-Revival/static/css/main.ff0808db.css",
+    "main.css": "/Replicat-Soft-Revival/static/css/main.64d175b5.css",
     "main.js": "/Replicat-Soft-Revival/static/js/main.0a5dacda.js",
     "static/media/Paint.png": "/Replicat-Soft-Revival/static/media/Paint.42b81deba2be79d413c0.png",
     "static/media/ModelPRIS.png": "/Replicat-Soft-Revival/static/media/ModelPRIS.638d68e377cb6f380fea.png",
@@ -13,11 +13,11 @@
     "static/media/BladeRunner_Intro.jpeg": "/Replicat-Soft-Revival/static/media/BladeRunner_Intro.23b0561479bc34a1e6b3.jpeg",
     "static/media/altLogo.png": "/Replicat-Soft-Revival/static/media/altLogo.c3adad70055f07d0f9a7.png",
     "index.html": "/Replicat-Soft-Revival/index.html",
-    "main.ff0808db.css.map": "/Replicat-Soft-Revival/static/css/main.ff0808db.css.map",
+    "main.64d175b5.css.map": "/Replicat-Soft-Revival/static/css/main.64d175b5.css.map",
     "main.0a5dacda.js.map": "/Replicat-Soft-Revival/static/js/main.0a5dacda.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff0808db.css",
+    "static/css/main.64d175b5.css",
     "static/js/main.0a5dacda.js"
   ]
 }
