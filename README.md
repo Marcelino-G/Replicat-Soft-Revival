@@ -38,5 +38,14 @@ https://youtu.be/U4fYexZDCh8
     
 The "about us" page has the navigation up on top and footer down below, with the same characteristics as the homepage. The "About Us" paragraph has an animation that shows the letters "raining down" into their places. 
 
+## Completed Pictures
+
+### Desktop
+<img width ="400" src="./finished_pictures/Desktop_complete1.png" />
+<img width ="400" src="./finished_pictures/Desktop_complete2.png" />
+
+### Mobile
+<img width ="400" src="./finished_pictures/Mobile_complete1.png" />
+<img width ="400" src="./finished_pictures/Mobile_complete2.png" />
 
 
