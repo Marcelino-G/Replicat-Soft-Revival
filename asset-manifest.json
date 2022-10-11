@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Replicat-Soft-Revival/static/css/main.64d175b5.css",
-    "main.js": "/Replicat-Soft-Revival/static/js/main.0a5dacda.js",
+    "main.css": "/Replicat-Soft-Revival/static/css/main.4d16076f.css",
+    "main.js": "/Replicat-Soft-Revival/static/js/main.0cb141ac.js",
     "static/media/Paint.png": "/Replicat-Soft-Revival/static/media/Paint.42b81deba2be79d413c0.png",
     "static/media/ModelPRIS.png": "/Replicat-Soft-Revival/static/media/ModelPRIS.638d68e377cb6f380fea.png",
     "static/media/ModelROY.png": "/Replicat-Soft-Revival/static/media/ModelROY.3f338bd0e865aa01cfbd.png",
@@ -13,11 +13,11 @@
     "static/media/BladeRunner_Intro.jpeg": "/Replicat-Soft-Revival/static/media/BladeRunner_Intro.23b0561479bc34a1e6b3.jpeg",
     "static/media/altLogo.png": "/Replicat-Soft-Revival/static/media/altLogo.c3adad70055f07d0f9a7.png",
     "index.html": "/Replicat-Soft-Revival/index.html",
-    "main.64d175b5.css.map": "/Replicat-Soft-Revival/static/css/main.64d175b5.css.map",
-    "main.0a5dacda.js.map": "/Replicat-Soft-Revival/static/js/main.0a5dacda.js.map"
+    "main.4d16076f.css.map": "/Replicat-Soft-Revival/static/css/main.4d16076f.css.map",
+    "main.0cb141ac.js.map": "/Replicat-Soft-Revival/static/js/main.0cb141ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.64d175b5.css",
-    "static/js/main.0a5dacda.js"
+    "static/css/main.4d16076f.css",
+    "static/js/main.0cb141ac.js"
   ]
 }
