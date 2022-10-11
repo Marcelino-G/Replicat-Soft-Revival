@@ -1705,6 +1705,13 @@ header{
     #footerr{
         min-height: 900px;
     }
+
+    @media screen and (min-width: 1400px){
+        #horse{
+            top: 950px;
+            left: -22px;
+        }
+    }
 }
 
 @media screen and (orientation: landscape) {
