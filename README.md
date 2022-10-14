@@ -4,7 +4,7 @@
 Replicat Soft Revival is a website that promotes a fictional company's fictional product. Their site will introduce you to the company's vision and products and it will also give you the opportunity to follow them. 
 
 ## Why
- - To practice and focus on the designing aspects of web development (CSS, Sass, Bootstrap).
+ - To practice and focus on the designing aspects of web development (CSS, SCSS, Bootstrap).
  - To "revive" my first project ever made with a ~10 month knowledge/skills difference. (<a href='https://github.com/Marcelino-G/RepliCat'>Replicat</a>)
 
 ## Sources
